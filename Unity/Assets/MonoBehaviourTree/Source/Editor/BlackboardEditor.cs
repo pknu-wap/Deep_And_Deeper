@@ -1,0 +1,201 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using MBT;
+using UnityEditor;
+using UnityEngine;
+
+namespace MBTEditor
+{
+    [CustomEditor(typeof(Blackboard))]
+    public class BlackboardEditor : Editor
+    {
+        private const double CONSTANT_REPAINT_INTERVAL = 0.5d;
+
+        private readonly string[] varOptions = { "Delete" };
+        private Blackboard blackboard;
+        private GameObject blackboardGameObject;
+        private double lastRepaint;
+        private SerializedProperty masterBlackboardProperty;
+        private string newVariableKey = "";
+        private GUIStyle popupStyle;
+        private int selectedVariableType;
+        private bool showVariables = true;
+        private SerializedProperty variables;
+        private Type[] variableTypes = Type.EmptyTypes;
+        private string[] variableTypesNames = Array.Empty<string>();
+
+        private void OnEnable()
+        {
+            // Set hide flags in case object was duplicated or turned into prefab
+            if (target != null)
+            {
+                var bb = (Blackboard)target;
+                // Sample one variable and check if its hidden. Hide all variables if sample is visible.
+                if (bb.TryGetComponent(out BlackboardVariable bv) && bv.hideFlags != HideFlags.HideInInspector)
+                {
+                    var vars = bb.GetComponents<BlackboardVariable>();
+                    foreach (var t in vars) t.hideFlags = HideFlags.HideInInspector;
+                }
+            }
+
+            // Init
+            variables = serializedObject.FindProperty("variables");
+            masterBlackboardProperty = serializedObject.FindProperty("masterBlackboard");
+            blackboard = target as Blackboard;
+            blackboardGameObject = blackboard.gameObject;
+            SetupVariableTypes();
+        }
+
+        private void OnDestroy()
+        {
+            // Remove all variables in case Blackboard was removed
+            if (!Application.isEditor || (Blackboard)target != null || blackboardGameObject == null) return;
+            // Additional check to avoid errors when exiting playmode
+            if (Application.IsPlaying(blackboardGameObject) ||
+                blackboardGameObject.GetComponent<Blackboard>() != null)
+                return;
+
+            var blackboardVariables = blackboardGameObject.GetComponents<BlackboardVariable>();
+            foreach (var t in blackboardVariables) Undo.DestroyObjectImmediate(t);
+        }
+
+        public override bool RequiresConstantRepaint()
+        {
+            return Application.isPlaying &&
+                   EditorApplication.timeSinceStartup > lastRepaint + CONSTANT_REPAINT_INTERVAL;
+        }
+
+        private void SetupVariableTypes()
+        {
+            var types = new List<Type>();
+            var names = new List<string>();
+
+            // Find all types
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                var enumerable = assembly.GetTypes()
+                    .Where(myType =>
+                        myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(BlackboardVariable)));
+                foreach (var type in enumerable)
+                {
+                    names.Add(type.Name);
+                    types.Add(type);
+                }
+            }
+
+            variableTypesNames = names.ToArray();
+            variableTypes = types.ToArray();
+        }
+
+        public override void OnInspectorGUI()
+        {
+            // Update repaint timer
+            lastRepaint = EditorApplication.timeSinceStartup;
+            // Init styles
+            if (popupStyle == null)
+            {
+                popupStyle = new GUIStyle(GUI.skin.GetStyle("PaneOptions"))
+                {
+                    imagePosition = ImagePosition.ImageOnly
+                };
+                popupStyle.margin.top += 3;
+            }
+
+
+            EditorGUI.BeginChangeCheck();
+            EditorGUILayout.PropertyField(masterBlackboardProperty);
+            EditorGUILayout.Space();
+            if (EditorGUI.EndChangeCheck()) serializedObject.ApplyModifiedProperties();
+
+            // Fields used to add variables
+            EditorGUILayout.LabelField("Create Variable", EditorStyles.boldLabel);
+            EditorGUILayout.Space();
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Key", GUILayout.MaxWidth(80));
+            newVariableKey = EditorGUILayout.TextField(newVariableKey);
+            EditorGUILayout.EndHorizontal();
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Type", GUILayout.MaxWidth(80));
+            selectedVariableType = EditorGUILayout.Popup(selectedVariableType, variableTypesNames);
+            GUI.SetNextControlName("AddButton");
+            if (GUILayout.Button("Add", EditorStyles.miniButton)) CreateVariableAndResetInput();
+
+            EditorGUILayout.EndHorizontal();
+            EditorGUILayout.Space();
+
+            // DrawDefaultInspector();
+            // EditorGUILayout.Space();
+
+            // serializedObject.Update();
+            // EditorGUI.BeginChangeCheck();
+            showVariables = EditorGUILayout.BeginFoldoutHeaderGroup(showVariables, "Variables");
+            if (showVariables)
+            {
+                var vars = variables.Copy();
+                if (vars.isArray)
+                    // xxx: Why this line existed? Why EventType.DragPerform is not allowed here? (maybe BeginChangeCheck)
+                    // if (vars.isArray && Event.current.type != EventType.DragPerform) {
+                    for (var i = 0; i < vars.arraySize; i++)
+                    {
+                        EditorGUI.BeginChangeCheck();
+                        const int popupOption = -1;
+                        var serializedV = vars.GetArrayElementAtIndex(i);
+                        var serializedVariable = new SerializedObject(serializedV.objectReferenceValue);
+                        EditorGUILayout.BeginHorizontal();
+                        EditorGUILayout.PrefixLabel(
+                            new GUIContent(serializedVariable.FindProperty("key").stringValue,
+                                serializedVariable.targetObject.GetType().Name)
+                        );
+                        var v = EditorGUILayout.Popup(popupOption, varOptions, popupStyle, GUILayout.MaxWidth(20));
+                        EditorGUILayout.PropertyField(serializedVariable.FindProperty("val"), GUIContent.none);
+                        EditorGUILayout.EndHorizontal();
+
+                        if (EditorGUI.EndChangeCheck()) serializedVariable.ApplyModifiedProperties();
+
+                        // Delete on change
+                        if (v != popupOption) DeleteVariable(serializedV.objectReferenceValue as BlackboardVariable);
+                    }
+            }
+
+            EditorGUILayout.EndFoldoutHeaderGroup();
+            EditorGUILayout.Space();
+
+            // if (EditorGUI.EndChangeCheck()) {
+            //     serializedObject.ApplyModifiedProperties();
+            // }
+        }
+
+        private void DeleteVariable(BlackboardVariable blackboardVariable)
+        {
+            Undo.RecordObject(blackboard, "Delete Blackboard Variable");
+            blackboard.variables.Remove(blackboardVariable);
+            Undo.DestroyObjectImmediate(blackboardVariable);
+        }
+
+        private void CreateVariableAndResetInput()
+        {
+            // Validate field. Key "None" is not allowed.
+            if (string.IsNullOrEmpty(newVariableKey) || newVariableKey.Equals("None")) return;
+
+            var k = new string(newVariableKey.ToCharArray().Where(c => !char.IsWhiteSpace(c)).ToArray());
+            // Check for key duplicates
+            if (blackboard.variables.Any(t => t.key == k))
+            {
+                Debug.LogWarning("Variable '" + k + "' already exists.");
+                return;
+            }
+
+            // Add variable
+            Undo.RecordObject(blackboard, "Create Blackboard Variable");
+            var var =
+                Undo.AddComponent(blackboard.gameObject, variableTypes[selectedVariableType]) as BlackboardVariable;
+            var.hideFlags = HideFlags.HideInInspector;
+            var.key = k;
+            blackboard.variables.Add(var);
+            // Reset field
+            newVariableKey = "";
+            GUI.FocusControl("Clear");
+        }
+    }
+}
