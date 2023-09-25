@@ -40,15 +40,14 @@ namespace BT
             while (_index < children.Count)
             {
                 var child = children[_index];
-                switch (child.status)
+                if (child.status == Status.Success)
                 {
-                    case Status.Success:
-                        _index++;
-                        break;
-                    case Status.Failure:
-                        _index++;
-                        _continuouslySucceeding = false;
-                        break;
+                    _index++;
+                }
+                else if (child.status == Status.Failure)
+                {
+                    _index++;
+                    _continuouslySucceeding = false;
                 }
 
                 return child.runningNodeResult;
