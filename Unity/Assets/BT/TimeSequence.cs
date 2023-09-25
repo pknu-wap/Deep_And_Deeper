@@ -40,6 +40,7 @@ namespace BT
             while (_index < children.Count)
             {
                 var child = children[_index];
+
                 if (child.status == Status.Success)
                 {
                     _index++;
