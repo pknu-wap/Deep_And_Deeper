@@ -4,8 +4,8 @@ using UnityEngine;
 namespace BT
 {
     [AddComponentMenu("")]
-    [MBTNode(name = "Hero/Move")]
-    public class Move : Leaf
+    [MBTNode(name = "Hero/Run")]
+    public class Run : Leaf
     {
         [SerializeField] private float moveSpeed;
         private Rigidbody2D _rigidbody2D;
