@@ -3,19 +3,16 @@
 namespace MBT
 {
     [AddComponentMenu("")]
-    [MBTNode(name = "Parallel", order = 160)]
+    [MBTNode(name = "Parallel", order = 170)]
     public class Parallel : Composite
     {
         private int index;
-        
+
         public override void OnAllowInterrupt()
         {
-            if (random)
-            {
-                ShuffleList(children);
-            }
+            if (random) ShuffleList(children);
         }
-        
+
         public override void OnEnter()
         {
             index = 0;
@@ -43,8 +40,10 @@ namespace MBT
                         res = NodeResult.failure;
                         continue;
                 }
+
                 return child.runningNodeResult;
             }
+
             return res;
         }
     }
