@@ -7,7 +7,7 @@ namespace BT
     [MBTNode(name = "Common/Wait")]
     public class Wait : Leaf
     {
-        [SerializeField] private float time;
+        [SerializeField] private float duration;
 
         private float _timer;
 
@@ -19,7 +19,7 @@ namespace BT
         public override NodeResult Execute()
         {
             _timer += DeltaTime;
-            return _timer > time ? NodeResult.success : NodeResult.running;
+            return _timer > duration ? NodeResult.success : NodeResult.running;
         }
     }
 }
