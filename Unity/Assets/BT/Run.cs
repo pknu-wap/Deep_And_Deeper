@@ -8,6 +8,7 @@ namespace BT
     public class Run : Leaf
     {
         [SerializeField] private float moveSpeed;
+        private Animator _animator;
         private Rigidbody2D _rigidbody2D;
         private SpriteRenderer _spriteRenderer;
 
@@ -15,6 +16,7 @@ namespace BT
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _animator = GetComponent<Animator>();
         }
 
         public override NodeResult Execute()
@@ -23,13 +25,10 @@ namespace BT
 
             _rigidbody2D.velocity = new Vector2(inputX * moveSpeed, _rigidbody2D.velocity.y);
 
-            _spriteRenderer.flipX = inputX switch
-            {
-                > 0 => false,
-                < 0 => true,
-                _ => _spriteRenderer.flipX
-            };
+            if (inputX == 0) return NodeResult.failure;
 
+            _animator.Play("Run");
+            _spriteRenderer.flipX = inputX < 0;
             return NodeResult.success;
         }
     }
