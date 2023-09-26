@@ -4,8 +4,8 @@ using UnityEngine;
 namespace BT
 {
     [AddComponentMenu("")]
-    [MBTNode(name = "Hero/KeyDown")]
-    public class KeyDown : Leaf
+    [MBTNode(name = "Hero/CheckKeyDown")]
+    public class CheckKeyDown : Leaf
     {
         [SerializeField] private KeyCode keyCode;
 
