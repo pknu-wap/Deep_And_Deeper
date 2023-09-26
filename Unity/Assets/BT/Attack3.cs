@@ -5,8 +5,8 @@ using UnityEngine;
 namespace BT
 {
     [AddComponentMenu("")]
-    [MBTNode(name = "Hero/Attack1")]
-    public class Attack1 : Leaf
+    [MBTNode(name = "Hero/Attack3")]
+    public class Attack3 : Leaf
     {
         private Animator _animator;
 
@@ -17,7 +17,7 @@ namespace BT
 
         public override NodeResult Execute()
         {
-            _animator.Play("Attack1");
+            _animator.Play("Attack3");
             return NodeResult.success;
         }
     }
