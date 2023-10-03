@@ -123,21 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!115 &302266599
-MonoScript:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 7
-  m_DefaultReferences: {}
-  m_Icon: {fileID: 0}
-  m_Type: 0
-  m_ExecutionOrder: 0
-  m_ClassName: SetVelocity
-  m_Namespace: BT
-  m_AssemblyName: Assembly-CSharp
 --- !u!1 &369638755
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,41 +135,30 @@ GameObject:
   - component: {fileID: 369638758}
   - component: {fileID: 369638761}
   - component: {fileID: 369638760}
+  - component: {fileID: 369638767}
   - component: {fileID: 369638766}
   - component: {fileID: 369638765}
   - component: {fileID: 369638764}
   - component: {fileID: 369638762}
-  - component: {fileID: 369638767}
   - component: {fileID: 369638768}
   - component: {fileID: 369638770}
   - component: {fileID: 369638769}
+  - component: {fileID: 369638774}
   - component: {fileID: 369638773}
   - component: {fileID: 369638772}
   - component: {fileID: 369638771}
-  - component: {fileID: 369638774}
-  - component: {fileID: 369638776}
-  - component: {fileID: 369638780}
+  - component: {fileID: 369638775}
   - component: {fileID: 369638779}
   - component: {fileID: 369638778}
   - component: {fileID: 369638777}
-  - component: {fileID: 369638784}
+  - component: {fileID: 369638776}
   - component: {fileID: 369638783}
   - component: {fileID: 369638782}
   - component: {fileID: 369638781}
-  - component: {fileID: 369638789}
-  - component: {fileID: 369638788}
-  - component: {fileID: 369638787}
-  - component: {fileID: 369638786}
-  - component: {fileID: 369638785}
-  - component: {fileID: 369638790}
-  - component: {fileID: 369638795}
-  - component: {fileID: 369638794}
-  - component: {fileID: 369638792}
-  - component: {fileID: 369638791}
-  - component: {fileID: 369638796}
+  - component: {fileID: 369638780}
   m_Layer: 0
   m_Name: Hero
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,7 +262,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.050000012, y: 0.7}
+  m_Offset: {x: 0, y: 0.7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -299,7 +273,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 1.2}
+  m_Size: {x: 0.7, y: 1.3}
   m_EdgeRadius: 0
 --- !u!50 &369638761
 Rigidbody2D:
@@ -343,8 +317,8 @@ MonoBehaviour:
   title: Run
   rect:
     serializedVersion: 2
-    x: 463
-    y: 376.2
+    x: 220
+    y: 300
     width: 160
     height: 44
   parent: {fileID: 369638770}
@@ -368,8 +342,8 @@ MonoBehaviour:
   title: Repeater
   rect:
     serializedVersion: 2
-    x: 81
-    y: 267.2
+    x: 320
+    y: 140
     width: 160
     height: 44
   parent: {fileID: 369638765}
@@ -395,8 +369,8 @@ MonoBehaviour:
   title: Root
   rect:
     serializedVersion: 2
-    x: 82
-    y: 204.2
+    x: 320
+    y: 60
     width: 160
     height: 44
   parent: {fileID: 0}
@@ -414,14 +388,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 369638755}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e5f392bbea2fa2499665ed8b604ff86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monoBehaviourTree: {fileID: 369638767}
+--- !u!114 &369638767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369638755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 369638790}
+  selectedEditorNode: {fileID: 0}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
---- !u!95 &369638767
+--- !u!95 &369638768
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -431,7 +418,7 @@ Animator:
   m_GameObject: {fileID: 369638755}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e0385d2e33e5f3547b836528382c9c4c, type: 2}
+  m_Controller: {fileID: 9100000, guid: acabf4bfea46e8040a2ab5ddb5e146fe, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -442,19 +429,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &369638768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e5f392bbea2fa2499665ed8b604ff86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monoBehaviourTree: {fileID: 369638766}
 --- !u!114 &369638769
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -464,14 +438,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 369638755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bec779fb539a4084eb626a1d541925e5, type: 3}
+  m_Script: {fileID: 11500000, guid: e302f1cd7ca93b54e9a7957cdc44e36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   title: Idle
   rect:
     serializedVersion: 2
-    x: 553.2
-    y: 303.8
+    x: 420
+    y: 300
     width: 160
     height: 44
   parent: {fileID: 369638770}
@@ -494,15 +468,13 @@ MonoBehaviour:
   title: Selector
   rect:
     serializedVersion: 2
-    x: 82.2
-    y: 352.8
+    x: 320
+    y: 220
     width: 160
     height: 44
   parent: {fileID: 369638764}
   children:
-  - {fileID: 369638773}
-  - {fileID: 369638789}
-  - {fileID: 369638795}
+  - {fileID: 369638774}
   - {fileID: 369638762}
   - {fileID: 369638769}
   behaviourTree: {fileID: 0}
@@ -518,22 +490,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 369638755}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 0
+    y: 400
+    width: 160
+    height: 44
+  parent: {fileID: 369638774}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 0.1
+--- !u!114 &369638772
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369638755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5920c60de9d04c7797d1ea5a9652951d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   title: Attack1
   rect:
     serializedVersion: 2
-    x: -502.8
-    y: 500.8
+    x: -160
+    y: 400
     width: 160
     height: 44
-  parent: {fileID: 369638773}
+  parent: {fileID: 369638774}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
---- !u!114 &369638772
+--- !u!114 &369638773
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
@@ -548,17 +545,17 @@ MonoBehaviour:
   title: CheckKeyDown
   rect:
     serializedVersion: 2
-    x: -625.80005
-    y: 423.8
+    x: -480
+    y: 400
     width: 160
     height: 44
-  parent: {fileID: 369638773}
+  parent: {fileID: 369638774}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   keyCode: 122
---- !u!114 &369638773
+--- !u!114 &369638774
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
@@ -573,27 +570,27 @@ MonoBehaviour:
   title: Sequence
   rect:
     serializedVersion: 2
-    x: -183.80002
-    y: 440.8
+    x: -80
+    y: 320
     width: 160
     height: 44
   parent: {fileID: 369638770}
   children:
+  - {fileID: 369638773}
+  - {fileID: 369638775}
   - {fileID: 369638772}
-  - {fileID: 369638776}
   - {fileID: 369638771}
-  - {fileID: 369638774}
-  - {fileID: 369638780}
-  - {fileID: 369638778}
+  - {fileID: 369638779}
   - {fileID: 369638777}
-  - {fileID: 369638784}
-  - {fileID: 369638782}
+  - {fileID: 369638776}
+  - {fileID: 369638783}
+  - {fileID: 369638780}
   - {fileID: 369638781}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   random: 0
---- !u!114 &369638774
+--- !u!114 &369638775
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
@@ -602,22 +599,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 369638755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8adbeac4196ec724bb5b90fc4ace0479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Wait
+  title: SetVelocity
   rect:
     serializedVersion: 2
-    x: -448.8
-    y: 540.8
+    x: -320
+    y: 400
     width: 160
     height: 44
-  parent: {fileID: 369638773}
+  parent: {fileID: 369638774}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
-  duration: 0.1
+  x: 1
+  y: 0
+  velocity: 0
 --- !u!114 &369638776
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -627,50 +626,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 369638755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 302266599}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: SetVelocity
-  rect:
-    serializedVersion: 2
-    x: -561.8
-    y: 464.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638773}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  x: 1
-  y: 0
-  velocity: 0
---- !u!114 &369638777
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   title: Wait
   rect:
     serializedVersion: 2
-    x: -202.79999
-    y: 592.8
+    x: 480
+    y: 400
     width: 160
     height: 44
-  parent: {fileID: 369638773}
+  parent: {fileID: 369638774}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   duration: 0.1
---- !u!114 &369638778
+--- !u!114 &369638777
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
@@ -685,16 +657,16 @@ MonoBehaviour:
   title: Attack2
   rect:
     serializedVersion: 2
-    x: -256.8
-    y: 557.8
+    x: 320
+    y: 400
     width: 160
     height: 44
-  parent: {fileID: 369638773}
+  parent: {fileID: 369638774}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
---- !u!114 &369638779
+--- !u!114 &369638778
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
@@ -709,17 +681,17 @@ MonoBehaviour:
   title: CheckKeyDown
   rect:
     serializedVersion: 2
-    x: -369.8
-    y: 606.8
+    x: 160
+    y: 460
     width: 160
     height: 44
-  parent: {fileID: 369638780}
+  parent: {fileID: 369638779}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   keyCode: 122
---- !u!114 &369638780
+--- !u!114 &369638779
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
@@ -734,18 +706,42 @@ MonoBehaviour:
   title: TimeSequence
   rect:
     serializedVersion: 2
-    x: -368.8
-    y: 551.8
+    x: 160
+    y: 400
     width: 160
     height: 44
-  parent: {fileID: 369638773}
+  parent: {fileID: 369638774}
   children:
-  - {fileID: 369638779}
+  - {fileID: 369638778}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   random: 0
   duration: 0.5
+--- !u!114 &369638780
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369638755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7b5eb1db29f8543a6d3dbce2b9d17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Attack3
+  rect:
+    serializedVersion: 2
+    x: 800
+    y: 400
+    width: 160
+    height: 44
+  parent: {fileID: 369638774}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
 --- !u!114 &369638781
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -761,11 +757,11 @@ MonoBehaviour:
   title: Wait
   rect:
     serializedVersion: 2
-    x: -4.799988
-    y: 667.8
+    x: 960
+    y: 400
     width: 160
     height: 44
-  parent: {fileID: 369638773}
+  parent: {fileID: 369638774}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -780,47 +776,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 369638755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4b698e6694d96a48b889c13423abe00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Attack3
-  rect:
-    serializedVersion: 2
-    x: -94.79999
-    y: 666.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638773}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
---- !u!114 &369638783
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6214f06b5b737f947978d888e3d35556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   title: CheckKeyDown
   rect:
     serializedVersion: 2
-    x: -180.79999
-    y: 708.8
+    x: 640
+    y: 460
     width: 160
     height: 44
-  parent: {fileID: 369638784}
+  parent: {fileID: 369638783}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   keyCode: 122
---- !u!114 &369638784
+--- !u!114 &369638783
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
@@ -835,303 +807,18 @@ MonoBehaviour:
   title: TimeSequence
   rect:
     serializedVersion: 2
-    x: -178.79999
-    y: 633.8
+    x: 640
+    y: 400
     width: 160
     height: 44
-  parent: {fileID: 369638773}
+  parent: {fileID: 369638774}
   children:
-  - {fileID: 369638783}
+  - {fileID: 369638782}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   random: 0
   duration: 0.5
---- !u!114 &369638785
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Wait
-  rect:
-    serializedVersion: 2
-    x: 217.20001
-    y: 617.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638789}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  duration: 0.6
---- !u!114 &369638786
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8680b8955a1ee35479db70bca2a22985, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Jump
-  rect:
-    serializedVersion: 2
-    x: 154.20001
-    y: 594.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638789}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
---- !u!114 &369638787
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0b87bfecaca8ed4e8b0742f12ecaf05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: SetVelocity
-  rect:
-    serializedVersion: 2
-    x: 105.20003
-    y: 565.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638789}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  x: 0
-  y: 1
-  velocity: 6
---- !u!114 &369638788
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a4ec6e7092f34c4cbcf270385316fca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: CheckGrounded
-  rect:
-    serializedVersion: 2
-    x: 20.200012
-    y: 538.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638789}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
---- !u!114 &369638789
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Sequence
-  rect:
-    serializedVersion: 2
-    x: 69.2
-    y: 441.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638770}
-  children:
-  - {fileID: 369638790}
-  - {fileID: 369638788}
-  - {fileID: 369638787}
-  - {fileID: 369638786}
-  - {fileID: 369638785}
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  random: 0
---- !u!114 &369638790
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6214f06b5b737f947978d888e3d35556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: CheckKeyDown
-  rect:
-    serializedVersion: 2
-    x: -24.799988
-    y: 513.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638789}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  keyCode: 32
---- !u!114 &369638791
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Wait
-  rect:
-    serializedVersion: 2
-    x: 440.2
-    y: 589.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638795}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  duration: 0.6
---- !u!114 &369638792
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40858fdfa952f794bb3aa56009dd5bf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Roll
-  rect:
-    serializedVersion: 2
-    x: 381.2
-    y: 553.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638795}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
---- !u!114 &369638794
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6214f06b5b737f947978d888e3d35556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: CheckKeyDown
-  rect:
-    serializedVersion: 2
-    x: 314.2
-    y: 517.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638795}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  keyCode: 120
---- !u!114 &369638795
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Sequence
-  rect:
-    serializedVersion: 2
-    x: 416.2
-    y: 454.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638770}
-  children:
-  - {fileID: 369638794}
-  - {fileID: 369638792}
-  - {fileID: 369638791}
-  - {fileID: 369638796}
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  random: 0
---- !u!114 &369638796
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369638755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0b87bfecaca8ed4e8b0742f12ecaf05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: SetVelocity
-  rect:
-    serializedVersion: 2
-    x: 533.2
-    y: 564.8
-    width: 160
-    height: 44
-  parent: {fileID: 369638795}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  x: 1
-  y: 0
-  velocity: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +927,7 @@ GameObject:
   - component: {fileID: 760013534}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
