@@ -4,26 +4,28 @@ using UnityEngine;
 namespace BT
 {
     [AddComponentMenu("")]
-    [MBTNode(name = "Hero/Run")]
-    public class Run : Leaf
+    [MBTNode(name = "Hero/MoveX")]
+    public class MoveX : Leaf
     {
-        private Animator _animator;
+        [SerializeField] private float moveSpeed;
+        private Rigidbody2D _rigidbody2D;
         private SpriteRenderer _spriteRenderer;
 
         private void Start()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            _animator = GetComponent<Animator>();
+            _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
         public override NodeResult Execute()
         {
             var inputX = Input.GetAxis("Horizontal");
 
-            if (inputX == 0) return NodeResult.failure;
+            
+            _rigidbody2D.velocity = new Vector2(inputX * moveSpeed, _rigidbody2D.velocity.y);
+            
 
-            _animator.Play("Run");
-            _spriteRenderer.flipX = inputX < 0;
+            if (inputX == 0) return NodeResult.failure;
             return NodeResult.success;
         }
     }
