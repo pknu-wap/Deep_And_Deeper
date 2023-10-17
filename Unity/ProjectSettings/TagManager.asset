@@ -3,14 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ground
-  - Background
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Store
   - Water
   - UI
   - 
@@ -42,25 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background_0
-    uniqueID: 1436111683
-    locked: 0
-  - name: Background_1
-    uniqueID: 940262819
-    locked: 0
-  - name: Background_2
-    uniqueID: 2786301617
-    locked: 0
-  - name: Cave_0
-    uniqueID: 1868404173
-    locked: 0
-  - name: Cave_1
-    uniqueID: 4004631805
-    locked: 0
-  - name: Ground
-    uniqueID: 1455486077
-    locked: 0
-  - name: Player
-    uniqueID: 1085052001
     locked: 0
