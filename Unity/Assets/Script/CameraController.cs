@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//카메라가 플레이어를 따라다니도록
 public class CameraController : MonoBehaviour
 {
     private Transform _transformOfTarget;
