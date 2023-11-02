@@ -216,14 +216,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4692283344559720671, guid: e1bc982bc54c5254e914766ee3bbb57d, type: 3}
-      propertyPath: m_Constraints
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7434247018982772540, guid: e1bc982bc54c5254e914766ee3bbb57d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7968789852462546300, guid: e1bc982bc54c5254e914766ee3bbb57d, type: 3}
       propertyPath: m_Name
       value: Monster
