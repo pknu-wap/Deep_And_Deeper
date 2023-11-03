@@ -13,7 +13,7 @@ namespace BT
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            _isGrounded = true;
+           _isGrounded = true;
         }
 
         private void OnCollisionExit2D(Collision2D other)
