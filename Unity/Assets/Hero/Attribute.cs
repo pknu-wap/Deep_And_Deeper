@@ -5,6 +5,10 @@ using UnityEngine.UI;
 public class CharacterAttributes : MonoBehaviour
 {
     public Text[] attributeTexts; //UI에 각 특성을 표시할 텍스트 배열
+    public Text nameText;
+    public Text descriptionText;
+
+    public Image iconImage;
 
     private List<string> attributes = new List<string>();
     // Start is called before the first frame update
@@ -30,8 +34,16 @@ for (int i = 0; i < selectedAttributes.Count; i++)
 {
     attributeTexts[i].text = selectedAttributes[i];
 }
-    void Update()
+void UpdateUI()
+{
+    if (selectedAttributes.Count > 0)
     {
-        
+        // 첫 번째 선택한 특성을 UI에 표시
+        CharacterAttributes attributes = selectedAttributes[0];
+        nameText.text = attributes.name;
+        descriptionText.text = attributes.description;
+        iconImage.sprite = attributes.icon;
     }
+}
+
 }

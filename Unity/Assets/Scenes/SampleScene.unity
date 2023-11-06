@@ -154,25 +154,6 @@ GameObject:
   - component: {fileID: 369638782}
   - component: {fileID: 369638781}
   - component: {fileID: 369638780}
-  - component: {fileID: 369638802}
-  - component: {fileID: 369638801}
-  - component: {fileID: 369638800}
-  - component: {fileID: 369638799}
-  - component: {fileID: 369638798}
-  - component: {fileID: 369638797}
-  - component: {fileID: 369638796}
-  - component: {fileID: 369638795}
-  - component: {fileID: 369638794}
-  - component: {fileID: 369638793}
-  - component: {fileID: 369638792}
-  - component: {fileID: 369638791}
-  - component: {fileID: 369638790}
-  - component: {fileID: 369638789}
-  - component: {fileID: 369638788}
-  - component: {fileID: 369638787}
-  - component: {fileID: 369638786}
-  - component: {fileID: 369638785}
-  - component: {fileID: 369638784}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -396,7 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 369638786}
+  selectedEditorNode: {fileID: 0}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -442,18 +423,18 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 369638764}
   children:
-  - {fileID: 369638789}
+  - {fileID: 0}
   - {fileID: 369638774}
-  - {fileID: 369638802}
-  - {fileID: 369638796}
-  - {fileID: 369638793}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   random: 0
 --- !u!114 &369638771
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -478,7 +459,7 @@ MonoBehaviour:
   duration: 0.1
 --- !u!114 &369638772
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -502,7 +483,7 @@ MonoBehaviour:
   breakpoint: 0
 --- !u!114 &369638773
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -546,24 +527,24 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 369638770}
   children:
-  - {fileID: 369638797}
-  - {fileID: 369638773}
-  - {fileID: 369638775}
-  - {fileID: 369638772}
-  - {fileID: 369638771}
-  - {fileID: 369638779}
-  - {fileID: 369638777}
-  - {fileID: 369638776}
-  - {fileID: 369638783}
-  - {fileID: 369638780}
-  - {fileID: 369638781}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   random: 0
 --- !u!114 &369638775
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -590,7 +571,7 @@ MonoBehaviour:
   velocity: 0
 --- !u!114 &369638776
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -615,7 +596,7 @@ MonoBehaviour:
   duration: 0.1
 --- !u!114 &369638777
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -639,7 +620,7 @@ MonoBehaviour:
   breakpoint: 0
 --- !u!114 &369638778
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -664,7 +645,7 @@ MonoBehaviour:
   keyCode: 122
 --- !u!114 &369638779
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -691,7 +672,7 @@ MonoBehaviour:
   duration: 0.5
 --- !u!114 &369638780
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -715,7 +696,7 @@ MonoBehaviour:
   breakpoint: 0
 --- !u!114 &369638781
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -740,7 +721,7 @@ MonoBehaviour:
   duration: 0.6
 --- !u!114 &369638782
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -765,7 +746,7 @@ MonoBehaviour:
   keyCode: 122
 --- !u!114 &369638783
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1907,7 +1888,7 @@ MonoBehaviour:
   parent: {fileID: 1259734426}
   children:
   - {fileID: 1259734434}
-  - {fileID: 1259734437}
+  - {fileID: 0}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -1995,7 +1976,7 @@ MonoBehaviour:
   parent: {fileID: 0}
 --- !u!114 &1259734430
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2038,17 +2019,17 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 1259734425}
   children:
-  - {fileID: 1259734435}
-  - {fileID: 1259734430}
-  - {fileID: 1259734436}
-  - {fileID: 1259734438}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   random: 0
 --- !u!114 &1259734435
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2072,7 +2053,7 @@ MonoBehaviour:
   breakpoint: 0
 --- !u!114 &1259734436
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2097,7 +2078,7 @@ MonoBehaviour:
   duration: 0.8
 --- !u!114 &1259734437
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2121,7 +2102,7 @@ MonoBehaviour:
   breakpoint: 0
 --- !u!114 &1259734438
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
