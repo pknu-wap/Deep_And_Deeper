@@ -9,6 +9,8 @@ namespace Hero
         private readonly Animator _animator;
         private readonly SpriteRenderer _spriteRenderer;
 
+        private bool _isGrounded;
+
         public static HeroManager Instance => _instance ??= new HeroManager();
 
         private HeroManager()
@@ -40,6 +42,16 @@ namespace Hero
         public bool GetFlipX()
         {
             return _spriteRenderer.flipX;
+        }
+
+        public void SetGrounded(bool grounded)
+        {
+            _isGrounded = grounded;
+        }
+
+        public bool GetGrounded()
+        {
+            return _isGrounded;
         }
     }
 }

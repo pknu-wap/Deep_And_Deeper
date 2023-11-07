@@ -1,7 +1,7 @@
 using MBT;
 using UnityEngine;
 
-namespace BT
+namespace Hero.Nodes
 {
     [AddComponentMenu("")]
     [MBTNode(name = "Hero/CheckKeyDown")]

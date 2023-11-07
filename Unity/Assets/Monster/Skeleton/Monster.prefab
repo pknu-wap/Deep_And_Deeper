@@ -99,8 +99,6 @@ GameObject:
   - component: {fileID: 3657437474313256780}
   - component: {fileID: 7834325221894883067}
   - component: {fileID: 4445117820917759294}
-  - component: {fileID: 8716920188136534784}
-  - component: {fileID: 2998194836296467473}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -372,7 +370,6 @@ MonoBehaviour:
   parent: {fileID: 7146898638233539952}
   children:
   - {fileID: 7172377749242373915}
-  - {fileID: 8716920188136534784}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -401,7 +398,6 @@ MonoBehaviour:
   - {fileID: 7834325221894883067}
   - {fileID: 3657437474313256780}
   - {fileID: 4445117820917759294}
-  - {fileID: 2998194836296467473}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -479,51 +475,3 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   duration: 0.8
---- !u!114 &8716920188136534784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7968789852462546300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e302f1cd7ca93b54e9a7957cdc44e36b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Idle
-  rect:
-    serializedVersion: 2
-    x: 520
-    y: 240
-    width: 160
-    height: 44
-  parent: {fileID: 2895559428455540331}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
---- !u!114 &2998194836296467473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7968789852462546300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e302f1cd7ca93b54e9a7957cdc44e36b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Idle
-  rect:
-    serializedVersion: 2
-    x: 360
-    y: 280
-    width: 160
-    height: 44
-  parent: {fileID: 7172377749242373915}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
