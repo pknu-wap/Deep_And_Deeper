@@ -1,3 +1,4 @@
+using Hero;
 using MBT;
 using UnityEngine;
 
@@ -8,16 +9,10 @@ namespace BT
     public class SetState : Leaf
     {
         [SerializeField] private string stateName;
-        private Animator _animator;
-
-        private void Start()
-        {
-            _animator = GetComponent<Animator>();
-        }
 
         public override NodeResult Execute()
         {
-            _animator.Play(stateName);
+            HeroManager.Instance.SetState(stateName);
             return NodeResult.success;
         }
     }
