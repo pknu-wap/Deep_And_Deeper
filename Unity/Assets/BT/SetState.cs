@@ -4,9 +4,10 @@ using UnityEngine;
 namespace BT
 {
     [AddComponentMenu("")]
-    [MBTNode(name = "Hero/Attack2")]
-    public class Attack2 : Leaf
+    [MBTNode(name = "Common/SetState")]
+    public class SetState : Leaf
     {
+        [SerializeField] private string stateName;
         private Animator _animator;
 
         private void Start()
@@ -16,7 +17,7 @@ namespace BT
 
         public override NodeResult Execute()
         {
-            _animator.Play("Attack2");
+            _animator.Play(stateName);
             return NodeResult.success;
         }
     }
