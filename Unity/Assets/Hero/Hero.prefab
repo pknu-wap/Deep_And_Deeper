@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 4989689177297336432}
+  selectedEditorNode: {fileID: 6936529296421861530}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -194,8 +194,8 @@ MonoBehaviour:
   title: Root
   rect:
     serializedVersion: 2
-    x: 329
-    y: -132
+    x: 340
+    y: -120
     width: 160
     height: 44
   parent: {fileID: 0}
@@ -219,8 +219,8 @@ MonoBehaviour:
   title: Repeater
   rect:
     serializedVersion: 2
-    x: 328
-    y: -73.999985
+    x: 340
+    y: -60
     width: 160
     height: 44
   parent: {fileID: 1964001512611232424}
@@ -264,11 +264,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Sequence
+  title: "Sequence - \uACF5\uACA9"
   rect:
     serializedVersion: 2
-    x: -413
-    y: 320
+    x: -440
+    y: 460
     width: 160
     height: 44
   parent: {fileID: 5318184760314978720}
@@ -302,8 +302,8 @@ MonoBehaviour:
   title: CheckKeyDown
   rect:
     serializedVersion: 2
-    x: -482
-    y: 401
+    x: -620
+    y: 560
     width: 160
     height: 44
   parent: {fileID: 6432204479360884606}
@@ -327,8 +327,8 @@ MonoBehaviour:
   title: Wait
   rect:
     serializedVersion: 2
-    x: -2
-    y: 402
+    x: -120
+    y: 560
     width: 160
     height: 44
   parent: {fileID: 6432204479360884606}
@@ -352,8 +352,8 @@ MonoBehaviour:
   title: SetVelocity
   rect:
     serializedVersion: 2
-    x: -320
-    y: 401
+    x: -460
+    y: 560
     width: 160
     height: 44
   parent: {fileID: 6432204479360884606}
@@ -379,8 +379,8 @@ MonoBehaviour:
   title: TimeSequence
   rect:
     serializedVersion: 2
-    x: 160
-    y: 400
+    x: 60
+    y: 560
     width: 160
     height: 44
   parent: {fileID: 6432204479360884606}
@@ -406,8 +406,8 @@ MonoBehaviour:
   title: CheckKeyDown
   rect:
     serializedVersion: 2
-    x: 160
-    y: 460
+    x: 60
+    y: 620
     width: 160
     height: 44
   parent: {fileID: 6101567993185213853}
@@ -431,8 +431,8 @@ MonoBehaviour:
   title: Wait
   rect:
     serializedVersion: 2
-    x: 480
-    y: 400
+    x: 380
+    y: 560
     width: 160
     height: 44
   parent: {fileID: 6432204479360884606}
@@ -456,8 +456,8 @@ MonoBehaviour:
   title: TimeSequence
   rect:
     serializedVersion: 2
-    x: 640
-    y: 400
+    x: 560
+    y: 560
     width: 160
     height: 44
   parent: {fileID: 6432204479360884606}
@@ -483,8 +483,8 @@ MonoBehaviour:
   title: CheckKeyDown
   rect:
     serializedVersion: 2
-    x: 640
-    y: 460
+    x: 560
+    y: 640
     width: 160
     height: 44
   parent: {fileID: 4061690442341215603}
@@ -508,8 +508,8 @@ MonoBehaviour:
   title: Wait
   rect:
     serializedVersion: 2
-    x: 960
-    y: 400
+    x: 880
+    y: 560
     width: 160
     height: 44
   parent: {fileID: 6432204479360884606}
@@ -530,11 +530,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Sequence
+  title: "Sequence - \uAD6C\uB974\uAE30"
   rect:
     serializedVersion: 2
-    x: -339
-    y: 472.8
+    x: -400
+    y: 140
     width: 160
     height: 44
   parent: {fileID: 5318184760314978720}
@@ -563,8 +563,8 @@ MonoBehaviour:
   title: Roll
   rect:
     serializedVersion: 2
-    x: -540
-    y: 620
+    x: -340
+    y: 220
     width: 160
     height: 44
   parent: {fileID: 4091950267343929699}
@@ -588,8 +588,8 @@ MonoBehaviour:
   title: Wait
   rect:
     serializedVersion: 2
-    x: -460
-    y: 680
+    x: -180
+    y: 220
     width: 160
     height: 44
   parent: {fileID: 4091950267343929699}
@@ -613,8 +613,8 @@ MonoBehaviour:
   title: SetVelocity
   rect:
     serializedVersion: 2
-    x: -380
-    y: 740
+    x: -20
+    y: 220
     width: 160
     height: 44
   parent: {fileID: 4091950267343929699}
@@ -637,11 +637,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Sequence
+  title: "Sequence - \uB2EC\uB9AC\uAE30"
   rect:
     serializedVersion: 2
-    x: -40
-    y: 500
+    x: 1080
+    y: 320
     width: 160
     height: 44
   parent: {fileID: 5318184760314978720}
@@ -664,11 +664,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Sequence
+  title: "Sequence - \uC810\uD504"
   rect:
     serializedVersion: 2
-    x: -840
-    y: 180
+    x: -1100
+    y: 120
     width: 160
     height: 44
   parent: {fileID: 0}
@@ -697,8 +697,8 @@ MonoBehaviour:
   title: CheckKeyDown
   rect:
     serializedVersion: 2
-    x: -1000
-    y: 260
+    x: -1320
+    y: 220
     width: 160
     height: 44
   parent: {fileID: 2939414671971354915}
@@ -722,8 +722,8 @@ MonoBehaviour:
   title: SetVelocity
   rect:
     serializedVersion: 2
-    x: -940
-    y: 300
+    x: -1160
+    y: 220
     width: 160
     height: 44
   parent: {fileID: 2939414671971354915}
@@ -749,8 +749,8 @@ MonoBehaviour:
   title: CheckGrounded
   rect:
     serializedVersion: 2
-    x: -241
-    y: 136.79988
+    x: 240
+    y: 80
     width: 160
     height: 44
   parent: {fileID: 9089261792244633716}
@@ -770,11 +770,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08540605df275034fafc8e05c6704214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Selector
+  title: "Selector - \uC9C0\uC0C1"
   rect:
     serializedVersion: 2
-    x: -14
-    y: 152.7999
+    x: 420
+    y: 80
     width: 160
     height: 44
   parent: {fileID: 9089261792244633716}
@@ -782,8 +782,8 @@ MonoBehaviour:
   - {fileID: 2939414671971354915}
   - {fileID: 6432204479360884606}
   - {fileID: 4091950267343929699}
-  - {fileID: 2810070872245470920}
   - {fileID: 6936529296421861530}
+  - {fileID: 2810070872245470920}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -803,8 +803,8 @@ MonoBehaviour:
   title: CheckKeyDown
   rect:
     serializedVersion: 2
-    x: -640
-    y: 500
+    x: -660
+    y: 220
     width: 160
     height: 44
   parent: {fileID: 4091950267343929699}
@@ -828,8 +828,8 @@ MonoBehaviour:
   title: Sequence
   rect:
     serializedVersion: 2
-    x: -100
-    y: 80
+    x: 340
+    y: -0
     width: 160
     height: 44
   parent: {fileID: 6647391770060834379}
@@ -855,8 +855,8 @@ MonoBehaviour:
   title: TimeParallel
   rect:
     serializedVersion: 2
-    x: -780
-    y: 380
+    x: -840
+    y: 220
     width: 160
     height: 44
   parent: {fileID: 2939414671971354915}
@@ -914,11 +914,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bfa197a1558fff48852a4f8caf27658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: SetState
+  title: SetState - Jump
   rect:
     serializedVersion: 2
-    x: -860
-    y: 340
+    x: -1000
+    y: 220
     width: 160
     height: 44
   parent: {fileID: 2939414671971354915}
@@ -942,8 +942,8 @@ MonoBehaviour:
   title: SetState
   rect:
     serializedVersion: 2
-    x: -160
-    y: 400
+    x: -300
+    y: 560
     width: 160
     height: 44
   parent: {fileID: 6432204479360884606}
@@ -967,8 +967,8 @@ MonoBehaviour:
   title: SetState
   rect:
     serializedVersion: 2
-    x: 320
-    y: 400
+    x: 220
+    y: 560
     width: 160
     height: 44
   parent: {fileID: 6432204479360884606}
@@ -992,8 +992,8 @@ MonoBehaviour:
   title: SetState
   rect:
     serializedVersion: 2
-    x: 800
-    y: 400
+    x: 720
+    y: 560
     width: 160
     height: 44
   parent: {fileID: 6432204479360884606}
@@ -1014,11 +1014,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bfa197a1558fff48852a4f8caf27658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: SetState
+  title: SetState - Idle
   rect:
     serializedVersion: 2
-    x: 160
-    y: 260
+    x: 920
+    y: 120
     width: 160
     height: 44
   parent: {fileID: 5318184760314978720}
@@ -1042,8 +1042,8 @@ MonoBehaviour:
   title: SetState
   rect:
     serializedVersion: 2
-    x: -600
-    y: 560
+    x: -500
+    y: 220
     width: 160
     height: 44
   parent: {fileID: 4091950267343929699}
@@ -1067,8 +1067,8 @@ MonoBehaviour:
   title: Run
   rect:
     serializedVersion: 2
-    x: -780
-    y: 440
+    x: -840
+    y: 280
     width: 160
     height: 44
   parent: {fileID: 2108809515485989908}
@@ -1092,8 +1092,8 @@ MonoBehaviour:
   title: Run
   rect:
     serializedVersion: 2
-    x: -100
-    y: 580
+    x: 1020
+    y: 420
     width: 160
     height: 44
   parent: {fileID: 2810070872245470920}
@@ -1114,11 +1114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bfa197a1558fff48852a4f8caf27658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: SetState
+  title: SetState - Run
   rect:
     serializedVersion: 2
-    x: 70.20001
-    y: 583.8
+    x: 1180
+    y: 420
     width: 160
     height: 44
   parent: {fileID: 2810070872245470920}
