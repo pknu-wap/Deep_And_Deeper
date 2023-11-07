@@ -1,8 +1,7 @@
-using Hero;
 using MBT;
 using UnityEngine;
 
-namespace BT
+namespace Hero.Nodes
 {
     [AddComponentMenu("")]
     [MBTNode(name = "Hero/MoveX")]
@@ -14,7 +13,7 @@ namespace BT
         {
             var inputX = Input.GetAxis("Horizontal");
             if (inputX == 0) return NodeResult.failure;
-            
+
             HeroManager.Instance.SetVelocity(inputX * moveSpeed, null);
             return NodeResult.success;
         }
