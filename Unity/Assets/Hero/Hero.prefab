@@ -35,7 +35,6 @@ GameObject:
   - component: {fileID: 2939414671971354915}
   - component: {fileID: 6929878439690270478}
   - component: {fileID: 4989689177297336432}
-  - component: {fileID: 5905326638818101960}
   - component: {fileID: 7004094117058479298}
   - component: {fileID: 3669234828188537085}
   - component: {fileID: 4518881291300782871}
@@ -52,6 +51,7 @@ GameObject:
   - component: {fileID: 5819459641040213263}
   - component: {fileID: 4268622695919911332}
   - component: {fileID: 6936529296421861530}
+  - component: {fileID: 4018469260582014203}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 0}
+  selectedEditorNode: {fileID: 3178624497427637332}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -570,10 +570,10 @@ MonoBehaviour:
   parent: {fileID: 5318184760314978720}
   children:
   - {fileID: 6671638414802991028}
+  - {fileID: 4018469260582014203}
   - {fileID: 6182712603804461336}
   - {fileID: 2734624808247327257}
   - {fileID: 9168288444265118613}
-  - {fileID: 5905326638818101960}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -593,8 +593,8 @@ MonoBehaviour:
   title: Roll
   rect:
     serializedVersion: 2
-    x: -472
-    y: 564.8
+    x: -540
+    y: 620
     width: 160
     height: 44
   parent: {fileID: 4091950267343929699}
@@ -603,8 +603,6 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   moveSpeed: 10
-  originalSize: {x: 0, y: 0}
-  originalOffset: {x: 0, y: 0}
 --- !u!114 &2734624808247327257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,8 +618,8 @@ MonoBehaviour:
   title: Wait
   rect:
     serializedVersion: 2
-    x: -425
-    y: 613.8
+    x: -460
+    y: 680
     width: 160
     height: 44
   parent: {fileID: 4091950267343929699}
@@ -645,8 +643,8 @@ MonoBehaviour:
   title: SetVelocity
   rect:
     serializedVersion: 2
-    x: -322
-    y: 574.8
+    x: -380
+    y: 740
     width: 160
     height: 44
   parent: {fileID: 4091950267343929699}
@@ -678,8 +676,8 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 5318184760314978720}
   children:
-  - {fileID: 7004094117058479298}
   - {fileID: 3669234828188537085}
+  - {fileID: 7004094117058479298}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -699,8 +697,8 @@ MonoBehaviour:
   title: Sequence
   rect:
     serializedVersion: 2
-    x: -703
-    y: 219.80005
+    x: -840
+    y: 180
     width: 160
     height: 44
   parent: {fileID: 0}
@@ -729,8 +727,8 @@ MonoBehaviour:
   title: CheckKeyDown
   rect:
     serializedVersion: 2
-    x: -903
-    y: 277.80005
+    x: -1000
+    y: 260
     width: 160
     height: 44
   parent: {fileID: 2939414671971354915}
@@ -754,8 +752,8 @@ MonoBehaviour:
   title: SetVelocity
   rect:
     serializedVersion: 2
-    x: -831
-    y: 324.80005
+    x: -940
+    y: 300
     width: 160
     height: 44
   parent: {fileID: 2939414671971354915}
@@ -766,30 +764,6 @@ MonoBehaviour:
   x: 0
   y: 1
   velocity: 8
---- !u!114 &5905326638818101960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5548069816130054504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe9165fa6f2237f4e92b17150a21c146, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Reset
-  rect:
-    serializedVersion: 2
-    x: -245.79999
-    y: 533.8
-    width: 160
-    height: 44
-  parent: {fileID: 4091950267343929699}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
 --- !u!114 &7004094117058479298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -805,8 +779,8 @@ MonoBehaviour:
   title: MoveX
   rect:
     serializedVersion: 2
-    x: -90.80005
-    y: 561.7999
+    x: 60
+    y: 560
     width: 160
     height: 44
   parent: {fileID: 2810070872245470920}
@@ -830,7 +804,7 @@ MonoBehaviour:
   title: Run
   rect:
     serializedVersion: 2
-    x: 80
+    x: -120
     y: 560
     width: 160
     height: 44
@@ -908,8 +882,8 @@ MonoBehaviour:
   title: CheckKeyDown
   rect:
     serializedVersion: 2
-    x: -532.8
-    y: 517.7998
+    x: -640
+    y: 500
     width: 160
     height: 44
   parent: {fileID: 4091950267343929699}
@@ -1011,8 +985,8 @@ MonoBehaviour:
   title: TimeParallel
   rect:
     serializedVersion: 2
-    x: -622.8
-    y: 331.7998
+    x: -780
+    y: 380
     width: 160
     height: 44
   parent: {fileID: 2939414671971354915}
@@ -1038,8 +1012,8 @@ MonoBehaviour:
   title: MoveX
   rect:
     serializedVersion: 2
-    x: -624.8
-    y: 397.7998
+    x: -779
+    y: 440
     width: 160
     height: 44
   parent: {fileID: 2108809515485989908}
@@ -1098,8 +1072,8 @@ MonoBehaviour:
   title: SetState
   rect:
     serializedVersion: 2
-    x: -742.8
-    y: 355.8
+    x: -860
+    y: 340
     width: 160
     height: 44
   parent: {fileID: 2939414671971354915}
@@ -1208,3 +1182,28 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   stateName: Idle
+--- !u!114 &4018469260582014203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548069816130054504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfa197a1558fff48852a4f8caf27658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: SetState
+  rect:
+    serializedVersion: 2
+    x: -600
+    y: 560
+    width: 160
+    height: 44
+  parent: {fileID: 4091950267343929699}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: Roll
