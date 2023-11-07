@@ -10,9 +10,16 @@ namespace Hero.Nodes
         [SerializeField] private bool x, y;
         [SerializeField] private float velocity;
 
+        private void Awake()
+        {
+            Debug.Assert(x ^ y);
+        }
+
         public override NodeResult Execute()
         {
-            HeroManager.Instance.SetVelocity(x ? velocity : null, y ? velocity : null);
+            if (x) HeroManager.Instance.SetVelocityX(velocity);
+            if (y) HeroManager.Instance.SetVelocityY(velocity);
+
             return NodeResult.success;
         }
     }

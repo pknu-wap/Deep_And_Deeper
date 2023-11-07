@@ -15,7 +15,7 @@ namespace Hero.Nodes
             if (inputX == 0) return NodeResult.failure;
 
             HeroManager.Instance.SetFlipX(inputX < 0);
-            HeroManager.Instance.SetVelocity(inputX * moveSpeed, null);
+            HeroManager.Instance.SetVelocityX(inputX * moveSpeed);
 
             return NodeResult.success;
         }
