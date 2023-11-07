@@ -21,12 +21,14 @@ namespace Hero
             _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         }
 
-        public void SetVelocity(float? x, float? y)
+        public void SetVelocityX(float x)
         {
-            var velocity = _rigidbody2D.velocity;
-            x ??= velocity.x;
-            y ??= velocity.y;
-            _rigidbody2D.velocity = new Vector2(x.Value, y.Value);
+            _rigidbody2D.velocity = new Vector2(x, _rigidbody2D.velocity.y);
+        }
+
+        public void SetVelocityY(float y)
+        {
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, y);
         }
 
         public void SetState(string stateName)

@@ -12,7 +12,7 @@ namespace Hero.Nodes
         public override NodeResult Execute()
         {
             var dir = HeroManager.Instance.GetFlipX() ? -1 : 1;
-            HeroManager.Instance.SetVelocity(moveSpeed * dir, null);
+            HeroManager.Instance.SetVelocityX(moveSpeed * dir);
 
             return NodeResult.success;
         }
