@@ -7,7 +7,7 @@ namespace Hero.Nodes
     [MBTNode(name = "Hero/MoveX")]
     public class MoveX : Leaf
     {
-        [SerializeField] private float moveSpeed;
+        [SerializeField] private float moveSpeed = 5;
 
         public override NodeResult Execute()
         {

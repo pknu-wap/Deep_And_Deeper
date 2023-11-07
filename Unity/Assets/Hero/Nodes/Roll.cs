@@ -7,7 +7,7 @@ namespace Hero.Nodes
     [MBTNode(name = "Hero/Roll")]
     public class Roll : Leaf
     {
-        [SerializeField] private float moveSpeed = 7f;
+        [SerializeField] private float moveSpeed = 10f;
 
         public override NodeResult Execute()
         {
