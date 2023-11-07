@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 4268622695919911332}
   - component: {fileID: 6936529296421861530}
   - component: {fileID: 4018469260582014203}
+  - component: {fileID: 1674349439733238312}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -165,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 3178624497427637332}
+  selectedEditorNode: {fileID: 0}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -677,6 +678,7 @@ MonoBehaviour:
   parent: {fileID: 5318184760314978720}
   children:
   - {fileID: 3669234828188537085}
+  - {fileID: 1674349439733238312}
   - {fileID: 7004094117058479298}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -779,7 +781,7 @@ MonoBehaviour:
   title: MoveX
   rect:
     serializedVersion: 2
-    x: 60
+    x: 120
     y: 560
     width: 160
     height: 44
@@ -804,8 +806,8 @@ MonoBehaviour:
   title: Run
   rect:
     serializedVersion: 2
-    x: -120
-    y: 560
+    x: -200
+    y: 580
     width: 160
     height: 44
   parent: {fileID: 2810070872245470920}
@@ -1207,3 +1209,28 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   stateName: Roll
+--- !u!114 &1674349439733238312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548069816130054504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfa197a1558fff48852a4f8caf27658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: SetState
+  rect:
+    serializedVersion: 2
+    x: -40
+    y: 580
+    width: 160
+    height: 44
+  parent: {fileID: 2810070872245470920}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: Run

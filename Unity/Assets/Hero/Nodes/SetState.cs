@@ -1,23 +1,17 @@
 using MBT;
 using UnityEngine;
 
-namespace BT
+namespace Hero.Nodes
 {
     [AddComponentMenu("")]
-    [MBTNode(name = "Common/SetState")]
+    [MBTNode(name = "Hero/SetState")]
     public class SetState : Leaf
     {
         [SerializeField] private string stateName;
-        private Animator _animator;
-
-        private void Start()
-        {
-            _animator = GetComponent<Animator>();
-        }
 
         public override NodeResult Execute()
         {
-            _animator.Play(stateName);
+            HeroManager.Instance.SetState(stateName);
             return NodeResult.success;
         }
     }
