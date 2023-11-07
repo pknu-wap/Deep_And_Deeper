@@ -250,7 +250,6 @@ GameObject:
   - component: {fileID: 2590686802072089740}
   - component: {fileID: 461297675811846709}
   - component: {fileID: 8830012675647222455}
-  - component: {fileID: 1021778569926307344}
   - component: {fileID: 3835267728135267383}
   m_Layer: 0
   m_Name: RunSubTree
@@ -286,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 0}
+  selectedEditorNode: {fileID: 8830012675647222455}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -338,7 +337,6 @@ MonoBehaviour:
   children:
   - {fileID: 8830012675647222455}
   - {fileID: 3835267728135267383}
-  - {fileID: 1021778569926307344}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -358,8 +356,8 @@ MonoBehaviour:
   title: Run
   rect:
     serializedVersion: 2
-    x: 160
-    y: 220
+    x: 229
+    y: 217
     width: 160
     height: 44
   parent: {fileID: 461297675811846709}
@@ -367,31 +365,6 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
---- !u!114 &1021778569926307344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5187867998988007255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f259509d994cef141a3fe9c349c16c00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: MoveX
-  rect:
-    serializedVersion: 2
-    x: 520
-    y: 219
-    width: 160
-    height: 44
-  parent: {fileID: 461297675811846709}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  moveSpeed: 5
 --- !u!114 &3835267728135267383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +380,7 @@ MonoBehaviour:
   title: SetState
   rect:
     serializedVersion: 2
-    x: 340
+    x: 440
     y: 220
     width: 160
     height: 44
@@ -438,7 +411,6 @@ GameObject:
   - component: {fileID: 5318184760314978720}
   - component: {fileID: 9089261792244633716}
   - component: {fileID: 207849673159666386}
-  - component: {fileID: 5568301039347657639}
   - component: {fileID: 5966586726503547564}
   - component: {fileID: 6936529296421861530}
   - component: {fileID: 513320314961797917}
@@ -446,6 +418,7 @@ GameObject:
   - component: {fileID: 5705232178413805123}
   - component: {fileID: 7930354162408398958}
   - component: {fileID: -6438386939851595218}
+  - component: {fileID: 878823011287158652}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -563,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 7930354162408398958}
+  selectedEditorNode: {fileID: 0}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -776,42 +749,17 @@ MonoBehaviour:
   title: "Selector - \uACF5\uC911"
   rect:
     serializedVersion: 2
-    x: 466
-    y: 60.799835
+    x: 480
+    y: 60
     width: 160
     height: 44
   parent: {fileID: 4957293417063921749}
   children:
-  - {fileID: 5568301039347657639}
+  - {fileID: 878823011287158652}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   random: 0
---- !u!114 &5568301039347657639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5548069816130054504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f259509d994cef141a3fe9c349c16c00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: MoveX
-  rect:
-    serializedVersion: 2
-    x: 466
-    y: 120.79982
-    width: 160
-    height: 44
-  parent: {fileID: 207849673159666386}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  moveSpeed: 5
 --- !u!70 &5966586726503547564
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -984,6 +932,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b43649bb47f96c408a93ab507541d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &878823011287158652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548069816130054504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83ab6c12369a0341a8b1773810c61f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Run
+  rect:
+    serializedVersion: 2
+    x: 480
+    y: 120
+    width: 160
+    height: 44
+  parent: {fileID: 207849673159666386}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
 --- !u!1 &6413244565834171567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +972,7 @@ GameObject:
   - component: {fileID: 6694029729855159389}
   - component: {fileID: 7175081411213479514}
   - component: {fileID: 5634284729894585555}
-  - component: {fileID: 5420925985586215381}
+  - component: {fileID: 7014748047207319901}
   m_Layer: 0
   m_Name: JumpSubTree
   m_TagString: Untagged
@@ -1035,7 +1007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 5634284729894585555}
+  selectedEditorNode: {fileID: 7014748047207319901}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 2816102555081676567}
@@ -1191,13 +1163,13 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 6473671514012173949}
   children:
-  - {fileID: 5420925985586215381}
+  - {fileID: 7014748047207319901}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   random: 0
   duration: 0.7
---- !u!114 &5420925985586215381
+--- !u!114 &7014748047207319901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1206,14 +1178,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6413244565834171567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f259509d994cef141a3fe9c349c16c00, type: 3}
+  m_Script: {fileID: 11500000, guid: d83ab6c12369a0341a8b1773810c61f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: MoveX
+  title: Run
   rect:
     serializedVersion: 2
-    x: 639.2
-    y: 299.8
+    x: 640
+    y: 300
     width: 160
     height: 44
   parent: {fileID: 5634284729894585555}
@@ -1221,7 +1193,6 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
-  moveSpeed: 5
 --- !u!1 &7172930446763052542
 GameObject:
   m_ObjectHideFlags: 0
