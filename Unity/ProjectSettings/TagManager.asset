@@ -55,10 +55,10 @@ TagManager:
   - name: Background_3
     uniqueID: 3068557923
     locked: 0
-  - name: Background(tile)_0
+  - name: Background(tile)_1
     uniqueID: 1868404173
     locked: 0
-  - name: Background(tile)_1
+  - name: Background(tile)_2
     uniqueID: 4004631805
     locked: 0
   - name: Ground
