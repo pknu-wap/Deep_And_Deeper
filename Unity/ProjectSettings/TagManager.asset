@@ -61,6 +61,9 @@ TagManager:
   - name: Background(tile)_2
     uniqueID: 4004631805
     locked: 0
+  - name: Background(tile)_3
+    uniqueID: 1426894145
+    locked: 0
   - name: Ground
     uniqueID: 1455486077
     locked: 0
