@@ -365,6 +365,7 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
+  moveSpeed: 5
 --- !u!114 &3835267728135267383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +420,7 @@ GameObject:
   - component: {fileID: 7930354162408398958}
   - component: {fileID: -6438386939851595218}
   - component: {fileID: 878823011287158652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hero
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -956,6 +957,7 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
+  moveSpeed: 5
 --- !u!1 &6413244565834171567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1195,7 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
+  moveSpeed: 5
 --- !u!1 &7172930446763052542
 GameObject:
   m_ObjectHideFlags: 0
