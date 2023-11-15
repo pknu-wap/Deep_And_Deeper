@@ -96,7 +96,7 @@ PrefabInstance:
     - target: {fileID: 442247492029501132, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: selectedEditorNode
       value: 
-      objectReference: {fileID: 3734078088909143174}
+      objectReference: {fileID: 6822275220531118807}
     - target: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.21
@@ -168,9 +168,6 @@ PrefabInstance:
       addedObject: {fileID: 6613967304657619475}
     - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8610648823764020223}
-    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1343469819022824841}
     - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       insertIndex: -1
@@ -189,7 +186,13 @@ PrefabInstance:
       addedObject: {fileID: 3734078088909143174}
     - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7892330072867944663}
+      addedObject: {fileID: 7755505379518983486}
+    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6822275220531118807}
+    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2616446607037829177}
   m_SourcePrefab: {fileID: 100100000, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
 --- !u!114 &1167773516837855111 stripped
 MonoBehaviour:
@@ -267,32 +270,6 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   random: 0
---- !u!114 &8610648823764020223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5796841361442416562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d3039cb87cd84643832b8eaf84a7bc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: CheckPlayerWithinRange
-  rect:
-    serializedVersion: 2
-    x: 160
-    y: 361
-    width: 160
-    height: 44
-  parent: {fileID: 3734078088909143174}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  xRange: 8
-  yRange: 2
 --- !u!114 &1343469819022824841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,8 +285,8 @@ MonoBehaviour:
   title: SetState
   rect:
     serializedVersion: 2
-    x: 320
-    y: 359
+    x: 400
+    y: 360
     width: 160
     height: 44
   parent: {fileID: 3734078088909143174}
@@ -333,7 +310,7 @@ MonoBehaviour:
   title: Sequence
   rect:
     serializedVersion: 2
-    x: -140
+    x: -220
     y: 280
     width: 160
     height: 44
@@ -341,6 +318,8 @@ MonoBehaviour:
   children:
   - {fileID: 6703433006281594085}
   - {fileID: 6273074232035294364}
+  - {fileID: 6822275220531118807}
+  - {fileID: 2616446607037829177}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -360,7 +339,7 @@ MonoBehaviour:
   title: CheckPlayerTrigger
   rect:
     serializedVersion: 2
-    x: -220
+    x: -480
     y: 360
     width: 160
     height: 44
@@ -384,7 +363,7 @@ MonoBehaviour:
   title: SetState
   rect:
     serializedVersion: 2
-    x: -60
+    x: -320
     y: 360
     width: 160
     height: 44
@@ -440,14 +419,39 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 6613967304657619475}
   children:
-  - {fileID: 8610648823764020223}
+  - {fileID: 7755505379518983486}
   - {fileID: 1343469819022824841}
-  - {fileID: 7892330072867944663}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   random: 0
---- !u!114 &7892330072867944663
+--- !u!114 &7755505379518983486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796841361442416562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3039cb87cd84643832b8eaf84a7bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: CheckPlayerWithinRange
+  rect:
+    serializedVersion: 2
+    x: 240
+    y: 360
+    width: 160
+    height: 44
+  parent: {fileID: 3734078088909143174}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  xRange: 8
+  yRange: 2
+--- !u!114 &6822275220531118807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -462,13 +466,38 @@ MonoBehaviour:
   title: Wait
   rect:
     serializedVersion: 2
-    x: 480
+    x: -160
     y: 360
     width: 160
     height: 44
-  parent: {fileID: 3734078088909143174}
+  parent: {fileID: 5315007808045948054}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   duration: 1
+--- !u!114 &2616446607037829177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796841361442416562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: SetState
+  rect:
+    serializedVersion: 2
+    x: 0
+    y: 360
+    width: 160
+    height: 44
+  parent: {fileID: 5315007808045948054}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: Idle
