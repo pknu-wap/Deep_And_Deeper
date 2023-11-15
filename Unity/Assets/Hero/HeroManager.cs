@@ -8,6 +8,7 @@ namespace Hero
         private readonly Rigidbody2D _rigidbody2D;
         private readonly Animator _animator;
         private readonly SpriteRenderer _spriteRenderer;
+        private readonly Transform _transform;
 
         private bool _isGrounded;
 
@@ -19,6 +20,7 @@ namespace Hero
             _rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
             _animator = gameObject.GetComponent<Animator>();
             _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            _transform = gameObject.GetComponent<Transform>();
         }
 
         public void SetVelocityX(float x)
@@ -54,6 +56,11 @@ namespace Hero
         public bool GetGrounded()
         {
             return _isGrounded;
+        }
+
+        public Vector3 GetPosition()
+        {
+            return _transform.position;
         }
     }
 }
