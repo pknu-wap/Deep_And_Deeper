@@ -64,6 +64,15 @@ TagManager:
   - name: Background(tile)_3
     uniqueID: 1426894145
     locked: 0
+  - name: Deco_1
+    uniqueID: 2472047883
+    locked: 0
+  - name: Deco_2
+    uniqueID: 1926541029
+    locked: 0
+  - name: Potal
+    uniqueID: 90159935
+    locked: 0
   - name: Ground
     uniqueID: 1455486077
     locked: 0
