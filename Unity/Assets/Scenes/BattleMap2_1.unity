@@ -527,7 +527,6 @@ GameObject:
   - component: {fileID: 865445161}
   - component: {fileID: 865445164}
   - component: {fileID: 865445163}
-  - component: {fileID: 865445162}
   m_Layer: 0
   m_Name: 02 background
   m_TagString: Untagged
@@ -550,19 +549,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1167404211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &865445162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865445160}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c25854710e8cc7f49a44819b3cb63a92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parallaxScale: 1
 --- !u!114 &865445163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,6 +622,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 917565188712765362, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160287654592134779, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2261591020286136081, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
       propertyPath: m_Name
       value: PlayerStatus UI (1)
@@ -678,6 +672,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7179023879645583039, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732985535679901331, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
