@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7565465158718289007
+--- !u!1 &5205080343194440993
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2715492534005953008}
-  - component: {fileID: 49488196055695670}
-  m_Layer: 0
-  m_Name: MeleeAttack
+  - component: {fileID: 538907895112806515}
+  - component: {fileID: 7499680035129448594}
+  - component: {fileID: 1124050794064696572}
+  - component: {fileID: 9035515501070436004}
+  - component: {fileID: 3894802489479247633}
+  - component: {fileID: 7286370287618610484}
+  - component: {fileID: 2026052790816748159}
+  - component: {fileID: 7530635424054731957}
+  - component: {fileID: 1325315429283944623}
+  m_Layer: 8
+  m_Name: MeleeAttackSubTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2715492534005953008
+--- !u!4 &538907895112806515
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7565465158718289007}
+  m_GameObject: {fileID: 5205080343194440993}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,13 +39,182 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5041478743592039370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &49488196055695670
+--- !u!114 &7499680035129448594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedEditorNode: {fileID: 7530635424054731957}
+  repeatOnFinish: 0
+  maxExecutionsPerTick: 1000
+  parent: {fileID: 6082474738794808135}
+--- !u!114 &1124050794064696572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538645f2f9090fd43bc6154b2e89e2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Root
+  rect:
+    serializedVersion: 2
+    x: 340
+    y: 60
+    width: 160
+    height: 44
+  parent: {fileID: 0}
+  children:
+  - {fileID: 9035515501070436004}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+--- !u!114 &9035515501070436004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: 340
+    y: 120
+    width: 160
+    height: 44
+  parent: {fileID: 1124050794064696572}
+  children:
+  - {fileID: 7530635424054731957}
+  - {fileID: 3894802489479247633}
+  - {fileID: 2026052790816748159}
+  - {fileID: 7286370287618610484}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &3894802489479247633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: SetState
+  rect:
+    serializedVersion: 2
+    x: 260
+    y: 200
+    width: 160
+    height: 44
+  parent: {fileID: 9035515501070436004}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: MeleeAttack
+--- !u!114 &7286370287618610484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: SetState
+  rect:
+    serializedVersion: 2
+    x: 580
+    y: 200
+    width: 160
+    height: 44
+  parent: {fileID: 9035515501070436004}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: Idle
+--- !u!114 &2026052790816748159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 420
+    y: 200
+    width: 160
+    height: 44
+  parent: {fileID: 9035515501070436004}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 1
+--- !u!114 &7530635424054731957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e663b74379f55b042876f31fcc21d988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: CheckPlayerTrigger
+  rect:
+    serializedVersion: 2
+    x: 100
+    y: 200
+    width: 160
+    height: 44
+  parent: {fileID: 9035515501070436004}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+--- !u!61 &1325315429283944623
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7565465158718289007}
+  m_GameObject: {fileID: 5205080343194440993}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -96,7 +272,7 @@ PrefabInstance:
     - target: {fileID: 442247492029501132, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: selectedEditorNode
       value: 
-      objectReference: {fileID: 2552682646798327250}
+      objectReference: {fileID: 0}
     - target: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.21
@@ -161,8 +337,8 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2715492534005953008}
+      insertIndex: 0
+      addedObject: {fileID: 538907895112806515}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       insertIndex: -1
@@ -172,25 +348,13 @@ PrefabInstance:
       addedObject: {fileID: 6613967304657619475}
     - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5315007808045948054}
-    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6703433006281594085}
-    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6273074232035294364}
-    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4934169594522118476}
     - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6822275220531118807}
-    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2616446607037829177}
-    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2552682646798327250}
+    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3354422631738265641}
   m_SourcePrefab: {fileID: 100100000, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
 --- !u!114 &1167773516837855111 stripped
 MonoBehaviour:
@@ -283,91 +447,13 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 8703498351312872313}
   children:
-  - {fileID: 5315007808045948054}
+  - {fileID: 3354422631738265641}
   - {fileID: 2552682646798327250}
   - {fileID: 4934169594522118476}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   random: 0
---- !u!114 &5315007808045948054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5796841361442416562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Sequence
-  rect:
-    serializedVersion: 2
-    x: -220
-    y: 280
-    width: 160
-    height: 44
-  parent: {fileID: 6613967304657619475}
-  children:
-  - {fileID: 6703433006281594085}
-  - {fileID: 6273074232035294364}
-  - {fileID: 6822275220531118807}
-  - {fileID: 2616446607037829177}
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  random: 0
---- !u!114 &6703433006281594085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5796841361442416562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e663b74379f55b042876f31fcc21d988, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: CheckPlayerTrigger
-  rect:
-    serializedVersion: 2
-    x: -480
-    y: 360
-    width: 160
-    height: 44
-  parent: {fileID: 5315007808045948054}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
---- !u!114 &6273074232035294364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5796841361442416562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: SetState
-  rect:
-    serializedVersion: 2
-    x: -320
-    y: 360
-    width: 160
-    height: 44
-  parent: {fileID: 5315007808045948054}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  stateName: MeleeAttack
 --- !u!114 &4934169594522118476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,64 +466,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: SetState
+  title: SetState - Idle
   rect:
     serializedVersion: 2
-    x: 680
+    x: 520
     y: 280
     width: 160
     height: 44
   parent: {fileID: 6613967304657619475}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  stateName: Idle
---- !u!114 &6822275220531118807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5796841361442416562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Wait
-  rect:
-    serializedVersion: 2
-    x: -160
-    y: 360
-    width: 160
-    height: 44
-  parent: {fileID: 5315007808045948054}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  duration: 1
---- !u!114 &2616446607037829177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5796841361442416562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: SetState
-  rect:
-    serializedVersion: 2
-    x: 0
-    y: 360
-    width: 160
-    height: 44
-  parent: {fileID: 5315007808045948054}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -468,3 +504,39 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   tree: {fileID: 2736404970193075042}
+--- !u!114 &3354422631738265641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796841361442416562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efee2c6abc08f1d42acf5b1a33db992c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: SubTree - MeleeAttack
+  rect:
+    serializedVersion: 2
+    x: 120
+    y: 280
+    width: 160
+    height: 44
+  parent: {fileID: 6613967304657619475}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  tree: {fileID: 7499680035129448594}
+--- !u!114 &6082474738794808135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 442247492029501132, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+  m_PrefabInstance: {fileID: 5929665436711849355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796841361442416562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
