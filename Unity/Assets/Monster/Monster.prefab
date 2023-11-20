@@ -240,6 +240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363d1885b80993b42a55c42e1c9d7cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 1
+  speed: 1
 --- !u!1 &6026618913244254666
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +256,7 @@ GameObject:
   - component: {fileID: 8629648017570122627}
   - component: {fileID: 1941795368655738102}
   - component: {fileID: 4364387046914262332}
+  - component: {fileID: 1133504858195142531}
   m_Layer: 7
   m_Name: ChaseSubTree
   m_TagString: Untagged
@@ -288,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 4364387046914262332}
+  selectedEditorNode: {fileID: 1133504858195142531}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 442247492029501132}
@@ -340,6 +343,7 @@ MonoBehaviour:
   children:
   - {fileID: 4364387046914262332}
   - {fileID: 1941795368655738102}
+  - {fileID: 1133504858195142531}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -359,7 +363,7 @@ MonoBehaviour:
   title: SetState
   rect:
     serializedVersion: 2
-    x: 440
+    x: 340
     y: 180
     width: 160
     height: 44
@@ -384,8 +388,8 @@ MonoBehaviour:
   title: CheckPlayerWithinRange
   rect:
     serializedVersion: 2
-    x: 252.20001
-    y: 182.8
+    x: 160
+    y: 180
     width: 160
     height: 44
   parent: {fileID: 8629648017570122627}
@@ -395,3 +399,27 @@ MonoBehaviour:
   breakpoint: 0
   xRange: 8
   yRange: 2
+--- !u!114 &1133504858195142531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026618913244254666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e595d8070624504a673d8709118edf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Chase
+  rect:
+    serializedVersion: 2
+    x: 517.2
+    y: 183.8
+    width: 160
+    height: 44
+  parent: {fileID: 8629648017570122627}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
