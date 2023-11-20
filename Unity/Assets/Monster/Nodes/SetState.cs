@@ -12,7 +12,7 @@ namespace Monster.Nodes
 
         private void Start()
         {
-            _animator = GetComponent<Animator>();
+            _animator = transform.parent == null ? GetComponent<Animator>() : transform.parent.GetComponent<Animator>();
         }
 
         public override NodeResult Execute()
