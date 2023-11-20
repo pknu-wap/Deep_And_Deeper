@@ -4,6 +4,7 @@ namespace Hero
 {
     public class HeroManager
     {
+        private const float MaxHp = 100;
         private static HeroManager _instance;
         private readonly Rigidbody2D _rigidbody2D;
         private readonly Animator _animator;
@@ -11,6 +12,7 @@ namespace Hero
         private readonly Transform _transform;
 
         private bool _isGrounded;
+        private float _hp;
 
         public static HeroManager Instance => _instance ??= new HeroManager();
 
@@ -21,6 +23,7 @@ namespace Hero
             _animator = gameObject.GetComponent<Animator>();
             _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
             _transform = gameObject.GetComponent<Transform>();
+            _hp = MaxHp;
         }
 
         public void SetVelocityX(float x)
@@ -61,6 +64,12 @@ namespace Hero
         public Vector3 GetPosition()
         {
             return _transform.position;
+        }
+
+        public void ApplyDamage(float damage)
+        {
+            _hp -= damage;
+            Debug.Log(_hp);
         }
     }
 }
