@@ -5,9 +5,9 @@ namespace Monster
 {
     public class Monster : MonoBehaviour
     {
-        #pragma warning disable 0414
+#pragma warning disable 0414
         [SerializeField] private float hp = 1;
-        #pragma warning restore 0414
+#pragma warning restore 0414
         [SerializeField] private float speed = 1;
         private Rigidbody2D _rigidbody2D;
         private Vector3 _originScale;
@@ -31,7 +31,7 @@ namespace Monster
             var flipped = transform.position.x < HeroManager.Instance.GetPosition().x;
             transform.localScale = flipped ? _flippedScale : _originScale;
 
-            var x = flipped ? -1 : 1;
+            var x = flipped ? 1 : -1;
             _rigidbody2D.velocity = new Vector2(x * speed, _rigidbody2D.velocity.y);
         }
     }
