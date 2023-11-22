@@ -1,4 +1,5 @@
 using System;
+using Hero;
 using MBT;
 using UnityEngine;
 
@@ -8,32 +9,21 @@ namespace Monster.Nodes
     [MBTNode(name = "Monster/CheckPlayerWithinRange")]
     public class CheckPlayerWithinRange : Leaf
     {
-        [SerializeField] private Transform player;
-        [SerializeField] private RangeOption rangeOption = RangeOption.X;
-        [SerializeField] private float range;
+        [SerializeField] private float xRange = 8;
+        [SerializeField] private float yRange = 2;
 
         private bool IsPlayerWithinRange()
         {
-            var playerPosition = player.position;
+            var playerPosition = HeroManager.Instance.GetPosition();
             var thisPosition = transform.position;
 
-            return rangeOption switch
-            {
-                RangeOption.X => Math.Abs(playerPosition.x - thisPosition.x) <= range,
-                RangeOption.Y => Math.Abs(playerPosition.y - thisPosition.y) <= range,
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            return Math.Abs(playerPosition.x - thisPosition.x) <= xRange
+                   && Math.Abs(playerPosition.y - thisPosition.y) <= yRange;
         }
 
         public override NodeResult Execute()
         {
             return IsPlayerWithinRange() ? NodeResult.success : NodeResult.failure;
-        }
-
-        private enum RangeOption
-        {
-            X,
-            Y
         }
     }
 }
