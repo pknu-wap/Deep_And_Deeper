@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Background
   layers:
   - Default
   - TransparentFX
@@ -12,9 +13,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Hero
+  - Monster
+  - MonsterAttack
   - 
   - 
   - 
@@ -41,4 +42,40 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background_0
+    uniqueID: 1436111683
+    locked: 0
+  - name: Background_1
+    uniqueID: 940262819
+    locked: 0
+  - name: Background_2
+    uniqueID: 2786301617
+    locked: 0
+  - name: Background_3
+    uniqueID: 3068557923
+    locked: 0
+  - name: Background(tile)_1
+    uniqueID: 1868404173
+    locked: 0
+  - name: Background(tile)_2
+    uniqueID: 4004631805
+    locked: 0
+  - name: Background(tile)_3
+    uniqueID: 1426894145
+    locked: 0
+  - name: Deco_1
+    uniqueID: 2472047883
+    locked: 0
+  - name: Deco_2
+    uniqueID: 1926541029
+    locked: 0
+  - name: Potal
+    uniqueID: 90159935
+    locked: 0
+  - name: Ground
+    uniqueID: 1455486077
+    locked: 0
+  - name: Player
+    uniqueID: 1085052001
     locked: 0

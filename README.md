@@ -21,11 +21,5 @@
 			<br /><b>김민아</a><br />
 			<a href="https://github.com/pknu-wap/2023_2_Game_Team_1/commits/main?author=alsdddk" title="Code">💻Commits</a>
 		</td>
-		<td align="center">
-			<a href="http://github.com/Air-Mookie">
-			<img src="https://avatars.githubusercontent.com/u/114290098?v=4" width="100px;" alt=""/>
-			<br /><b>김현수</a><br />
-			<a href="https://github.com/pknu-wap/2023_2_Game_Team_1/commits/main?author=Air-Mookie" title="Code">💻Commits</a>
-		</td>
 	</tr>
 </table>
