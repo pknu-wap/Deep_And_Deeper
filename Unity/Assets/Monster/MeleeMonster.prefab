@@ -14,10 +14,14 @@ GameObject:
   - component: {fileID: 9035515501070436004}
   - component: {fileID: 3894802489479247633}
   - component: {fileID: 7286370287618610484}
-  - component: {fileID: 2026052790816748159}
   - component: {fileID: 7530635424054731957}
   - component: {fileID: 1325315429283944623}
   - component: {fileID: 8124020999146625282}
+  - component: {fileID: 7687712948330983982}
+  - component: {fileID: 7384258991846386898}
+  - component: {fileID: 7092301795211026024}
+  - component: {fileID: 4676277552130692890}
+  - component: {fileID: 6367233986907547822}
   m_Layer: 8
   m_Name: MeleeAttackSubTree
   m_TagString: Untagged
@@ -52,7 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 2026052790816748159}
+  selectedEditorNode: {fileID: 0}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 6082474738794808135}
@@ -104,7 +108,9 @@ MonoBehaviour:
   children:
   - {fileID: 7530635424054731957}
   - {fileID: 3894802489479247633}
-  - {fileID: 2026052790816748159}
+  - {fileID: 7384258991846386898}
+  - {fileID: 7092301795211026024}
+  - {fileID: 6367233986907547822}
   - {fileID: 7286370287618610484}
   - {fileID: 8124020999146625282}
   behaviourTree: {fileID: 0}
@@ -126,7 +132,7 @@ MonoBehaviour:
   title: SetState
   rect:
     serializedVersion: 2
-    x: 200
+    x: -140
     y: 200
     width: 160
     height: 44
@@ -151,7 +157,7 @@ MonoBehaviour:
   title: SetState
   rect:
     serializedVersion: 2
-    x: 520
+    x: 500
     y: 200
     width: 160
     height: 44
@@ -161,31 +167,6 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   stateName: Idle
---- !u!114 &2026052790816748159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5205080343194440993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Wait
-  rect:
-    serializedVersion: 2
-    x: 360
-    y: 200
-    width: 160
-    height: 44
-  parent: {fileID: 9035515501070436004}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  duration: 0.9
 --- !u!114 &7530635424054731957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +182,7 @@ MonoBehaviour:
   title: CheckPlayerTrigger
   rect:
     serializedVersion: 2
-    x: 40
+    x: -300
     y: 200
     width: 160
     height: 44
@@ -270,7 +251,7 @@ MonoBehaviour:
   title: Wait
   rect:
     serializedVersion: 2
-    x: 680
+    x: 660
     y: 200
     width: 160
     height: 44
@@ -280,6 +261,133 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   duration: 0.6
+--- !u!114 &7687712948330983982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59220f50cbdb854f9a33ee120cfe6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: ApplyDamage
+  rect:
+    serializedVersion: 2
+    x: 180
+    y: 360
+    width: 160
+    height: 44
+  parent: {fileID: 4676277552130692890}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  damage: 5
+--- !u!114 &7384258991846386898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 20
+    y: 200
+    width: 160
+    height: 44
+  parent: {fileID: 9035515501070436004}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 0.4
+--- !u!114 &7092301795211026024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f08316ecaa4f11aa5d411f67615d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Parallel
+  rect:
+    serializedVersion: 2
+    x: 180
+    y: 200
+    width: 160
+    height: 44
+  parent: {fileID: 9035515501070436004}
+  children:
+  - {fileID: 4676277552130692890}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &4676277552130692890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: 180
+    y: 280
+    width: 160
+    height: 44
+  parent: {fileID: 7092301795211026024}
+  children:
+  - {fileID: 7687712948330983982}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &6367233986907547822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 340
+    y: 200
+    width: 160
+    height: 44
+  parent: {fileID: 9035515501070436004}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 0.3
 --- !u!1001 &5929665436711849355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -547,7 +655,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 120
-    y: 280
+    y: 279
     width: 160
     height: 44
   parent: {fileID: 6613967304657619475}
