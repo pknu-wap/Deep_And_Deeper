@@ -1,12 +1,11 @@
-using System;
 using MBT;
 using UnityEngine;
 
 namespace Monster.Nodes
 {
     [AddComponentMenu("")]
-    [MBTNode(name = "Monster/CheckEvent")]
-    public class CheckEvent : Leaf
+    [MBTNode(name = "Monster/SetEvent")]
+    public class SetEvent : Leaf
     {
         [SerializeField] private string eventName;
         private Monster _monster;
@@ -18,9 +17,8 @@ namespace Monster.Nodes
 
         public override NodeResult Execute()
         {
-            return string.Equals(_monster.GetEvent(), eventName, StringComparison.Ordinal)
-                ? NodeResult.success
-                : NodeResult.failure;
+            _monster.SetEvent(eventName);
+            return NodeResult.success;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Monster
         private Rigidbody2D _rigidbody2D;
         private Vector3 _originScale;
         private Vector3 _flippedScale;
-        private Dictionary<string, CheckEvent> _eventCheckers;
+        private string _currentEvent;
 
         private void Start()
         {
@@ -22,14 +22,14 @@ namespace Monster
             _flippedScale.x *= -1;
         }
 
-        public void ConnectEventChecker(string eventName, CheckEvent eventChecker)
+        public void SetEvent(string eventName)
         {
-            _eventCheckers[eventName] = eventChecker;
+            _currentEvent = eventName;
         }
 
-        private void OnEvent(string eventName)
+        public string GetEvent()
         {
-            _eventCheckers[eventName].Check();
+            return _currentEvent;
         }
 
         public void Chase()
