@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ButtonType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -21,17 +22,19 @@ public class ButtonType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
       switch (currentType)
       {
          case BtnType.NewStart:
-            Debug.Log("new start");
+            SceneLoader.LoadSceneHandle(0);
             break;
          case BtnType.Continue:
-            Debug.Log("continue");
+            SceneLoader.LoadSceneHandle(1);
             break;
          case BtnType.Exit:
+            Application.Quit();
             Debug.Log("exit");
             break;
       }
    }
 
+    //버튼 크기 키우기
    public void OnPointerEnter(PointerEventData eventData)
    {
       _transformOfBtnn.localScale = defaultScale * 1.2f;
