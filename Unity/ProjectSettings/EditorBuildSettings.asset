@@ -6,6 +6,51 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Title.unity
+    guid: aa4f7e53731e14c43a60739f4a3cbbe7
+  - enabled: 1
+    path: Assets/Scenes/BattleMap1_1.unity
+    guid: a3f370de179f72046afa8d72dac2feb0
+  - enabled: 1
+    path: Assets/Scenes/BattleMap1_2.unity
+    guid: edcb92e9e7343ba45ad9e10e1103a29d
+  - enabled: 1
+    path: Assets/Scenes/BattleMap1_3.unity
+    guid: ddc04c7738984384ea4f54588ce308b5
+  - enabled: 1
+    path: Assets/Scenes/BattleMap1_4.unity
+    guid: 33e1ed24477606d46bbc221faa05ff46
+  - enabled: 1
+    path: Assets/Scenes/BattleMap1_5.unity
+    guid: d1df2fc0b47c6784babd656bd61d3c94
+  - enabled: 1
+    path: Assets/Scenes/BattleMap2_1.unity
+    guid: 167891188e2da9c40b3347d47738c182
+  - enabled: 1
+    path: Assets/Scenes/BattleMap2_2.unity
+    guid: d8ade0d3b483e6d4085a1c8af9a6fdd1
+  - enabled: 1
+    path: Assets/Scenes/BattleMap2_3.unity
+    guid: cd62767aaa271e1448f540e1cc2547f6
+  - enabled: 1
+    path: Assets/Scenes/BattleMap2_4.unity
+    guid: ff35066c68f5dc246b6df0a0f011c07e
+  - enabled: 1
+    path: Assets/Scenes/BattleMap2_5.unity
+    guid: 30b2ce0c9c1b00d40b7da0f54202738a
+  - enabled: 1
+    path: Assets/Scenes/BattleMap3_1.unity
+    guid: 333517b31addfd44a9997965ffd8f0b6
+  - enabled: 1
+    path: Assets/Scenes/BattleMap3_2.unity
+    guid: ff33047619ca3ba48b90532dd66ad742
+  - enabled: 1
+    path: Assets/Scenes/BattleMap3_3.unity
+    guid: 4c063bf64d3b97944943c74bee20a9da
+  - enabled: 1
+    path: Assets/Scenes/BattleMap3_4.unity
+    guid: e1ba6f7fbd27de74aa0460e0d78c9c22
+  - enabled: 1
+    path: Assets/Scenes/BattleMap3_5.unity
+    guid: 7fc153ddacba6fc499f062c3f85eba8e
   m_configObjects: {}
