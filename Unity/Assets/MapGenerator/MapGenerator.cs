@@ -9,6 +9,7 @@ namespace MapGenerator
     {
         private enum RoomTypes
         {
+            Empty,
             Main,
             Battle,
             Shop,
@@ -51,6 +52,9 @@ namespace MapGenerator
         private static void GenerateMap()
         {
             var roomsToGenerate = GenerateList();
+
+            var mapBoard = new RoomTypes[5, 5];
+            Debug.Log(mapBoard[0, 0]);
 
             foreach (var room in roomsToGenerate)
             {
