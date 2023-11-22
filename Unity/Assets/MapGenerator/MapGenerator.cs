@@ -42,6 +42,7 @@ namespace MapGenerator
                 (list[rand1], list[rand2]) = (list[rand2], list[rand1]);
             }
 
+            list.Insert(0, RoomTypes.Main);
             list.Add(RoomTypes.Boss);
 
             return list;
