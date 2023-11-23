@@ -4,7 +4,7 @@ namespace Hero
 {
     public class HeroManager
     {
-        private const float MaxHp = 100;
+        private const float MaxHp = 1000;
         private static HeroManager _instance;
         private readonly Rigidbody2D _rigidbody2D;
         private readonly Animator _animator;
