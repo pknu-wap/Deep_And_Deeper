@@ -22,10 +22,10 @@ public class ButtonType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
       switch (currentType)
       {
          case BtnType.NewStart:
-            SceneLoader.LoadSceneHandle(0);
+            SceneLoader.LoadSceneHandle("BattleMap2_1"); //나중에 수정할 거
             break;
-         case BtnType.Continue:
-            SceneLoader.LoadSceneHandle(1);
+         case BtnType.Tutorial:
+            SceneLoader.LoadSceneHandle("Tutorial");
             break;
          case BtnType.Exit:
             Application.Quit();

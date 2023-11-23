@@ -5,7 +5,7 @@ using UnityEngine;
 public enum BtnType
 {
     NewStart,
-    Continue,
+    Tutorial,
     Exit
 }
 
