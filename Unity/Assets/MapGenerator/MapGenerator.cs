@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,10 +7,17 @@ namespace MapGenerator
 {
     public class MapGenerator : MonoBehaviour
     {
+        [SerializeField] private GameObject roomObject;
+        [SerializeField] private Transform roomParent;
+        [SerializeField] private Vector2 roomSize = new Vector2(100, 100);
+        [SerializeField] private int mapMaxSize = 19;
+        [SerializeField] private int numBattleRoom = 5;
+        [SerializeField] private int numShopRoom = 1;
+        [SerializeField] private int numSecretRoom = 1;
+        [SerializeField] private int numAdditionalBattleRoom = 5;
+
         private readonly int[] _dy = { -1, 0, 0, 1 };
         private readonly int[] _dx = { 0, -1, 1, 0 };
-        private const int MapMaxSize = 19;
-        private const int NumAdditionalBattleRoom = 5;
 
         private enum RoomTypes
         {
@@ -25,17 +33,17 @@ namespace MapGenerator
         {
             ArrayList list = new();
 
-            for (var i = 0; i < 5; i++)
+            for (var i = 0; i < numBattleRoom; i++)
             {
                 list.Add(RoomTypes.Battle);
             }
 
-            for (var i = 0; i < 1; i++)
+            for (var i = 0; i < numShopRoom; i++)
             {
                 list.Add(RoomTypes.Shop);
             }
 
-            for (var i = 0; i < 1; i++)
+            for (var i = 0; i < numSecretRoom; i++)
             {
                 list.Add(RoomTypes.Secret);
             }
@@ -53,14 +61,14 @@ namespace MapGenerator
             return list;
         }
 
-        private void GenerateMap()
+        private RoomTypes[,] GenerateMap()
         {
             var roomsToGenerate = GenerateList();
 
-            var mapBoard = new RoomTypes[MapMaxSize, MapMaxSize];
+            var mapBoard = new RoomTypes[mapMaxSize, mapMaxSize];
 
-            var y = MapMaxSize / 2;
-            var x = MapMaxSize / 2;
+            var y = mapMaxSize / 2;
+            var x = mapMaxSize / 2;
 
             foreach (RoomTypes room in roomsToGenerate)
             {
@@ -75,7 +83,7 @@ namespace MapGenerator
                     var ny = y + _dy[i];
                     var nx = x + _dx[i];
 
-                    if (ny == -1 || ny == MapMaxSize || nx == -1 || nx == MapMaxSize) continue;
+                    if (ny == -1 || ny == mapMaxSize || nx == -1 || nx == mapMaxSize) continue;
                     if (mapBoard[ny, nx] != RoomTypes.Empty) continue;
 
                     validDirections.Add(i);
@@ -114,9 +122,9 @@ namespace MapGenerator
 
             var currentNumAdditionalBattleRoom = 0;
 
-            for (var i = 0; i < MapMaxSize; i++)
+            for (var i = 0; i < mapMaxSize; i++)
             {
-                for (var j = 0; j < MapMaxSize; j++)
+                for (var j = 0; j < mapMaxSize; j++)
                 {
                     if (mapBoard[i, j] == RoomTypes.Empty) continue;
 
@@ -150,16 +158,38 @@ namespace MapGenerator
 
                     currentNumAdditionalBattleRoom++;
 
-                    if (currentNumAdditionalBattleRoom >= NumAdditionalBattleRoom) goto END_OF_LOOP;
+                    if (currentNumAdditionalBattleRoom >= numAdditionalBattleRoom) goto END_OF_LOOP;
                 }
             }
 
-            END_OF_LOOP: ;
+            END_OF_LOOP:
+
+            return mapBoard;
+        }
+
+        private void PrintMap(RoomTypes[,] mapBoard)
+        {
+            for (var i = 0; i < mapMaxSize; i++)
+            {
+                // ReSharper disable once PossibleLossOfFraction
+                var y = (i - mapMaxSize / 2) * roomSize.y;
+
+                for (var j = 0; j < mapMaxSize; j++)
+                {
+                    if (mapBoard[i, j] == RoomTypes.Empty) continue;
+
+                    // ReSharper disable once PossibleLossOfFraction
+                    var x = (j - mapMaxSize / 2) * roomSize.x;
+
+                    Instantiate(roomObject, new Vector3(y, x, 0), quaternion.identity, roomParent);
+                }
+            }
         }
 
         private void Start()
         {
-            GenerateMap();
+            var map = GenerateMap();
+            PrintMap(map);
         }
     }
 }
