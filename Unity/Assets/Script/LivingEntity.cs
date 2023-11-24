@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LivingEntity : MonoBehaviour
 {
-    public float startingHealth { get; protected set; }
+    public float startingHealth { get; protected set; } //나중에 수정해야 함.
     public float health { get; protected set; }
     public bool dead { get; protected set; }
 

@@ -10,15 +10,16 @@ public class PlayerHealth : LivingEntity
     [SerializeField] private Image _healthBar;
     [SerializeField] private TextMeshProUGUI _healthText;
     private SpriteRenderer _spriteRenderer;
+    private bool _isInTrap = false;
     private void Awake()
     {
-        startingHealth = 1000f;
+        startingHealth = 1000f; //플레이어가 자진 체력 최대값 -> health가 현재 체력 값
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     protected override void OnEnable()
     {
-        base.OnEnable();
+        base.OnEnable(); //나중에 수정해야 할 듯, onenable에는 health에 startinghealth를 할당함. 게임매니저에서 해야 하지 안흘까,,?ㅎ
 
         _healthBar.fillAmount = health / startingHealth;
         _healthText.text = health.ToString() + "/" + startingHealth.ToString();
@@ -70,6 +71,31 @@ public class PlayerHealth : LivingEntity
         if (other.tag == "MeleeAttack")
         {
             OnDamage(50f);
+        }
+        else if (other.tag == "Trap")
+        {
+            _isInTrap = true;
+            StartCoroutine(TrapDamageOverTime());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Trap")
+        {
+            _isInTrap = false;
+            StopCoroutine(TrapDamageOverTime());
+        }
+    }
+
+    IEnumerator TrapDamageOverTime()
+    {
+        float damageCoolTime = 1f; 
+        
+        while (_isInTrap)
+        {
+            OnDamage(10f);
+            yield return new WaitForSeconds(damageCoolTime);
         }
     }
 }
