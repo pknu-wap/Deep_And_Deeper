@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 0}
+  selectedEditorNode: {fileID: 436228756338945899}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 2816102555081676567}
@@ -151,7 +151,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 480
-    y: 280
+    y: 281
     width: 160
     height: 44
   parent: {fileID: 7387639594961235479}
@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: -6438386939851595218}
   - component: {fileID: 878823011287158652}
   - component: {fileID: 6397914760058922275}
+  - component: {fileID: 3962603647060146451}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Player
@@ -974,6 +975,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 1665001250274538521}
   _healthText: {fileID: 527426043695145511}
+--- !u!114 &3962603647060146451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548069816130054504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117fae9c1323fd64da23f711eb617d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaBar: {fileID: 7017466293881043725}
+  cantRoll: 0
 --- !u!1 &6413244565834171567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,3 +2003,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7179023879645583039, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
   m_PrefabInstance: {fileID: 6654672327335481965}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7017466293881043725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4411602747543677280, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
+  m_PrefabInstance: {fileID: 6654672327335481965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

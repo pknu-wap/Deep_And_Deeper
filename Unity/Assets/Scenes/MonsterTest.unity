@@ -843,6 +843,10 @@ PrefabInstance:
       value: MeleeMonster
       objectReference: {fileID: 0}
     - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_TagString
       value: Monster
       objectReference: {fileID: 0}

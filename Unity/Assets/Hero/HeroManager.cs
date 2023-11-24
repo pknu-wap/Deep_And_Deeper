@@ -13,6 +13,7 @@ namespace Hero
         //추가한 거
         private readonly PlayerHealth _playerHealth;
         private readonly MonsterHealth _monsterHealth;
+        private readonly PlayerStamina _playerStamina;
 
         private bool _isGrounded;
         //private float _hp;
@@ -31,6 +32,7 @@ namespace Hero
             //추가한 거
             _playerHealth = gameObject.GetComponent<PlayerHealth>();
             _monsterHealth = GameObject.FindWithTag("Monster").GetComponent<MonsterHealth>();
+            _playerStamina = gameObject.GetComponent<PlayerStamina>();
         }
 
         public void SetVelocityX(float x)
@@ -85,7 +87,16 @@ namespace Hero
             {
                 _monsterHealth.OnDamage(50f);
             }
-            
+        }
+
+        public bool GetStamina()
+        {
+            return _playerStamina.CheckRoll();
+        }
+
+        public void StaminaUpdate()
+        {
+            _playerStamina.DeStamina();
         }
     }
 }
