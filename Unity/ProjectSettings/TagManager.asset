@@ -8,6 +8,8 @@ TagManager:
   - Background
   - MeleeAttack
   - Trap
+  - PlayerAttack
+  - Monster
   layers:
   - Default
   - TransparentFX

@@ -11,12 +11,14 @@ namespace Monster.Nodes
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            _playerTrigger = true;
+            if(other.CompareTag("Player"))
+            {_playerTrigger = true;}
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            _playerTrigger = false;
+            if(other.CompareTag("Player"))
+            {_playerTrigger = false;}
         }
 
         public override NodeResult Execute()

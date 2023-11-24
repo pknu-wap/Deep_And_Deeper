@@ -1235,9 +1235,19 @@ GameObject:
   - component: {fileID: 5921367451903161297}
   - component: {fileID: 5190640082952449168}
   - component: {fileID: 5238769514715978274}
+  - component: {fileID: 6930608297597172039}
+  - component: {fileID: 5629155533909473523}
+  - component: {fileID: 9123055557412955473}
+  - component: {fileID: 1004271026079966216}
+  - component: {fileID: 8871864224285517969}
+  - component: {fileID: 6069446569842724636}
+  - component: {fileID: 6247869924692622587}
+  - component: {fileID: 868896007915352515}
+  - component: {fileID: 621851309833321814}
+  - component: {fileID: 6221246533935722488}
   m_Layer: 0
   m_Name: AttackSubTree
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1251,7 +1261,7 @@ Transform:
   m_GameObject: {fileID: 7172930446763052542}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.320153, y: 2.001957, z: -0.035693612}
+  m_LocalPosition: {x: 0, y: 0.83, z: -0.035693612}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1269,7 +1279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 0}
+  selectedEditorNode: {fileID: 1004271026079966216}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 2816102555081676567}
@@ -1322,12 +1332,15 @@ MonoBehaviour:
   - {fileID: 8586376082647173450}
   - {fileID: 1036521620945074422}
   - {fileID: 1915629298778109619}
+  - {fileID: 5629155533909473523}
   - {fileID: 4591174726161815774}
   - {fileID: 8239780266141504579}
   - {fileID: 8893826085542651808}
+  - {fileID: 8871864224285517969}
   - {fileID: 3790897157694727037}
   - {fileID: 5921367451903161297}
   - {fileID: 5190640082952449168}
+  - {fileID: 868896007915352515}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -1611,6 +1624,282 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   keyCode: 122
+--- !u!61 &6930608297597172039
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172930446763052542}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.92, y: 0.17}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.62, y: 1.63}
+  m_EdgeRadius: 0
+--- !u!114 &5629155533909473523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172930446763052542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f08316ecaa4f11aa5d411f67615d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Parallel
+  rect:
+    serializedVersion: 2
+    x: 399.2
+    y: 349.8
+    width: 160
+    height: 44
+  parent: {fileID: 4015089682159523966}
+  children:
+  - {fileID: 9123055557412955473}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &9123055557412955473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172930446763052542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: 399.2
+    y: 407.8
+    width: 160
+    height: 44
+  parent: {fileID: 5629155533909473523}
+  children:
+  - {fileID: 1004271026079966216}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &1004271026079966216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172930446763052542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59220f50cbdb854f9a33ee120cfe6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: ApplyDamage
+  rect:
+    serializedVersion: 2
+    x: 399.2
+    y: 468.8
+    width: 160
+    height: 44
+  parent: {fileID: 9123055557412955473}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  target: 1
+--- !u!114 &8871864224285517969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172930446763052542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f08316ecaa4f11aa5d411f67615d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Parallel
+  rect:
+    serializedVersion: 2
+    x: 907.2
+    y: 353.8
+    width: 160
+    height: 44
+  parent: {fileID: 4015089682159523966}
+  children:
+  - {fileID: 6069446569842724636}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &6069446569842724636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172930446763052542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: 906.2
+    y: 409.8
+    width: 160
+    height: 44
+  parent: {fileID: 8871864224285517969}
+  children:
+  - {fileID: 6247869924692622587}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &6247869924692622587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172930446763052542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59220f50cbdb854f9a33ee120cfe6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: ApplyDamage
+  rect:
+    serializedVersion: 2
+    x: 908.2
+    y: 466.8
+    width: 160
+    height: 44
+  parent: {fileID: 6069446569842724636}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  target: 1
+--- !u!114 &868896007915352515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172930446763052542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f08316ecaa4f11aa5d411f67615d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Parallel
+  rect:
+    serializedVersion: 2
+    x: 1419.2
+    y: 336.80002
+    width: 160
+    height: 44
+  parent: {fileID: 4015089682159523966}
+  children:
+  - {fileID: 621851309833321814}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &621851309833321814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172930446763052542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: 1419.2
+    y: 398.80002
+    width: 160
+    height: 44
+  parent: {fileID: 868896007915352515}
+  children:
+  - {fileID: 6221246533935722488}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &6221246533935722488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172930446763052542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59220f50cbdb854f9a33ee120cfe6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: ApplyDamage
+  rect:
+    serializedVersion: 2
+    x: 1419.2
+    y: 462.8
+    width: 160
+    height: 44
+  parent: {fileID: 621851309833321814}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  target: 1
 --- !u!1001 &6654672327335481965
 PrefabInstance:
   m_ObjectHideFlags: 0

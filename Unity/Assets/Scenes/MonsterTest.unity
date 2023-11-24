@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &109822584
+--- !u!1001 &101315342
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -137,11 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7813450559281782495, guid: 6fd7b008c9f340e45afd5e596f7fab87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.85
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 7813450559281782495, guid: 6fd7b008c9f340e45afd5e596f7fab87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.74
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7813450559281782495, guid: 6fd7b008c9f340e45afd5e596f7fab87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -842,6 +842,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_TagString
+      value: Monster
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -852,6 +856,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1620933361}
-  - {fileID: 109822584}
   - {fileID: 397197077}
   - {fileID: 7830879106548364298}
+  - {fileID: 101315342}

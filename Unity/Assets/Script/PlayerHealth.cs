@@ -10,11 +10,14 @@ public class PlayerHealth : LivingEntity
     [SerializeField] private Image _healthBar;
     [SerializeField] private TextMeshProUGUI _healthText;
     private SpriteRenderer _spriteRenderer;
-    private bool _isInTrap = false;
+    private bool _isInTrap;
+    //public bool isInTrigger; //흠
     private void Awake()
     {
         startingHealth = 1000f; //플레이어가 자진 체력 최대값 -> health가 현재 체력 값
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _isInTrap = false;
+        //isInTrigger = false;
     }
 
     protected override void OnEnable()
@@ -50,7 +53,7 @@ public class PlayerHealth : LivingEntity
     IEnumerator HpUpdate() //나중에 수정
     {
         float elapsedTime = 0f;
-        float duration = 0.3f; // 변경되기를 원하는 시간
+        float duration = 0.3f; //변경되는데 걸리는 시간
 
         float currentFillAmount = _healthBar.fillAmount;
         float targetFillAmount = health / startingHealth;
@@ -63,16 +66,16 @@ public class PlayerHealth : LivingEntity
         }
         
         _healthText.text = health.ToString() + "/" + startingHealth.ToString();
-        _healthBar.fillAmount = targetFillAmount; // 보장을 위해 최종값 설정
+        _healthBar.fillAmount = targetFillAmount; //보장을 위해 최종값 설정
     }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "MeleeAttack")
+        /*if (other.CompareTag("MeleeAttack"))
         {
-            OnDamage(50f);
+            isInTrigger = true;
         }
-        else if (other.tag == "Trap")
+        else*/ if (other.CompareTag("Trap"))
         {
             _isInTrap = true;
             StartCoroutine(TrapDamageOverTime());
@@ -81,7 +84,11 @@ public class PlayerHealth : LivingEntity
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Trap")
+        /*if (other.CompareTag("MeleeAttack"))
+        {
+            isInTrigger = false;
+        }
+        else*/ if (other.CompareTag("Trap"))
         {
             _isInTrap = false;
             StopCoroutine(TrapDamageOverTime());
