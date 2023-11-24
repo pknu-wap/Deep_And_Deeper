@@ -73,7 +73,6 @@ namespace MapGenerator
             foreach (RoomTypes room in roomsToGenerate)
             {
                 mapBoard[y, x] = room;
-                Debug.Log($"{y} {x} {room}");
 
                 var betterValidDirections = new ArrayList();
                 var validDirections = new ArrayList();
@@ -93,6 +92,7 @@ namespace MapGenerator
                     {
                         var nny = ny + _dy[i];
                         var nnx = nx + _dx[j];
+                        if (nny == -1 || nny == mapMaxSize || nnx == -1 || nnx == mapMaxSize) continue;
                         if (mapBoard[nny, nnx] == RoomTypes.Empty) continue;
                         numAdjacent++;
                     }
@@ -128,7 +128,6 @@ namespace MapGenerator
                 {
                     if (mapBoard[i, j] == RoomTypes.Empty) continue;
 
-                    var numAdjacent = 0;
                     var validDirections = new ArrayList();
 
                     for (var k = 0; k < 4; k++)
@@ -136,17 +135,23 @@ namespace MapGenerator
                         var ny = i + _dy[k];
                         var nx = j + _dx[k];
 
-                        if (mapBoard[ny, nx] == RoomTypes.Empty)
+                        var numAdjacent = 0;
+
+                        for (var l = 0; l < 4; l++)
                         {
-                            validDirections.Add(k);
-                        }
-                        else
-                        {
+                            var nny = ny + _dy[k];
+                            var nnx = nx + _dx[k];
+
+                            if (nny == -1 || nny == mapMaxSize || nnx == -1 || nnx == mapMaxSize) continue;
+                            if (mapBoard[nny, nnx] == RoomTypes.Empty) continue;
+
                             numAdjacent++;
                         }
-                    }
 
-                    if (numAdjacent >= 2) continue;
+                        if (numAdjacent >= 2) continue;
+
+                        validDirections.Add(k);
+                    }
 
                     var rand = Random.Range(0, validDirections.Count);
                     var direction = (int)validDirections[rand];
