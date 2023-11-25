@@ -16,8 +16,8 @@ namespace MapGenerator
         [SerializeField] private int numSecretRoom = 1;
         [SerializeField] private int numAdditionalBattleRoom = 5;
 
-        private readonly int[] _dy = { -1, 0, 0, 1 };
-        private readonly int[] _dx = { 0, -1, 1, 0 };
+        private readonly int[] _dy = { -1, 0, 1, 0 };
+        private readonly int[] _dx = { 0, -1, 0, 1 };
 
         private enum RoomTypes
         {
@@ -73,9 +73,9 @@ namespace MapGenerator
             foreach (RoomTypes room in roomsToGenerate)
             {
                 mapBoard[y, x] = room;
-
-                var betterValidDirections = new ArrayList();
+                
                 var validDirections = new ArrayList();
+                var betterValidDirections = new ArrayList();
 
                 for (var i = 0; i < 4; i++)
                 {
@@ -88,9 +88,10 @@ namespace MapGenerator
                     validDirections.Add(i);
 
                     var numAdjacent = 0;
+                    
                     for (var j = 0; j < 4; j++)
                     {
-                        var nny = ny + _dy[i];
+                        var nny = ny + _dy[j];
                         var nnx = nx + _dx[j];
                         if (nny == -1 || nny == mapMaxSize || nnx == -1 || nnx == mapMaxSize) continue;
                         if (mapBoard[nny, nnx] == RoomTypes.Empty) continue;
