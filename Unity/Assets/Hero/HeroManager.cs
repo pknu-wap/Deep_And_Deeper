@@ -94,6 +94,11 @@ namespace Hero
             return _playerStamina.CheckRoll();
         }
 
+        public bool CheckDead()
+        {
+            return _playerHealth.dead;
+        }
+
         public void StaminaUpdate()
         {
             _playerStamina.DeStamina();

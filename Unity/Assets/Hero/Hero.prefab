@@ -423,6 +423,7 @@ GameObject:
   - component: {fileID: 6397914760058922275}
   - component: {fileID: 3962603647060146451}
   - component: {fileID: 4350042735088519002}
+  - component: {fileID: 1322104938326150270}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Player
@@ -652,6 +653,7 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 6647391770060834379}
   children:
+  - {fileID: 1322104938326150270}
   - {fileID: 9089261792244633716}
   - {fileID: 207849673159666386}
   behaviourTree: {fileID: 0}
@@ -974,6 +976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5cc20810ce9b04fb89503b38006333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHealth: 0
   _healthBar: {fileID: 1665001250274538521}
   _healthText: {fileID: 527426043695145511}
 --- !u!114 &3962603647060146451
@@ -1008,6 +1011,30 @@ MonoBehaviour:
   currentExp: 0
   exp: 100
   level: 1
+--- !u!114 &1322104938326150270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548069816130054504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394757617c73fb94ea2a38b7f53f9d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: IsDead
+  rect:
+    serializedVersion: 2
+    x: -260.8
+    y: 20.800018
+    width: 160
+    height: 44
+  parent: {fileID: 4957293417063921749}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
 --- !u!1 &6413244565834171567
 GameObject:
   m_ObjectHideFlags: 0

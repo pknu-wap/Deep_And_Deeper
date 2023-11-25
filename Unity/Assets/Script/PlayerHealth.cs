@@ -11,12 +11,14 @@ public class PlayerHealth : LivingEntity
     [SerializeField] private Image _healthBar;
     [SerializeField] private TextMeshProUGUI _healthText;
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
     private bool _isInTrap;
     //public bool isInTrigger; //흠
     private void Awake()
     {
         startingHealth = 1000f; //플레이어가 자진 체력 최대값 -> health가 현재 체력 값
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
         _isInTrap = false;
         //isInTrigger = false;
     }
@@ -32,8 +34,7 @@ public class PlayerHealth : LivingEntity
     public override void Die()
     {
         base.Die();
-        gameObject.SetActive(false);
-        //gameover 화면 보여주기
+        Debug.Log(dead);
         
     }
 

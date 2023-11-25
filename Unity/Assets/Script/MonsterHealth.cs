@@ -47,7 +47,6 @@ public class MonsterHealth : LivingEntity
         gameObject.SetActive(false); //나중에 수정
 
         _playerExp.currentExp += 10f;
-        Debug.Log(_playerExp.currentExp);
         _playerExp.levelUp();
     }
     
