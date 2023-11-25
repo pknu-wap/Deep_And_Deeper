@@ -5,8 +5,6 @@
 [![GitHub PRs](https://img.shields.io/github/issues-pr/pknu-wap/2023_2_Game_Team_1?color=brightgreen)](https://github.com/pknu-wap/2023_2_Game_Team_1/pulls)
 [![GitHub license](https://img.shields.io/github/license/pknu-wap/2023_2_Game_Team_1)](https://github.com/pknu-wap/2023_2_Game_Team_1/blob/main/LICENSE)
 
-2023년 2학기 게임 1팀 프로젝트입니다.
-
 <table>
 	<tr>
 		<td align="center">
@@ -23,3 +21,7 @@
 		</td>
 	</tr>
 </table>
+
+<img src="https://github.com/pknu-wap/Deep_And_Deeper/blob/main/Docs/logo.png" width="750px">
+
+2D 사이드뷰/탑뷰 로그라이크 액션 게임 Deep and Deeper입니다.
