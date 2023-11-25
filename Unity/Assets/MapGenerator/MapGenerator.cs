@@ -207,6 +207,7 @@ namespace MapGenerator
 
                         var door = room.transform.GetChild(k);
                         door.GetComponent<SpriteRenderer>().sprite = _doorSprites[mapBoard[ny, nx]];
+                        door.GetComponent<BoxCollider2D>().isTrigger = true;
                     }
                 }
             }
