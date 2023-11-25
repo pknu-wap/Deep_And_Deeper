@@ -194,7 +194,7 @@ namespace MapGenerator
                     // ReSharper disable once PossibleLossOfFraction
                     var x = (j - mapMaxSize / 2) * roomSize.x;
 
-                    var room = Instantiate(roomObject, new Vector3(y, x, 0), quaternion.identity, roomParent);
+                    var room = Instantiate(roomObject, new Vector3(x, y, 0), quaternion.identity, roomParent);
 
                     // 문 생성
 
