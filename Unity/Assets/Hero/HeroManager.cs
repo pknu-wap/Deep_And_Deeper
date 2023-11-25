@@ -4,15 +4,19 @@ namespace Hero
 {
     public class HeroManager
     {
-        private const float MaxHp = 100;
+        //private const float MaxHp = 1000;
         private static HeroManager _instance;
         private readonly Rigidbody2D _rigidbody2D;
         private readonly Animator _animator;
         private readonly SpriteRenderer _spriteRenderer;
         private readonly Transform _transform;
+        //추가한 거
+        private readonly PlayerHealth _playerHealth;
+        private readonly MonsterHealth _monsterHealth;
+        private readonly PlayerStamina _playerStamina;
 
         private bool _isGrounded;
-        private float _hp;
+        //private float _hp;
 
         public static HeroManager Instance => _instance ??= new HeroManager();
 
@@ -23,7 +27,12 @@ namespace Hero
             _animator = gameObject.GetComponent<Animator>();
             _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
             _transform = gameObject.GetComponent<Transform>();
-            _hp = MaxHp;
+            //_hp = MaxHp;
+            
+            //추가한 거
+            _playerHealth = gameObject.GetComponent<PlayerHealth>();
+            _monsterHealth = GameObject.FindWithTag("Monster").GetComponent<MonsterHealth>();
+            _playerStamina = gameObject.GetComponent<PlayerStamina>();
         }
 
         public void SetVelocityX(float x)
@@ -66,10 +75,33 @@ namespace Hero
             return _transform.position;
         }
 
-        public void ApplyDamage(float damage)
+        public void ApplyDamage(int target)
         {
-            _hp -= damage;
-            Debug.Log(_hp);
+            /*_hp -= damage;
+            Debug.Log(_hp);*/
+            if (target == 0)
+            {
+                _playerHealth.OnDamage(50f);
+            }
+            else if (target == 1 && _monsterHealth.isInTrigger)
+            {
+                _monsterHealth.OnDamage(50f);
+            }
+        }
+
+        public bool GetStamina()
+        {
+            return _playerStamina.CheckRoll();
+        }
+
+        public bool CheckDead()
+        {
+            return _playerHealth.dead;
+        }
+
+        public void StaminaUpdate()
+        {
+            _playerStamina.DeStamina();
         }
     }
 }

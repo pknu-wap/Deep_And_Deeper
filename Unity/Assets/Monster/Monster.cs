@@ -40,5 +40,6 @@ namespace Monster
             var x = flipped ? 1 : -1;
             _rigidbody2D.velocity = new Vector2(x * speed, _rigidbody2D.velocity.y);
         }
+        
     }
 }
