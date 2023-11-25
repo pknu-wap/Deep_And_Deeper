@@ -14,9 +14,9 @@ namespace Hero
         private readonly PlayerHealth _playerHealth;
         private readonly MonsterHealth _monsterHealth;
         private readonly PlayerStamina _playerStamina;
+        private readonly GameOverUI _gameOverUI;
 
         private bool _isGrounded;
-        //private float _hp;
 
         public static HeroManager Instance => _instance ??= new HeroManager();
 
@@ -27,12 +27,12 @@ namespace Hero
             _animator = gameObject.GetComponent<Animator>();
             _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
             _transform = gameObject.GetComponent<Transform>();
-            //_hp = MaxHp;
             
             //추가한 거
             _playerHealth = gameObject.GetComponent<PlayerHealth>();
             _monsterHealth = GameObject.FindWithTag("Monster").GetComponent<MonsterHealth>();
             _playerStamina = gameObject.GetComponent<PlayerStamina>();
+            _gameOverUI = gameObject.GetComponent<GameOverUI>();
         }
 
         public void SetVelocityX(float x)
@@ -103,5 +103,11 @@ namespace Hero
         {
             _playerStamina.DeStamina();
         }
+
+        public void GameOver()
+        {
+            _gameOverUI.OnGameOver();
+        }
+        
     }
 }
