@@ -82,7 +82,7 @@ namespace MapGenerator
                     var ny = y + _dy[i];
                     var nx = x + _dx[i];
 
-                    if (ny == -1 || ny == mapMaxSize || nx == -1 || nx == mapMaxSize) continue;
+                    if (ny <= -1 || ny >= mapMaxSize || nx <= -1 || nx >= mapMaxSize) continue;
                     if (mapBoard[ny, nx] != RoomTypes.Empty) continue;
 
                     validDirections.Add(i);
@@ -93,7 +93,7 @@ namespace MapGenerator
                     {
                         var nny = ny + _dy[j];
                         var nnx = nx + _dx[j];
-                        if (nny == -1 || nny == mapMaxSize || nnx == -1 || nnx == mapMaxSize) continue;
+                        if (nny <= -1 || nny >= mapMaxSize || nnx <= -1 || nnx >= mapMaxSize) continue;
                         if (mapBoard[nny, nnx] == RoomTypes.Empty) continue;
                         numAdjacent++;
                     }
@@ -143,7 +143,7 @@ namespace MapGenerator
                             var nny = ny + _dy[k];
                             var nnx = nx + _dx[k];
 
-                            if (nny == -1 || nny == mapMaxSize || nnx == -1 || nnx == mapMaxSize) continue;
+                            if (nny <= -1 || nny >= mapMaxSize || nnx <= -1 || nnx >= mapMaxSize) continue;
                             if (mapBoard[nny, nnx] == RoomTypes.Empty) continue;
 
                             numAdjacent++;
