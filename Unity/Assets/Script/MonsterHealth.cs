@@ -12,6 +12,8 @@ public class MonsterHealth : LivingEntity
     private SpriteRenderer _spriteRenderer;
     private RectTransform hpBar;
     public bool isInTrigger;
+
+    private PlayerExp _playerExp;
     
     [SerializeField] private float height = 1.7f; //MonsterHpBar가 머리 우에 오도록
 
@@ -23,12 +25,9 @@ public class MonsterHealth : LivingEntity
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _healthBar = monsterHpBar.transform.GetChild(0).GetComponent<Image>();
         isInTrigger = false;
+        _playerExp = GameObject.FindWithTag("Player").GetComponent<PlayerExp>();
     }
     
-    /*private void Start()
-    {
-        hpBar = Instantiate(monsterHp, canvas.transform).GetComponent<RectTransform>();
-    }*/
     private void Update()
     {
         Vector3 _hpBarPos =
@@ -42,6 +41,15 @@ public class MonsterHealth : LivingEntity
 
         _healthBar.fillAmount = health / startingHealth;
     }
+    public override void Die()
+    {
+        base.Die();
+        gameObject.SetActive(false); //나중에 수정
+
+        _playerExp.currentExp += 10f;
+        Debug.Log(_playerExp.currentExp);
+        _playerExp.levelUp();
+    }
     
     public override void OnDamage(float damage)
     {
@@ -50,8 +58,9 @@ public class MonsterHealth : LivingEntity
             StartCoroutine(FlashColor());
         }
         base.OnDamage(damage);
-
-        StartCoroutine(HpUpdate());
+        
+        float targetFillAmount = health / startingHealth;
+        _healthBar.fillAmount = targetFillAmount;
     }
     
     IEnumerator FlashColor()
@@ -63,24 +72,6 @@ public class MonsterHealth : LivingEntity
         
         yield return new WaitForSeconds(0.2f);
         _spriteRenderer.color = defaltColor;
-    }
-
-    IEnumerator HpUpdate() //나중에 수정. 굳이 서서히 감소할 필요가 있을까..?
-    {
-        float elapsedTime = 0f;
-        float duration = 0.2f; //변경되는데 걸리는 시간
-
-        float currentFillAmount = _healthBar.fillAmount;
-        float targetFillAmount = health / startingHealth;
-
-        while (elapsedTime < duration)
-        {
-            _healthBar.fillAmount = Mathf.Lerp(currentFillAmount, targetFillAmount, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        
-        _healthBar.fillAmount = targetFillAmount; //보장을 위해 최종값 설정
     }
     
     private void OnTriggerEnter2D(Collider2D other)

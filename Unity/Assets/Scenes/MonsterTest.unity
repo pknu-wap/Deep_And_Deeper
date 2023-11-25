@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4350042735088519002, guid: 6fd7b008c9f340e45afd5e596f7fab87, type: 3}
+      propertyPath: currentExp
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5548069816130054504, guid: 6fd7b008c9f340e45afd5e596f7fab87, type: 3}
       propertyPath: m_Name
       value: Hero

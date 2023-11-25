@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,15 +29,27 @@ public class PlayerHealth : LivingEntity
         _healthText.text = health.ToString() + "/" + startingHealth.ToString();
     }
 
+    public override void Die()
+    {
+        base.Die();
+        gameObject.SetActive(false);
+        //gameover 화면 보여주기
+        
+    }
+
     public override void OnDamage(float damage)
     {
         if (!dead)
         {
             StartCoroutine(FlashColor());
         }
-        base.OnDamage(damage);
-
+        //base.OnDamage(damage); //**
+        health -= damage;
         StartCoroutine(HpUpdate());
+        if (health <= 0 && !dead)
+        {
+            Die();
+        }
     }
     
     IEnumerator FlashColor()
