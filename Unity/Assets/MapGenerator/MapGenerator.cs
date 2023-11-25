@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,7 +16,13 @@ namespace MapGenerator
         [SerializeField] private int numShopRoom = 1;
         [SerializeField] private int numSecretRoom = 1;
         [SerializeField] private int numAdditionalBattleRoom = 5;
+        [SerializeField] private Sprite doorMainSprite;
+        [SerializeField] private Sprite doorBattleSprite;
+        [SerializeField] private Sprite doorShopSprite;
+        [SerializeField] private Sprite doorSecretSprite;
+        [SerializeField] private Sprite doorBossSprite;
 
+        private readonly Dictionary<RoomTypes, Sprite> _doorSprites = new();
         private readonly int[] _dy = { -1, 0, 1, 0 };
         private readonly int[] _dx = { 0, -1, 0, 1 };
 
@@ -73,7 +80,7 @@ namespace MapGenerator
             foreach (RoomTypes room in roomsToGenerate)
             {
                 mapBoard[y, x] = room;
-                
+
                 var validDirections = new ArrayList();
                 var betterValidDirections = new ArrayList();
 
@@ -88,7 +95,7 @@ namespace MapGenerator
                     validDirections.Add(i);
 
                     var numAdjacent = 0;
-                    
+
                     for (var j = 0; j < 4; j++)
                     {
                         var nny = ny + _dy[j];
@@ -187,13 +194,33 @@ namespace MapGenerator
                     // ReSharper disable once PossibleLossOfFraction
                     var x = (j - mapMaxSize / 2) * roomSize.x;
 
-                    Instantiate(roomObject, new Vector3(y, x, 0), quaternion.identity, roomParent);
+                    var room = Instantiate(roomObject, new Vector3(y, x, 0), quaternion.identity, roomParent);
+
+                    // 문 생성
+
+                    for (var k = 0; k < 4; k++)
+                    {
+                        var ny = i + _dy[k];
+                        var nx = j + _dx[k];
+                        if (ny <= -1 || ny >= mapMaxSize || nx <= -1 || nx >= mapMaxSize) continue;
+                        if (mapBoard[ny, nx] == RoomTypes.Empty) continue;
+
+                        var door = room.transform.GetChild(k);
+                        door.GetComponent<SpriteRenderer>().sprite = _doorSprites[mapBoard[ny, nx]];
+                    }
                 }
             }
         }
 
         private void Start()
         {
+            _doorSprites[RoomTypes.Main] = doorMainSprite;
+            _doorSprites[RoomTypes.Battle] = doorBattleSprite;
+            _doorSprites[RoomTypes.Shop] = doorShopSprite;
+            _doorSprites[RoomTypes.Secret] = doorSecretSprite;
+            _doorSprites[RoomTypes.Boss] = doorBossSprite;
+
+
             var map = GenerateMap();
             PrintMap(map);
         }
