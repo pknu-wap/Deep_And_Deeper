@@ -741,6 +741,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1322104938326150270, guid: 6fd7b008c9f340e45afd5e596f7fab87, type: 3}
+      propertyPath: rect.x
+      value: -266.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1322104938326150270, guid: 6fd7b008c9f340e45afd5e596f7fab87, type: 3}
+      propertyPath: rect.y
+      value: 17.800018
+      objectReference: {fileID: 0}
     - target: {fileID: 5548069816130054504, guid: 6fd7b008c9f340e45afd5e596f7fab87, type: 3}
       propertyPath: m_Name
       value: Hero

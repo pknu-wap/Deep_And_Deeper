@@ -6,7 +6,8 @@ public enum BtnType
 {
     NewStart,
     Tutorial,
-    Exit
+    Exit,
+    Main
 }
 
 public class Menu : MonoBehaviour

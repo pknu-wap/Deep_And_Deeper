@@ -31,12 +31,11 @@ public class PlayerHealth : LivingEntity
         _healthText.text = health.ToString() + "/" + startingHealth.ToString();
     }
 
-    public override void Die()
+    /*public override void Die()
     {
         base.Die();
-        Debug.Log(dead);
         
-    }
+    }*/
 
     public override void OnDamage(float damage)
     {

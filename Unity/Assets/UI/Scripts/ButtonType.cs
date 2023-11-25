@@ -31,6 +31,9 @@ public class ButtonType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             Application.Quit();
             Debug.Log("exit");
             break;
+         case BtnType.Main:
+            SceneLoader.LoadSceneHandle("Main");
+            break;
       }
    }
 

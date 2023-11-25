@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 3962603647060146451}
   - component: {fileID: 4350042735088519002}
   - component: {fileID: 1322104938326150270}
+  - component: {fileID: 4414341661791380101}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Player
@@ -1035,6 +1036,19 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
+--- !u!114 &4414341661791380101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548069816130054504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e793553e09e0a4396b5614502f1a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverPanel: {fileID: 3822588568579999162}
 --- !u!1 &6413244565834171567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,6 +1983,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7813450559281782495}
     m_Modifications:
+    - target: {fileID: 565825366089249577, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1934378676823097513, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 171.90015
@@ -2095,6 +2113,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3822588568579999162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7590453463899314135, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
+  m_PrefabInstance: {fileID: 6654672327335481965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4273970399319512388 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7424769296356427561, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
