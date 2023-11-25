@@ -53,6 +53,11 @@ MonoBehaviour:
   numShopRoom: 1
   numSecretRoom: 1
   numAdditionalBattleRoom: 6
+  doorMainSprite: {fileID: 21300000, guid: 94a40b81596dea64a8d315b2c1c202be, type: 3}
+  doorBattleSprite: {fileID: 21300000, guid: f49e3363f8569e644b2a12a85dbeec01, type: 3}
+  doorShopSprite: {fileID: 21300000, guid: 75a28ac38e3a1fe41afdc51432321435, type: 3}
+  doorSecretSprite: {fileID: 21300000, guid: b522456ea3b2a574aa42fcf7defdf601, type: 3}
+  doorBossSprite: {fileID: 21300000, guid: 16fa3514c8dbdd44fa33b8ef442abcb3, type: 3}
 --- !u!1 &9207799385970871412
 GameObject:
   m_ObjectHideFlags: 0
