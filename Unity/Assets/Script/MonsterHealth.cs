@@ -14,6 +14,7 @@ public class MonsterHealth : LivingEntity
     public bool isInTrigger;
 
     private PlayerExp _playerExp;
+    private Money _playerMoney;
     
     [SerializeField] private float height = 1.7f; //MonsterHpBar가 머리 우에 오도록
 
@@ -25,7 +26,9 @@ public class MonsterHealth : LivingEntity
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _healthBar = monsterHpBar.transform.GetChild(0).GetComponent<Image>();
         isInTrigger = false;
+        
         _playerExp = GameObject.FindWithTag("Player").GetComponent<PlayerExp>();
+        _playerMoney = GameObject.FindWithTag("Player").GetComponent<Money>();
     }
     
     private void Update()
@@ -48,6 +51,9 @@ public class MonsterHealth : LivingEntity
 
         _playerExp.currentExp += 10f;
         _playerExp.levelUp();
+
+        _playerMoney.currentMoney += 10;
+        _playerMoney.GetMoney();
     }
     
     public override void OnDamage(float damage)
