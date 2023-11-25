@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomObject: {fileID: 8418360122977654322, guid: 5c626006b9a32704298b03462b94356c, type: 3}
   roomParent: {fileID: 1422481490259742294}
-  roomSize: {x: 4, y: 4}
+  roomSize: {x: 19.2, y: 10.8}
   mapMaxSize: 19
   numBattleRoom: 9
   numShopRoom: 1
@@ -83,7 +83,7 @@ Transform:
   m_GameObject: {fileID: 9207799385970871412}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.6780114, y: -0.8336349, z: 0.22432023}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
