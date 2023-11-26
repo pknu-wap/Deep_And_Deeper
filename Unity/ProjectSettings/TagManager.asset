@@ -12,6 +12,7 @@ TagManager:
   - Monster
   - HealthBar
   - HealthText
+  - StaminaBar
   layers:
   - Default
   - TransparentFX
