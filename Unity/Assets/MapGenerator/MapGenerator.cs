@@ -8,6 +8,34 @@ namespace MapGenerator
 {
     public class MapGenerator : MonoBehaviour
     {
+        private class Room
+        {
+            public Room(RoomTypes roomType)
+            {
+                RoomType = roomType;
+            }
+
+            public RoomTypes RoomType;
+        }
+
+        private class Map
+        {
+            public Map(int r, int c)
+            {
+                Rooms = new Room[r, c];
+
+                for (var i = 0; i < r; i++)
+                {
+                    for (var j = 0; j < c; j++)
+                    {
+                        Rooms[i, j] = new Room(RoomTypes.Empty);
+                    }
+                }
+            }
+
+            public readonly Room[,] Rooms;
+        }
+
         [SerializeField] private GameObject roomObject;
         [SerializeField] private Transform roomParent;
         [SerializeField] private Vector2 roomSize = new Vector2(100, 100);
@@ -25,6 +53,8 @@ namespace MapGenerator
         private readonly Dictionary<RoomTypes, Sprite> _doorSprites = new();
         private readonly int[] _dy = { -1, 0, 1, 0 };
         private readonly int[] _dx = { 0, -1, 0, 1 };
+
+        private Map _map;
 
         private enum RoomTypes
         {
@@ -68,18 +98,18 @@ namespace MapGenerator
             return list;
         }
 
-        private RoomTypes[,] GenerateMap()
+        private void GenerateMap()
         {
             var roomsToGenerate = GenerateList();
 
-            var mapBoard = new RoomTypes[mapMaxSize, mapMaxSize];
+            _map = new Map(mapMaxSize, mapMaxSize);
 
             var y = mapMaxSize / 2;
             var x = mapMaxSize / 2;
 
-            foreach (RoomTypes room in roomsToGenerate)
+            foreach (RoomTypes roomType in roomsToGenerate)
             {
-                mapBoard[y, x] = room;
+                _map.Rooms[y, x].RoomType = roomType;
 
                 var validDirections = new ArrayList();
                 var betterValidDirections = new ArrayList();
@@ -90,7 +120,7 @@ namespace MapGenerator
                     var nx = x + _dx[i];
 
                     if (ny <= -1 || ny >= mapMaxSize || nx <= -1 || nx >= mapMaxSize) continue;
-                    if (mapBoard[ny, nx] != RoomTypes.Empty) continue;
+                    if (_map.Rooms[ny, nx].RoomType != RoomTypes.Empty) continue;
 
                     validDirections.Add(i);
 
@@ -101,7 +131,7 @@ namespace MapGenerator
                         var nny = ny + _dy[j];
                         var nnx = nx + _dx[j];
                         if (nny <= -1 || nny >= mapMaxSize || nnx <= -1 || nnx >= mapMaxSize) continue;
-                        if (mapBoard[nny, nnx] == RoomTypes.Empty) continue;
+                        if (_map.Rooms[nny, nnx].RoomType == RoomTypes.Empty) continue;
                         numAdjacent++;
                     }
 
@@ -134,7 +164,7 @@ namespace MapGenerator
             {
                 for (var j = 0; j < mapMaxSize; j++)
                 {
-                    if (mapBoard[i, j] == RoomTypes.Empty) continue;
+                    if (_map.Rooms[i, j].RoomType == RoomTypes.Empty) continue;
 
                     var validDirections = new ArrayList();
 
@@ -151,7 +181,7 @@ namespace MapGenerator
                             var nnx = nx + _dx[k];
 
                             if (nny <= -1 || nny >= mapMaxSize || nnx <= -1 || nnx >= mapMaxSize) continue;
-                            if (mapBoard[nny, nnx] == RoomTypes.Empty) continue;
+                            if (_map.Rooms[nny, nnx].RoomType == RoomTypes.Empty) continue;
 
                             numAdjacent++;
                         }
@@ -167,7 +197,7 @@ namespace MapGenerator
                     var targetY = i + _dy[direction];
                     var targetX = j + _dx[direction];
 
-                    mapBoard[targetY, targetX] = RoomTypes.Battle;
+                    _map.Rooms[targetY, targetX].RoomType = RoomTypes.Battle;
 
                     currentNumAdditionalBattleRoom++;
 
@@ -175,12 +205,10 @@ namespace MapGenerator
                 }
             }
 
-            END_OF_LOOP:
-
-            return mapBoard;
+            END_OF_LOOP: ;
         }
 
-        private void PrintMap(RoomTypes[,] mapBoard)
+        private void PrintMap()
         {
             for (var i = 0; i < mapMaxSize; i++)
             {
@@ -189,7 +217,7 @@ namespace MapGenerator
 
                 for (var j = 0; j < mapMaxSize; j++)
                 {
-                    if (mapBoard[i, j] == RoomTypes.Empty) continue;
+                    if (_map.Rooms[i, j].RoomType == RoomTypes.Empty) continue;
 
                     // ReSharper disable once PossibleLossOfFraction
                     var x = (j - mapMaxSize / 2) * roomSize.x;
@@ -203,13 +231,25 @@ namespace MapGenerator
                         var ny = i + _dy[k];
                         var nx = j + _dx[k];
                         if (ny <= -1 || ny >= mapMaxSize || nx <= -1 || nx >= mapMaxSize) continue;
-                        if (mapBoard[ny, nx] == RoomTypes.Empty) continue;
+                        if (_map.Rooms[ny, nx].RoomType == RoomTypes.Empty) continue;
 
                         var door = room.transform.GetChild(k);
-                        door.GetComponent<SpriteRenderer>().sprite = _doorSprites[mapBoard[ny, nx]];
+
+                        // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+                        door.GetComponent<SpriteRenderer>().sprite = _doorSprites[_map.Rooms[ny, nx].RoomType];
+
+                        // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
                         door.GetComponent<BoxCollider2D>().isTrigger = true;
                     }
                 }
+            }
+        }
+
+        private void CleanMap()
+        {
+            foreach (GameObject aGameObject in roomParent)
+            {
+                Destroy(aGameObject);
             }
         }
 
@@ -222,8 +262,19 @@ namespace MapGenerator
             _doorSprites[RoomTypes.Boss] = doorBossSprite;
 
 
-            var map = GenerateMap();
-            PrintMap(map);
+            GenerateMap();
+            PrintMap();
+        }
+
+        private void Update()
+        {
+            if (!Input.GetKeyDown(KeyCode.R)) return;
+
+            CleanMap();
+            GenerateMap();
+
+            // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+            PrintMap();
         }
     }
 }
