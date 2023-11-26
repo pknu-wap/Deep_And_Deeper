@@ -191,6 +191,8 @@ namespace MapGenerator
                         validDirections.Add(k);
                     }
 
+                    if (validDirections.Count == 0) continue;
+
                     var rand = Random.Range(0, validDirections.Count);
                     var direction = (int)validDirections[rand];
 
@@ -247,9 +249,9 @@ namespace MapGenerator
 
         private void CleanMap()
         {
-            foreach (GameObject aGameObject in roomParent)
+            foreach (Transform child in roomParent.transform)
             {
-                Destroy(aGameObject);
+                Destroy(child.gameObject);
             }
         }
 
