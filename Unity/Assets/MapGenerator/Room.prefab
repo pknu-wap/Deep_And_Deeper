@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 7882355686303383218}
   - component: {fileID: 1192867199336234392}
   m_Layer: 0
-  m_Name: Issac
+  m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
