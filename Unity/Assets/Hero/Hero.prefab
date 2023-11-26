@@ -210,6 +210,7 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   moveSpeed: 10
+  cost: 20
 --- !u!114 &6540141591687123479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,9 +991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117fae9c1323fd64da23f711eb617d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staminaBar: {fileID: 7017466293881043725}
-  decreaseAmount: 20
-  recoverAmount: 0.6
 --- !u!114 &4350042735088519002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2007,6 +2005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerStatus UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2775777036683757931, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
+      propertyPath: m_TagString
+      value: StaminaBar
+      objectReference: {fileID: 0}
     - target: {fileID: 4308032590747598995, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
       propertyPath: m_TagString
       value: HealthText
@@ -2117,14 +2119,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7179023879645583039, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
   m_PrefabInstance: {fileID: 6654672327335481965}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7017466293881043725 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4411602747543677280, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-  m_PrefabInstance: {fileID: 6654672327335481965}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
