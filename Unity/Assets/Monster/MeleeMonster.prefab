@@ -120,9 +120,10 @@ GameObject:
   - component: {fileID: 8124020999146625282}
   - component: {fileID: 7687712948330983982}
   - component: {fileID: 7384258991846386898}
-  - component: {fileID: 7092301795211026024}
   - component: {fileID: 4676277552130692890}
   - component: {fileID: 6367233986907547822}
+  - component: {fileID: 7843106877589522425}
+  - component: {fileID: 1962086242502858571}
   m_Layer: 8
   m_Name: MeleeAttackSubTree
   m_TagString: MeleeAttack
@@ -210,7 +211,7 @@ MonoBehaviour:
   - {fileID: 7530635424054731957}
   - {fileID: 3894802489479247633}
   - {fileID: 7384258991846386898}
-  - {fileID: 7092301795211026024}
+  - {fileID: 1962086242502858571}
   - {fileID: 6367233986907547822}
   - {fileID: 7286370287618610484}
   - {fileID: 8124020999146625282}
@@ -377,8 +378,8 @@ MonoBehaviour:
   title: ApplyDamage
   rect:
     serializedVersion: 2
-    x: 180
-    y: 360
+    x: 265
+    y: 361
     width: 160
     height: 44
   parent: {fileID: 4676277552130692890}
@@ -412,32 +413,6 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   duration: 0.4
---- !u!114 &7092301795211026024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5205080343194440993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07f08316ecaa4f11aa5d411f67615d48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Parallel
-  rect:
-    serializedVersion: 2
-    x: 180
-    y: 200
-    width: 160
-    height: 44
-  parent: {fileID: 9035515501070436004}
-  children:
-  - {fileID: 4676277552130692890}
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  random: 0
 --- !u!114 &4676277552130692890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,8 +432,9 @@ MonoBehaviour:
     y: 280
     width: 160
     height: 44
-  parent: {fileID: 7092301795211026024}
+  parent: {fileID: 1962086242502858571}
   children:
+  - {fileID: 7843106877589522425}
   - {fileID: 7687712948330983982}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -489,6 +465,55 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   duration: 0.3
+--- !u!114 &7843106877589522425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e663b74379f55b042876f31fcc21d988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: CheckPlayerTrigger
+  rect:
+    serializedVersion: 2
+    x: 99
+    y: 361
+    width: 160
+    height: 44
+  parent: {fileID: 4676277552130692890}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+--- !u!114 &1962086242502858571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f4a10bc17bb324baf5a459be7bb24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Succeeder
+  rect:
+    serializedVersion: 2
+    x: 180
+    y: 200
+    width: 160
+    height: 44
+  parent: {fileID: 9035515501070436004}
+  children:
+  - {fileID: 4676277552130692890}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
 --- !u!1001 &5929665436711849355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -512,7 +537,7 @@ PrefabInstance:
     - target: {fileID: 442247492029501132, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: selectedEditorNode
       value: 
-      objectReference: {fileID: 3354422631738265641}
+      objectReference: {fileID: 0}
     - target: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.21
@@ -787,6 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d7c2189d177634d80eb0fef57d7b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHealth: 0
   monsterHp: {fileID: 6123916085680271302, guid: 1049bcc40bf54bf448fb3736522209c3, type: 3}
   canvas: {fileID: 1553993988102329468}
   isInTrigger: 0
