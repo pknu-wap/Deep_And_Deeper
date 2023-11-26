@@ -22,6 +22,8 @@
 	</tr>
 </table>
 
+---
+
 <img src="https://github.com/pknu-wap/Deep_And_Deeper/blob/main/Docs/logo.png" width="750px">
 
 2D 사이드뷰/탑뷰 로그라이크 액션 게임 Deep and Deeper입니다.
