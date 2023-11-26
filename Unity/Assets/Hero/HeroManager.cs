@@ -1,38 +1,72 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Hero
 {
     public class HeroManager
     {
-        //private const float MaxHp = 1000;
         private static HeroManager _instance;
-        private readonly Rigidbody2D _rigidbody2D;
-        private readonly Animator _animator;
-        private readonly SpriteRenderer _spriteRenderer;
 
-        private readonly Transform _transform;
+        private readonly float _maxHealth;
+        private readonly float _hitEffectDuration;
 
-        //추가한 거
-        private readonly PlayerHealth _playerHealth;
-        private readonly PlayerStamina _playerStamina;
-        private readonly GameOverUI _gameOverUI;
+        private float _health;
+        public bool IsDead;
+
+        private readonly Color _hitColor = Color.red;
+        private readonly Color _originColor = Color.white;
+
+        private Image _healthBar;
+        private TextMeshProUGUI _healthText;
+
+        private Rigidbody2D _rigidbody2D;
+        private Animator _animator;
+        private SpriteRenderer _spriteRenderer;
+        private Transform _transform;
+
+        private PlayerStamina _playerStamina;
+        private GameOverUI _gameOverUI;
 
         private bool _isGrounded;
+        private float _hitTimer;
 
         public static HeroManager Instance => _instance ??= new HeroManager();
 
+        private void Init()
+        {
+            new GameObject().AddComponent<UpdateShuttle>();
+
+            var playerObject = GameObject.FindWithTag("Player");
+
+            // if (gameObject != null)
+            {
+                _rigidbody2D = playerObject.GetComponent<Rigidbody2D>();
+                _animator = playerObject.GetComponent<Animator>();
+                _spriteRenderer = playerObject.GetComponent<SpriteRenderer>();
+                _transform = playerObject.GetComponent<Transform>();
+
+                _playerStamina = playerObject.GetComponent<PlayerStamina>();
+                _gameOverUI = playerObject.GetComponent<GameOverUI>();
+            }
+
+            _healthBar = GameObject.FindWithTag("HealthBar").GetComponent<Image>();
+            _healthBar.fillAmount = _health / _maxHealth;
+
+            _healthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
+            _healthText.text = _health + "/" + _maxHealth;
+        }
+
         private HeroManager()
         {
-            var gameObject = GameObject.FindWithTag("Player");
-            _rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
-            _animator = gameObject.GetComponent<Animator>();
-            _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-            _transform = gameObject.GetComponent<Transform>();
+            var heroManagerDataContainer = Resources.Load<GameObject>("HeroManagerDataContainer");
+            var heroManagerData = heroManagerDataContainer.GetComponent<HeroManagerData>();
 
-            //추가한 거
-            _playerHealth = gameObject.GetComponent<PlayerHealth>();
-            _playerStamina = gameObject.GetComponent<PlayerStamina>();
-            _gameOverUI = gameObject.GetComponent<GameOverUI>();
+            _maxHealth = heroManagerData.maxHealth;
+            _health = _maxHealth;
+            _hitEffectDuration = heroManagerData.hitEffectDuration;
+
+            Init();
         }
 
         public void SetVelocityX(float x)
@@ -75,14 +109,25 @@ namespace Hero
             return _transform.position;
         }
 
-        public void ApplyDamage(int target)
+        public void OnDamaged(float damage)
         {
-            /*_hp -= damage;
-            Debug.Log(_hp);*/
-            if (target == 0)
-            {
-                _playerHealth.OnDamage(50f);
-            }
+            _health -= damage;
+            UpdateHealthUI();
+
+            _hitTimer = _hitEffectDuration;
+            SetColor(_hitColor);
+
+            if (_health > 0) return;
+
+            IsDead = true;
+            SetState("Die");
+            GameOver();
+        }
+
+        private void UpdateHealthUI()
+        {
+            _healthBar.fillAmount = _health / _maxHealth;
+            _healthText.text = _health + "/" + _maxHealth;
         }
 
         public bool GetStamina()
@@ -90,19 +135,36 @@ namespace Hero
             return _playerStamina.CheckRoll();
         }
 
-        public bool CheckDead()
-        {
-            return _playerHealth.dead;
-        }
-
         public void StaminaUpdate()
         {
             _playerStamina.DeStamina();
         }
 
-        public void GameOver()
+        private void GameOver()
         {
             _gameOverUI.OnGameOver();
+        }
+
+        private void SetColor(Color color)
+        {
+            _spriteRenderer.color = color;
+        }
+
+        private void HandleHitEffect()
+        {
+            if (_hitTimer == 0) return;
+
+            _hitTimer -= Time.deltaTime;
+
+            if (_hitTimer > 0) return;
+
+            _hitTimer = 0;
+            SetColor(_originColor);
+        }
+
+        public void Update()
+        {
+            HandleHitEffect();
         }
     }
 }
