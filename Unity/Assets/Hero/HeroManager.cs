@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,23 +10,26 @@ namespace Hero
         private static HeroManager _instance;
 
         private readonly float _maxHealth;
+        private readonly float _maxStamina;
         private readonly float _hitEffectDuration;
+        private readonly float _staminaRecoverAmount;
 
         private float _health;
+        public float Stamina;
         public bool IsDead;
+
+        private Image _healthBar;
+        private Image _staminaBar;
+        private TextMeshProUGUI _healthText;
 
         private readonly Color _hitColor = Color.red;
         private readonly Color _originColor = Color.white;
-
-        private Image _healthBar;
-        private TextMeshProUGUI _healthText;
 
         private Rigidbody2D _rigidbody2D;
         private Animator _animator;
         private SpriteRenderer _spriteRenderer;
         private Transform _transform;
 
-        private PlayerStamina _playerStamina;
         private GameOverUI _gameOverUI;
 
         private bool _isGrounded;
@@ -45,8 +49,6 @@ namespace Hero
                 _animator = playerObject.GetComponent<Animator>();
                 _spriteRenderer = playerObject.GetComponent<SpriteRenderer>();
                 _transform = playerObject.GetComponent<Transform>();
-
-                _playerStamina = playerObject.GetComponent<PlayerStamina>();
                 _gameOverUI = playerObject.GetComponent<GameOverUI>();
             }
 
@@ -55,6 +57,9 @@ namespace Hero
 
             _healthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
             _healthText.text = _health + "/" + _maxHealth;
+
+            _staminaBar = GameObject.FindWithTag("StaminaBar").GetComponent<Image>();
+            _staminaBar.fillAmount = Stamina / _maxStamina;
         }
 
         private HeroManager()
@@ -64,7 +69,10 @@ namespace Hero
 
             _maxHealth = heroManagerData.maxHealth;
             _health = _maxHealth;
+            _maxStamina = heroManagerData.maxStamina;
+            Stamina = _maxStamina;
             _hitEffectDuration = heroManagerData.hitEffectDuration;
+            _staminaRecoverAmount = heroManagerData.staminaRecoverAmount;
 
             Init();
         }
@@ -130,14 +138,15 @@ namespace Hero
             _healthText.text = _health + "/" + _maxHealth;
         }
 
-        public bool GetStamina()
+        public void ConsumeStamina(float cost)
         {
-            return _playerStamina.CheckRoll();
+            Stamina -= cost;
+            UpdateStaminaUI();
         }
 
-        public void StaminaUpdate()
+        private void UpdateStaminaUI()
         {
-            _playerStamina.DeStamina();
+            _staminaBar.fillAmount = Stamina / _maxStamina;
         }
 
         private void GameOver()
@@ -162,9 +171,15 @@ namespace Hero
             SetColor(_originColor);
         }
 
+        private void RecoverStamina()
+        {
+            Stamina = math.min(_maxStamina, Stamina + _staminaRecoverAmount);
+        }
+
         public void Update()
         {
             HandleHitEffect();
+            RecoverStamina();
         }
     }
 }
