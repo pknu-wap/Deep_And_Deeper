@@ -10,6 +10,8 @@ TagManager:
   - Trap
   - PlayerAttack
   - Monster
+  - HealthBar
+  - HealthText
   layers:
   - Default
   - TransparentFX
