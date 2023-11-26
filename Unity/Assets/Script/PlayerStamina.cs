@@ -1,31 +1,32 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 //스태미나 바 조절 + 스태미나 조절을 위한 기능들 구현
 public class PlayerStamina : MonoBehaviour
 {
     [SerializeField] private Image staminaBar;
-    private float startingStamina = 100f;
-    private float currentStamina;
-    [SerializeField] private float decreasAmount = 20f; //감소량
+    private const float StartingStamina = 100f;
+    private float _currentStamina;
+    [SerializeField] private float decreaseAmount = 20f; //감소량
     [SerializeField] private float recoverAmount = 5f; //회복량
+    private const float DecreaseDuration = 0.2f;
+    private const float IncreaseDuration = 1f;
 
     private void Awake()
     {
-        currentStamina = startingStamina;
-        staminaBar.fillAmount = currentStamina / startingStamina;
+        _currentStamina = StartingStamina;
+        staminaBar.fillAmount = _currentStamina / StartingStamina;
     }
 
     private void Start()
     {
-        InvokeRepeating("RecoverStamina", 0f, 1f);
+        InvokeRepeating(nameof(RecoverStamina), 0f, 1f);
     }
 
     public bool CheckRoll()
     {
-        return currentStamina >= 20f ? true : false;
+        return _currentStamina >= 20f;
     }
 
     public void DeStamina()
@@ -36,52 +37,47 @@ public class PlayerStamina : MonoBehaviour
         }
     }
 
-    IEnumerator Decrease()
+    private IEnumerator Decrease()
     {
-        float elapsedTime = 0f;
-        float duration = 0.2f; //변경되는데 걸리는 시간
+        var elapsedTime = 0f;
 
-        float currentFillAmount = staminaBar.fillAmount;
-        float targetFillAmount = (currentStamina - decreasAmount) / startingStamina;
+        var currentFillAmount = staminaBar.fillAmount;
+        var targetFillAmount = (_currentStamina - decreaseAmount) / StartingStamina;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < DecreaseDuration)
         {
-            staminaBar.fillAmount = Mathf.Lerp(currentFillAmount, targetFillAmount, elapsedTime / duration);
+            staminaBar.fillAmount = Mathf.Lerp(currentFillAmount, targetFillAmount, elapsedTime / DecreaseDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        
+
         staminaBar.fillAmount = targetFillAmount; //보장을 위해 최종값 설정
-        currentStamina -= decreasAmount; // 스태미나 실제 값 감소
+        _currentStamina -= decreaseAmount; // 스태미나 실제 값 감소
     }
 
     private void RecoverStamina()
     {
-        if (currentStamina < startingStamina)
+        if (_currentStamina < StartingStamina)
         {
             StartCoroutine(Increase());
         }
     }
 
-    IEnumerator Increase()
+    private IEnumerator Increase()
     {
-        float elapsedTime = 0f;
-        float duration = 1f; //1초에 걸쳐 회복
+        var elapsedTime = 0f;
 
-        float currentFillAmount = staminaBar.fillAmount;
-        float targetFillAmount = Mathf.Clamp((currentStamina + recoverAmount) / startingStamina, 0f, 1f);
+        var currentFillAmount = staminaBar.fillAmount;
+        var targetFillAmount = Mathf.Clamp((_currentStamina + recoverAmount) / StartingStamina, 0f, 1f);
 
-        while (elapsedTime < duration)
+        while (elapsedTime < IncreaseDuration)
         {
-            staminaBar.fillAmount = Mathf.Lerp(currentFillAmount, targetFillAmount, elapsedTime / duration);
+            staminaBar.fillAmount = Mathf.Lerp(currentFillAmount, targetFillAmount, elapsedTime / IncreaseDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         staminaBar.fillAmount = targetFillAmount; // 보장을 위해 최종값 설정
-        currentStamina += recoverAmount; // 스태미나 실제 값 증가
+        _currentStamina += recoverAmount; // 스태미나 실제 값 증가
     }
-    
-    
-    
 }
