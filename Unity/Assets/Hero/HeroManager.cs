@@ -174,6 +174,7 @@ namespace Hero
         private void RecoverStamina()
         {
             Stamina = math.min(_maxStamina, Stamina + _staminaRecoverAmount);
+            UpdateStaminaUI();
         }
 
         public void Update()
