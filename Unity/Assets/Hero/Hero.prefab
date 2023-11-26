@@ -994,8 +994,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staminaBar: {fileID: 7017466293881043725}
-  decreasAmount: 20
-  recoverAmount: 5
+  decreaseAmount: 20
+  recoverAmount: 0.6
 --- !u!114 &4350042735088519002
 MonoBehaviour:
   m_ObjectHideFlags: 0
