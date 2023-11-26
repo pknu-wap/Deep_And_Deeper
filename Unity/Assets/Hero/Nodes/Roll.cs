@@ -11,16 +11,13 @@ namespace Hero.Nodes
 
         public override NodeResult Execute()
         {
-            if (!HeroManager.Instance.GetStamina()) 
-                return NodeResult.failure;
-            else
-            {
-                var dir = HeroManager.Instance.GetFlipX() ? -1 : 1;
-                HeroManager.Instance.SetVelocityX(moveSpeed * dir);
-                HeroManager.Instance.StaminaUpdate();
+            if (!HeroManager.Instance.GetStamina()) return NodeResult.failure;
 
-                return NodeResult.success;
-            }
+            var dir = HeroManager.Instance.GetFlipX() ? -1 : 1;
+            HeroManager.Instance.SetVelocityX(moveSpeed * dir);
+            HeroManager.Instance.StaminaUpdate();
+
+            return NodeResult.success;
         }
     }
 }
