@@ -45,4 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1000
+  maxStamina: 100
   hitEffectDuration: 0.15
+  staminaRecoverAmount: 0.6
