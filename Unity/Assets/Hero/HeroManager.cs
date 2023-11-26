@@ -9,10 +9,11 @@ namespace Hero
         private readonly Rigidbody2D _rigidbody2D;
         private readonly Animator _animator;
         private readonly SpriteRenderer _spriteRenderer;
+
         private readonly Transform _transform;
+
         //추가한 거
         private readonly PlayerHealth _playerHealth;
-        private readonly MonsterHealth _monsterHealth;
         private readonly PlayerStamina _playerStamina;
         private readonly GameOverUI _gameOverUI;
 
@@ -27,10 +28,9 @@ namespace Hero
             _animator = gameObject.GetComponent<Animator>();
             _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
             _transform = gameObject.GetComponent<Transform>();
-            
+
             //추가한 거
             _playerHealth = gameObject.GetComponent<PlayerHealth>();
-            _monsterHealth = GameObject.FindWithTag("Monster").GetComponent<MonsterHealth>();
             _playerStamina = gameObject.GetComponent<PlayerStamina>();
             _gameOverUI = gameObject.GetComponent<GameOverUI>();
         }
@@ -83,10 +83,6 @@ namespace Hero
             {
                 _playerHealth.OnDamage(50f);
             }
-            else if (target == 1 && _monsterHealth.isInTrigger)
-            {
-                _monsterHealth.OnDamage(50f);
-            }
         }
 
         public bool GetStamina()
@@ -108,6 +104,5 @@ namespace Hero
         {
             _gameOverUI.OnGameOver();
         }
-        
     }
 }

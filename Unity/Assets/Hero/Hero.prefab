@@ -978,9 +978,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5cc20810ce9b04fb89503b38006333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 0
-  _healthBar: {fileID: 1665001250274538521}
-  _healthText: {fileID: 527426043695145511}
+  startingHealth: 1000
+  healthBar: {fileID: 1665001250274538521}
+  healthText: {fileID: 527426043695145511}
 --- !u!114 &3962603647060146451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -994,8 +994,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staminaBar: {fileID: 7017466293881043725}
-  decreasAmount: 20
-  recoverAmount: 5
+  decreaseAmount: 20
+  recoverAmount: 0.6
 --- !u!114 &4350042735088519002
 MonoBehaviour:
   m_ObjectHideFlags: 0
