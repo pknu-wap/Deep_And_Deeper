@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6dbd5f76d830c34a86e79f4d365d0bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 100
   maxStamina: 100
+  initialMoney: 0
   hitEffectDuration: 0.2
   staminaRecoverAmount: 0.08
