@@ -26,7 +26,7 @@ namespace Monster
             UpdateHealthUI();
         }
 
-        private void OnDamaged(float damage)
+        public void OnDamaged(float damage)
         {
             _health -= damage;
             UpdateHealthUI();
