@@ -76,7 +76,7 @@ namespace Hero
             _maxExp = GetMaxExp(_level);
 
             _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
-            // _expBar = GameObject.FindWithTag("").GetComponent<Image>();
+            _expBar = GameObject.FindWithTag("ExpBar").GetComponent<Image>();
             UpdateLevelUI();
             UpdateExpUI();
         }
@@ -251,7 +251,7 @@ namespace Hero
 
         private void UpdateExpUI()
         {
-            // _expBar.fillAmount = 1f * _exp / _maxExp;
+            _expBar.fillAmount = 1f * _exp / _maxExp;
         }
 
         public void RollAndResize()

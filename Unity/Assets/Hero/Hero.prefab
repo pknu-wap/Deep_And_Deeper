@@ -1786,6 +1786,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: StaminaBar
       objectReference: {fileID: 0}
+    - target: {fileID: 3389298165981406236, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
+      propertyPath: m_TagString
+      value: ExpBar
+      objectReference: {fileID: 0}
     - target: {fileID: 4308032590747598995, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
       propertyPath: m_TagString
       value: HealthText
