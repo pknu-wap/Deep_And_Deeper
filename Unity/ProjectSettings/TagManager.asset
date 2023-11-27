@@ -13,6 +13,7 @@ TagManager:
   - HealthBar
   - HealthText
   - StaminaBar
+  - MoneyText
   layers:
   - Default
   - TransparentFX
