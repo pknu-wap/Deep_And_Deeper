@@ -4,20 +4,21 @@ using UnityEngine;
 namespace Monster.Nodes
 {
     [AddComponentMenu("")]
-    [MBTNode(name = "Monster/SetState")]
-    public class SetState : Leaf
+    [MBTNode(name = "Monster/MonsterSetState")]
+    public class MonsterSetState : Leaf
     {
         [SerializeField] private string stateName;
-        private Animator _animator;
+
+        private Monster _monster;
 
         private void Start()
         {
-            _animator = transform.parent == null ? GetComponent<Animator>() : transform.parent.GetComponent<Animator>();
+            _monster = transform.parent == null ? GetComponent<Monster>() : transform.parent.GetComponent<Monster>();
         }
 
         public override NodeResult Execute()
         {
-            _animator.Play(stateName);
+            _monster.SetState(stateName);
             return NodeResult.success;
         }
     }

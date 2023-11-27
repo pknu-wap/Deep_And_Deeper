@@ -84,6 +84,11 @@ namespace Monster
             isDead = true;
         }
 
+        public void SetState(string stateName)
+        {
+            _animator.Play(stateName);
+        }
+
         public void Chase()
         {
             if (isDead) return;
