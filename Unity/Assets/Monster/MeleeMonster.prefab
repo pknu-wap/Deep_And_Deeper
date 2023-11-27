@@ -594,6 +594,10 @@ PrefabInstance:
       propertyPath: children.Array.data[0]
       value: 
       objectReference: {fileID: 8703498351312872313}
+    - target: {fileID: 6761988562610841088, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: maxHealth
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 8625464892732192489, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: selectedEditorNode
       value: 
