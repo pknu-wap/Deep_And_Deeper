@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private float pauseDelay = 2f;
 
     private void Start()
     {
@@ -15,10 +14,10 @@ public class GameOverUI : MonoBehaviour
     public void OnGameOver()
     {
         gameOverPanel.SetActive(true);
-        StartCoroutine(PauseAfterDelay(0.8f));
+        StartCoroutine(PauseAfterDelay(pauseDelay));
     }
 
-    private IEnumerator PauseAfterDelay(float delay)
+    private static IEnumerator PauseAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         Time.timeScale = 0f;

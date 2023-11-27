@@ -124,6 +124,8 @@ GameObject:
   - component: {fileID: 6367233986907547822}
   - component: {fileID: 7843106877589522425}
   - component: {fileID: 1962086242502858571}
+  - component: {fileID: 2786253947818443789}
+  - component: {fileID: 8812294403109762718}
   m_Layer: 8
   m_Name: MeleeAttackSubTree
   m_TagString: MeleeAttack
@@ -158,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 7687712948330983982}
+  selectedEditorNode: {fileID: 0}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 6082474738794808135}
@@ -378,8 +380,8 @@ MonoBehaviour:
   title: ApplyDamage
   rect:
     serializedVersion: 2
-    x: 265
-    y: 361
+    x: 340
+    y: 360
     width: 160
     height: 44
   parent: {fileID: 4676277552130692890}
@@ -435,6 +437,7 @@ MonoBehaviour:
   parent: {fileID: 1962086242502858571}
   children:
   - {fileID: 7843106877589522425}
+  - {fileID: 8812294403109762718}
   - {fileID: 7687712948330983982}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -480,8 +483,8 @@ MonoBehaviour:
   title: CheckPlayerTrigger
   rect:
     serializedVersion: 2
-    x: 99
-    y: 361
+    x: 20
+    y: 360
     width: 160
     height: 44
   parent: {fileID: 4676277552130692890}
@@ -514,6 +517,55 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
+--- !u!114 &2786253947818443789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c3a0432f1c109429330b5b2c2c4219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: CheckMonsterDead
+  rect:
+    serializedVersion: 2
+    x: 180
+    y: 440
+    width: 160
+    height: 44
+  parent: {fileID: 8812294403109762718}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+--- !u!114 &8812294403109762718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205080343194440993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7dcd3c2da37eb4ba49162d0ca654c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Inverter
+  rect:
+    serializedVersion: 2
+    x: 180
+    y: 360
+    width: 160
+    height: 44
+  parent: {fileID: 4676277552130692890}
+  children:
+  - {fileID: 2786253947818443789}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
 --- !u!1001 &5929665436711849355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -538,6 +590,14 @@ PrefabInstance:
       propertyPath: selectedEditorNode
       value: 
       objectReference: {fileID: 3354422631738265641}
+    - target: {fileID: 1098669232314767702, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098669232314767702, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.21
@@ -594,6 +654,10 @@ PrefabInstance:
       propertyPath: children.Array.data[0]
       value: 
       objectReference: {fileID: 8703498351312872313}
+    - target: {fileID: 6761988562610841088, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: maxHealth
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 8625464892732192489, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: selectedEditorNode
       value: 
@@ -623,6 +687,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3354422631738265641}
+    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8162577199289032276}
   m_SourcePrefab: {fileID: 100100000, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
 --- !u!114 &1167773516837855111 stripped
 MonoBehaviour:
@@ -715,6 +782,7 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 8703498351312872313}
   children:
+  - {fileID: 8162577199289032276}
   - {fileID: 3354422631738265641}
   - {fileID: 2552682646798327250}
   - {fileID: 4934169594522118476}
@@ -737,7 +805,7 @@ MonoBehaviour:
   title: SetState - Idle
   rect:
     serializedVersion: 2
-    x: 520
+    x: 620
     y: 280
     width: 160
     height: 44
@@ -762,7 +830,7 @@ MonoBehaviour:
   title: SubTree - Chase
   rect:
     serializedVersion: 2
-    x: 320
+    x: 420
     y: 280
     width: 160
     height: 44
@@ -787,7 +855,7 @@ MonoBehaviour:
   title: SubTree - MeleeAttack
   rect:
     serializedVersion: 2
-    x: 120
+    x: 220
     y: 280
     width: 160
     height: 44
@@ -797,6 +865,30 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   tree: {fileID: 7499680035129448594}
+--- !u!114 &8162577199289032276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796841361442416562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c3a0432f1c109429330b5b2c2c4219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: CheckMonsterDead
+  rect:
+    serializedVersion: 2
+    x: 20
+    y: 280
+    width: 160
+    height: 44
+  parent: {fileID: 6613967304657619475}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
 --- !u!114 &6082474738794808135 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 442247492029501132, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}

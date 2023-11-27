@@ -16,8 +16,7 @@ GameObject:
   - component: {fileID: 442247492029501132}
   - component: {fileID: -1898679346598039632}
   - component: {fileID: 4791448060018659852}
-  - component: {fileID: -5427363765289379385}
-  - component: {fileID: 6761988562610841088}
+  - component: {fileID: 4018982553719588997}
   m_Layer: 7
   m_Name: Monster
   m_TagString: Untagged
@@ -230,7 +229,7 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
---- !u!114 &-5427363765289379385
+--- !u!114 &4018982553719588997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,23 +242,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!114 &6761988562610841088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160128256648817209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8337cfdb1a4542448ef4b10c117271cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   originColor: {r: 1, g: 1, b: 1, a: 1}
   hitEffectDuration: 0.2
   slider: {fileID: 8661128845621525929}
+  isDead: 0
 --- !u!1 &6026618913244254666
 GameObject:
   m_ObjectHideFlags: 0

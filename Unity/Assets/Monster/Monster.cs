@@ -1,45 +1,111 @@
-using System.Collections.Generic;
 using Hero;
-using Monster.Nodes;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Monster
 {
     public class Monster : MonoBehaviour
     {
-        // [SerializeField] private float hp = 1;
         [SerializeField] private float speed = 1;
+        [SerializeField] private float maxHealth;
+        [SerializeField] private Color hitColor = Color.red;
+        [SerializeField] private Color originColor = Color.white;
+        [SerializeField] private float hitEffectDuration = 0.2f;
+        [SerializeField] private Slider slider;
+
+        public bool isDead;
+
+        private SpriteRenderer _spriteRenderer;
         private Rigidbody2D _rigidbody2D;
+        private Animator _animator;
+
         private Vector3 _originScale;
         private Vector3 _flippedScale;
-        private string _currentEvent;
+        private float _health;
+        private float _hitTimer;
 
         private void Start()
         {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
+
             _originScale = transform.localScale;
             _flippedScale = _originScale;
             _flippedScale.x *= -1;
+
+            _health = maxHealth;
+            UpdateHealthUI();
         }
 
-        public void SetEvent(string eventName)
+        private void Update()
         {
-            _currentEvent = eventName;
+            HandleHitEffect();
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                OnDamaged(10);
+            }
         }
 
-        public string GetEvent()
+        private void UpdateHealthUI()
         {
-            return _currentEvent;
+            slider.value = _health / maxHealth;
+        }
+
+        private void HandleHitEffect()
+        {
+            if (_hitTimer == 0) return;
+
+            _hitTimer -= Time.deltaTime;
+
+            if (_hitTimer > 0) return;
+
+            _hitTimer = 0;
+            SetColor(originColor);
+        }
+
+        private void SetColor(Color color)
+        {
+            _spriteRenderer.color = color;
+        }
+
+        public void OnDamaged(float damage)
+        {
+            _health -= damage;
+            UpdateHealthUI();
+
+            _hitTimer = hitEffectDuration;
+            SetColor(hitColor);
+
+            if (_health > 0) return;
+
+            _animator.Play("Death");
+            isDead = true;
+            SetHealthUIActive(false);
+        }
+
+        public void SetState(string stateName)
+        {
+            if (isDead) return;
+
+            _animator.Play(stateName);
         }
 
         public void Chase()
         {
+            if (isDead) return;
+
             var flipped = transform.position.x < HeroManager.Instance.GetPosition().x;
             transform.localScale = flipped ? _flippedScale : _originScale;
 
             var x = flipped ? 1 : -1;
             _rigidbody2D.velocity = new Vector2(x * speed, _rigidbody2D.velocity.y);
         }
-        
+
+        private void SetHealthUIActive(bool visible)
+        {
+            slider.gameObject.SetActive(visible);
+        }
     }
 }
