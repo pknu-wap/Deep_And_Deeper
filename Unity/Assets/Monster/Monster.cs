@@ -82,6 +82,7 @@ namespace Monster
 
             _animator.Play("Death");
             isDead = true;
+            SetHealthUIActive(false);
         }
 
         public void SetState(string stateName)
@@ -100,6 +101,11 @@ namespace Monster
 
             var x = flipped ? 1 : -1;
             _rigidbody2D.velocity = new Vector2(x * speed, _rigidbody2D.velocity.y);
+        }
+
+        private void SetHealthUIActive(bool visible)
+        {
+            slider.gameObject.SetActive(visible);
         }
     }
 }
