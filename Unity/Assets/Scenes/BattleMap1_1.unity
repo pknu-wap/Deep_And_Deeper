@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &81924260
 Transform:
   m_ObjectHideFlags: 0
@@ -2453,15 +2453,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2478,6 +2478,18 @@ PrefabInstance:
     - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_Name
       value: MeleeMonster (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -40723,15 +40735,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -40748,6 +40760,18 @@ PrefabInstance:
     - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_Name
       value: MeleeMonster (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -40785,15 +40809,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -40810,6 +40834,18 @@ PrefabInstance:
     - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_Name
       value: MeleeMonster (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -45462,15 +45498,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -45487,6 +45523,18 @@ PrefabInstance:
     - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_Name
       value: MeleeMonster (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -45508,7 +45556,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 117.51
+      value: 117.51001
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalPosition.y
@@ -45524,15 +45572,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -45549,6 +45597,18 @@ PrefabInstance:
     - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_Name
       value: MeleeMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -55333,15 +55393,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -55358,6 +55418,18 @@ PrefabInstance:
     - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_Name
       value: MeleeMonster (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -55395,15 +55467,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -55421,67 +55493,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeMonster (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
---- !u!4 &1940056665 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
-  m_PrefabInstance: {fileID: 1940056664}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1978363396
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
-      propertyPath: m_Name
-      value: MeleeMonster
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_AnchorMax.x
@@ -55496,6 +55510,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+--- !u!4 &1940056665 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+  m_PrefabInstance: {fileID: 1940056664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2088546785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55522,15 +55541,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5041478743592039370, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -55547,6 +55566,18 @@ PrefabInstance:
     - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
       propertyPath: m_Name
       value: MeleeMonster (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796841361442416562, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734331238353130717, guid: 22dabff29cb862c49b3037c1c58eb732, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -55566,4 +55597,3 @@ SceneRoots:
   - {fileID: 723446152}
   - {fileID: 81924260}
   - {fileID: 639919796}
-  - {fileID: 1978363396}
