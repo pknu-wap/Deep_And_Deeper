@@ -658,6 +658,14 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 8276147931502462625, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_SortingLayer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276147931502462625, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1085052001
+      objectReference: {fileID: 0}
     - target: {fileID: 8625464892732192489, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: selectedEditorNode
       value: 

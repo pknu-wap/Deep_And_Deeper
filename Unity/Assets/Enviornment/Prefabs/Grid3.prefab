@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 955351745933896417}
   m_Layer: 0
   m_Name: Trap
-  m_TagString: Trap
+  m_TagString: MeleeAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
