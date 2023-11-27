@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1881324903296296410}
   - component: {fileID: 436228756338945899}
   - component: {fileID: 6540141591687123479}
+  - component: {fileID: 7993339245784654882}
   m_Layer: 0
   m_Name: RollSubTree
   m_TagString: Untagged
@@ -51,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 436228756338945899}
+  selectedEditorNode: {fileID: 0}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 2816102555081676567}
@@ -106,6 +107,7 @@ MonoBehaviour:
   - {fileID: 4135142820251766161}
   - {fileID: 1881324903296296410}
   - {fileID: 6540141591687123479}
+  - {fileID: 7993339245784654882}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -226,7 +228,7 @@ MonoBehaviour:
   title: SetVelocity
   rect:
     serializedVersion: 2
-    x: 800
+    x: 801
     y: 280
     width: 160
     height: 44
@@ -238,6 +240,30 @@ MonoBehaviour:
   x: 1
   y: 0
   velocity: 0
+--- !u!114 &7993339245784654882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097110641624292584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627693683300f43498bf9ef482dc18c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: ResetColliderSize
+  rect:
+    serializedVersion: 2
+    x: 960.19995
+    y: 279.8
+    width: 160
+    height: 44
+  parent: {fileID: 7387639594961235479}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
 --- !u!1 &5187867998988007255
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,10 +445,11 @@ GameObject:
   - component: {fileID: 2956470000706654650}
   - component: {fileID: 5705232178413805123}
   - component: {fileID: 7930354162408398958}
-  - component: {fileID: -6438386939851595218}
   - component: {fileID: 878823011287158652}
-  - component: {fileID: 4414341661791380101}
+  - component: {fileID: 9188836999577265816}
   - component: {fileID: 5377466222267964113}
+  - component: {fileID: -6438386939851595218}
+  - component: {fileID: 4414341661791380101}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Player
@@ -544,7 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 5705232178413805123}
+  selectedEditorNode: {fileID: 4518881291300782871}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -655,8 +682,8 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 6647391770060834379}
   children:
-  - {fileID: 9089261792244633716}
   - {fileID: 5377466222267964113}
+  - {fileID: 9089261792244633716}
   - {fileID: 207849673159666386}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -677,8 +704,8 @@ MonoBehaviour:
   title: CheckGrounded
   rect:
     serializedVersion: 2
-    x: -260
-    y: 160
+    x: -259
+    y: 161
     width: 160
     height: 44
   parent: {fileID: 9089261792244633716}
@@ -929,18 +956,6 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   tree: {fileID: 7672372939323481566}
---- !u!114 &-6438386939851595218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5548069816130054504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b43649bb47f96c408a93ab507541d23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &878823011287158652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,20 +981,41 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   moveSpeed: 5
---- !u!114 &4414341661791380101
-MonoBehaviour:
+--- !u!70 &9188836999577265816
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5548069816130054504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03e793553e09e0a4396b5614502f1a3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 3822588568579999162}
-  pauseDelay: 2
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.4}
+  m_Size: {x: 0.7, y: 0.7}
+  m_Direction: 0
 --- !u!114 &5377466222267964113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -995,8 +1031,8 @@ MonoBehaviour:
   title: CheckDead
   rect:
     serializedVersion: 2
-    x: -140
-    y: -0
+    x: -303
+    y: 0
     width: 160
     height: 44
   parent: {fileID: 4957293417063921749}
@@ -1004,6 +1040,32 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
+--- !u!114 &-6438386939851595218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548069816130054504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b43649bb47f96c408a93ab507541d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4414341661791380101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548069816130054504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e793553e09e0a4396b5614502f1a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverPanel: {fileID: 3822588568579999162}
+  pauseDelay: 2
 --- !u!1 &6413244565834171567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 7014748047207319901}
+  selectedEditorNode: {fileID: 7175081411213479514}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 2816102555081676567}
@@ -1153,7 +1215,7 @@ MonoBehaviour:
   title: SetVelocity
   rect:
     serializedVersion: 2
-    x: 280
+    x: 281
     y: 220
     width: 160
     height: 44
@@ -1181,7 +1243,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 460
-    y: 220
+    y: 221
     width: 160
     height: 44
   parent: {fileID: 6473671514012173949}
@@ -1292,7 +1354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 0}
+  selectedEditorNode: {fileID: 4173718935032133895}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 2816102555081676567}
