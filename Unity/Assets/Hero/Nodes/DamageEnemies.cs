@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using MBT;
-using Monster;
 using UnityEngine;
 
 namespace Hero.Nodes
@@ -27,16 +26,16 @@ namespace Hero.Nodes
                 }
 
                 // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-                var monsterHealth = key.transform.parent.GetComponent<MonsterHealth>();
+                var monster = key.transform.parent.GetComponent<Monster.Monster>();
 
                 // ReSharper disable once Unity.PerformanceCriticalCodeNullComparison
-                if (monsterHealth == null)
+                if (monster == null)
                 {
                     removeList.Add(key);
                     continue;
                 }
 
-                monsterHealth.OnDamaged(damage);
+                monster.OnDamaged(damage);
             }
 
             foreach (Collider2D key in removeList)
