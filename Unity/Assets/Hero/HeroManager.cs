@@ -1,4 +1,3 @@
-using System.Globalization;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -17,13 +16,18 @@ namespace Hero
 
         private float _health;
         public float Stamina;
-        public float Money;
+        public int Money;
+        private int _level;
+        private int _exp;
+        private int _maxExp;
         public bool IsDead;
 
         private Image _healthBar;
         private Image _staminaBar;
+        private Image _expBar;
         private TextMeshProUGUI _healthText;
         private TextMeshProUGUI _moneyText;
+        private TextMeshProUGUI _levelText;
 
         private readonly Color _hitColor = Color.red;
         private readonly Color _originColor = Color.white;
@@ -64,6 +68,14 @@ namespace Hero
 
             _moneyText = GameObject.FindWithTag("MoneyText").GetComponent<TextMeshProUGUI>();
             UpdateMoneyUI();
+
+            _level = 1;
+            _maxExp = GetMaxExp(_level);
+
+            _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
+            // _expBar = GameObject.FindWithTag("").GetComponent<Image>();
+            UpdateLevelUI();
+            UpdateExpUI();
         }
 
         private HeroManager()
@@ -180,6 +192,8 @@ namespace Hero
         {
             Stamina = math.min(_maxStamina, Stamina + _staminaRecoverAmount);
             UpdateStaminaUI();
+
+            if (Input.GetKeyDown(KeyCode.E)) AddExp(10);
         }
 
         public void Update()
@@ -190,7 +204,36 @@ namespace Hero
 
         private void UpdateMoneyUI()
         {
-            _moneyText.text = Money.ToString(CultureInfo.InvariantCulture);
+            _moneyText.text = Money.ToString();
+        }
+
+        private static int GetMaxExp(int level)
+        {
+            return 70 + level * 30;
+        }
+
+        private void AddExp(int exp)
+        {
+            _exp += exp;
+
+            while (_exp >= _maxExp)
+            {
+                _exp -= _maxExp;
+                _level++;
+                _maxExp = GetMaxExp(_level);
+                UpdateLevelUI();
+                UpdateExpUI();
+            }
+        }
+
+        private void UpdateLevelUI()
+        {
+            _levelText.text = _level.ToString();
+        }
+
+        private void UpdateExpUI()
+        {
+            // _expBar.fillAmount = 1f * _exp / _maxExp;
         }
     }
 }
