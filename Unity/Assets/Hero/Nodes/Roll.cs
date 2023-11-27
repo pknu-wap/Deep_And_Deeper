@@ -1,3 +1,4 @@
+using System;
 using MBT;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ namespace Hero.Nodes
             HeroManager.Instance.ConsumeStamina(cost);
             var dir = HeroManager.Instance.GetFlipX() ? -1 : 1;
             HeroManager.Instance.SetVelocityX(moveSpeed * dir);
+            
+            HeroManager.Instance.RollAndResize();
 
             return NodeResult.success;
         }

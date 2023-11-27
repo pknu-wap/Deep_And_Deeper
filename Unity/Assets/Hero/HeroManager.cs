@@ -37,6 +37,7 @@ namespace Hero
         private Animator _animator;
         private SpriteRenderer _spriteRenderer;
         private Transform _transform;
+        private CapsuleCollider2D[] _capsuleCollider2D;
 
         private GameOverUI _gameOverUI;
 
@@ -58,6 +59,7 @@ namespace Hero
                 _spriteRenderer = playerObject.GetComponent<SpriteRenderer>();
                 _transform = playerObject.GetComponent<Transform>();
                 _gameOverUI = playerObject.GetComponent<GameOverUI>();
+                _capsuleCollider2D = playerObject.GetComponents<CapsuleCollider2D>();
             }
 
             _healthBar = GameObject.FindWithTag("HealthBar").GetComponent<Image>();
@@ -74,7 +76,7 @@ namespace Hero
             _maxExp = GetMaxExp(_level);
 
             _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
-            // _expBar = GameObject.FindWithTag("").GetComponent<Image>();
+            _expBar = GameObject.FindWithTag("ExpBar").GetComponent<Image>();
             UpdateLevelUI();
             UpdateExpUI();
         }
@@ -249,7 +251,19 @@ namespace Hero
 
         private void UpdateExpUI()
         {
-            // _expBar.fillAmount = 1f * _exp / _maxExp;
+            _expBar.fillAmount = 1f * _exp / _maxExp;
+        }
+
+        public void RollAndResize()
+        {
+            _capsuleCollider2D[0].enabled = false;
+            _capsuleCollider2D[1].enabled = true;
+        }
+
+        public void ResetColliderSize()
+        {
+            _capsuleCollider2D[0].enabled = true;
+            _capsuleCollider2D[1].enabled = false;
         }
     }
 }
