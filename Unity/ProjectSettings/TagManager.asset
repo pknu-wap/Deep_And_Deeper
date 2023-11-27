@@ -14,6 +14,7 @@ TagManager:
   - HealthText
   - StaminaBar
   - MoneyText
+  - LevelText
   layers:
   - Default
   - TransparentFX
