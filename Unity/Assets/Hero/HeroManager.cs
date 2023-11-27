@@ -1,6 +1,7 @@
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Hero
@@ -210,6 +211,11 @@ namespace Hero
         {
             HandleHitEffect();
             RecoverStamina();
+
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                SceneManager.LoadScene("BattleMap1_2");
+            }
         }
 
         private void UpdateMoneyUI()
