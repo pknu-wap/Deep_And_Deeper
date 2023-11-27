@@ -6,6 +6,7 @@ namespace Hero
     {
         public float maxHealth;
         public float maxStamina;
+        public float initialMoney;
         public float hitEffectDuration;
         public float staminaRecoverAmount;
     }

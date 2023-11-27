@@ -1,3 +1,4 @@
+using System.Globalization;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -16,11 +17,13 @@ namespace Hero
 
         private float _health;
         public float Stamina;
+        public float Money;
         public bool IsDead;
 
         private Image _healthBar;
         private Image _staminaBar;
         private TextMeshProUGUI _healthText;
+        private TextMeshProUGUI _moneyText;
 
         private readonly Color _hitColor = Color.red;
         private readonly Color _originColor = Color.white;
@@ -53,13 +56,14 @@ namespace Hero
             }
 
             _healthBar = GameObject.FindWithTag("HealthBar").GetComponent<Image>();
-            _healthBar.fillAmount = _health / _maxHealth;
-
             _healthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
-            _healthText.text = _health + "/" + _maxHealth;
+            UpdateHealthUI();
 
             _staminaBar = GameObject.FindWithTag("StaminaBar").GetComponent<Image>();
-            _staminaBar.fillAmount = Stamina / _maxStamina;
+            UpdateStaminaUI();
+
+            _moneyText = GameObject.FindWithTag("MoneyText").GetComponent<TextMeshProUGUI>();
+            UpdateMoneyUI();
         }
 
         private HeroManager()
@@ -71,6 +75,7 @@ namespace Hero
             _health = _maxHealth;
             _maxStamina = heroManagerData.maxStamina;
             Stamina = _maxStamina;
+            Money = heroManagerData.initialMoney;
             _hitEffectDuration = heroManagerData.hitEffectDuration;
             _staminaRecoverAmount = heroManagerData.staminaRecoverAmount;
 
@@ -181,6 +186,11 @@ namespace Hero
         {
             HandleHitEffect();
             RecoverStamina();
+        }
+
+        private void UpdateMoneyUI()
+        {
+            _moneyText.text = Money.ToString(CultureInfo.InvariantCulture);
         }
     }
 }
