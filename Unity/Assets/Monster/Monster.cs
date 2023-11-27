@@ -86,6 +86,8 @@ namespace Monster
 
         public void SetState(string stateName)
         {
+            if (isDead) return;
+
             _animator.Play(stateName);
         }
 
