@@ -9,23 +9,21 @@ namespace Monster
         [SerializeField] private Color hitColor = Color.red;
         [SerializeField] private Color originColor = Color.white;
         [SerializeField] private float hitEffectDuration = 0.2f;
+        [SerializeField] private Slider slider;
 
         private SpriteRenderer _spriteRenderer;
         private Animator _animator;
 
         private float _health;
-        private Image _healthBar;
         private float _hitTimer;
-
-        private void Awake()
-        {
-            _healthBar = transform.GetChild(0).GetChild(0).GetComponent<Image>();
-        }
 
         private void Start()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
+
+            _health = maxHealth;
+            UpdateHealthUI();
         }
 
         private void OnDamaged(float damage)
@@ -43,7 +41,7 @@ namespace Monster
 
         private void UpdateHealthUI()
         {
-            _healthBar.fillAmount = _health / maxHealth;
+            slider.value = _health / maxHealth;
         }
 
         private void SetColor(Color color)
