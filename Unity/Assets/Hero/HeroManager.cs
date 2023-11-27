@@ -96,21 +96,29 @@ namespace Hero
 
         public void SetVelocityX(float x)
         {
+            if (IsDead) return;
+
             _rigidbody2D.velocity = new Vector2(x, _rigidbody2D.velocity.y);
         }
 
         public void SetVelocityY(float y)
         {
+            if (IsDead) return;
+
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, y);
         }
 
         public void SetState(string stateName)
         {
+            if (IsDead) return;
+
             _animator.Play(stateName);
         }
 
         public void SetFlipX(bool flipX)
         {
+            if (IsDead) return;
+
             _spriteRenderer.flipX = flipX;
         }
 
@@ -121,6 +129,8 @@ namespace Hero
 
         public void SetGrounded(bool grounded)
         {
+            if (IsDead) return;
+
             _isGrounded = grounded;
         }
 
@@ -144,8 +154,8 @@ namespace Hero
 
             if (_health > 0) return;
 
+            SetState("Death");
             IsDead = true;
-            SetState("Die");
             GameOver();
         }
 
