@@ -8,11 +8,11 @@ namespace Monster.Nodes
     [MBTNode(name = "Monster/ApplyDamage")]
     public class ApplyDamage : Leaf
     {
-        [SerializeField] private int target; //0: player 1: monster
+        [SerializeField] private float damage;
 
         public override NodeResult Execute()
         {
-            HeroManager.Instance.ApplyDamage(target);
+            HeroManager.Instance.OnDamaged(damage);
             return NodeResult.success;
         }
     }

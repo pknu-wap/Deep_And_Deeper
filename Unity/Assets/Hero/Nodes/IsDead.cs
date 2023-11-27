@@ -1,4 +1,3 @@
-using System;
 using MBT;
 using UnityEngine;
 
@@ -10,16 +9,7 @@ namespace Hero.Nodes
     {
         public override NodeResult Execute()
         {
-            if (HeroManager.Instance.CheckDead())
-            {
-                HeroManager.Instance.SetState("Die");
-                HeroManager.Instance.GameOver();
-                return NodeResult.success;
-            }
-            else
-            {
-                return NodeResult.failure;
-            }
+            return NodeResult.success;
         }
     }
 }
