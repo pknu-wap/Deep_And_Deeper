@@ -11,7 +11,7 @@ namespace Hero
         private static HeroManager _instance;
 
         private readonly float _maxHealth;
-        private readonly float _maxStamina;
+        private float _maxStamina;
         private readonly float _hitEffectDuration;
         private readonly float _staminaRecoverAmount;
 
@@ -294,6 +294,11 @@ namespace Hero
         {
             Exp = exp;
             AddExp(0);
+        }
+
+        public void AddMaxStamina(int stamina)
+        {
+            _maxStamina += stamina;
         }
     }
 }
