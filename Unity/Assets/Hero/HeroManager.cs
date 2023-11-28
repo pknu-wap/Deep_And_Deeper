@@ -24,6 +24,7 @@ namespace Hero
         public int Exp;
         private int _maxExp;
         public bool IsDead;
+        public bool LookingRight = true;
 
         private Image _healthBar;
         private Image _staminaBar;
@@ -319,6 +320,7 @@ namespace Hero
 
             var flipped = inputX < 0;
             _transform.localScale = flipped ? _flippedScale : _originScale;
+            LookingRight = !flipped;
             SetVelocityX(inputX * MoveSpeed);
 
             return NodeResult.success;

@@ -14,11 +14,11 @@ namespace Hero.Nodes
         public override NodeResult Execute()
         {
             if (HeroManager.Instance.Stamina < cost) return NodeResult.failure;
-            
+
             HeroManager.Instance.ConsumeStamina(cost);
-            var dir = HeroManager.Instance.GetFlipX() ? -1 : 1;
+            var dir = HeroManager.Instance.LookingRight ? 1 : -1;
             HeroManager.Instance.SetVelocityX(moveSpeed * dir);
-            
+
             HeroManager.Instance.RollAndResize();
 
             return NodeResult.success;
