@@ -16,6 +16,7 @@ TagManager:
   - MoneyText
   - LevelText
   - ExpBar
+  - ItemText
   layers:
   - Default
   - TransparentFX
