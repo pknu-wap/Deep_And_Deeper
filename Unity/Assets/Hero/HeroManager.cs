@@ -230,7 +230,7 @@ namespace Hero
             return 70 + level * 30;
         }
 
-        private void AddExp(int exp)
+        public void AddExp(int exp)
         {
             Exp += exp;
 
@@ -264,6 +264,36 @@ namespace Hero
         {
             _capsuleCollider2D[0].enabled = true;
             _capsuleCollider2D[1].enabled = false;
+        }
+
+        public void SetHealth(float health)
+        {
+            Health = health;
+            UpdateHealthUI();
+        }
+
+        public void AddHealth(float health)
+        {
+            Health += health;
+            UpdateHealthUI();
+        }
+
+        public void SetMoney(int money)
+        {
+            Money = money;
+            UpdateMoneyUI();
+        }
+
+        public void AddMoney(int money)
+        {
+            Money += money;
+            UpdateMoneyUI();
+        }
+
+        public void SetExp(int exp)
+        {
+            Exp = exp;
+            AddExp(0);
         }
     }
 }
