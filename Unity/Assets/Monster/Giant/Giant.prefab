@@ -10,7 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_Name
-      value: Monster Variant
+      value: Giant
+      objectReference: {fileID: 0}
+    - target: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178182746500334476, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_Size.x
+      value: 0.16668007
+      objectReference: {fileID: 0}
+    - target: {fileID: 178182746500334476, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_Size.y
+      value: 0.28778294
+      objectReference: {fileID: 0}
+    - target: {fileID: 178182746500334476, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.03498459
+      objectReference: {fileID: 0}
+    - target: {fileID: 178182746500334476, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.018828869
       objectReference: {fileID: 0}
     - target: {fileID: 1098669232314767702, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_AnchorMax.x
@@ -70,6 +90,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1865894765515591674, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107499730759134620, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_Size.x
+      value: 0.16812307
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107499730759134620, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_Size.y
+      value: 0.28662536
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107499730759134620, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.03453683
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107499730759134620, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0140411705
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026618913244254666, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8041916220521351667, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
