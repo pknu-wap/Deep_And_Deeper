@@ -1635,6 +1635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack3SubTree
       objectReference: {fileID: 0}
+    - target: {fileID: 6737055784179918801, guid: 72b2088d686189c45af9bc25e20af68d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6883960535068238205, guid: 72b2088d686189c45af9bc25e20af68d, type: 3}
       propertyPath: parent
       value: 
@@ -1877,6 +1881,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack1SubTree
       objectReference: {fileID: 0}
+    - target: {fileID: 6737055784179918801, guid: 72b2088d686189c45af9bc25e20af68d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6883960535068238205, guid: 72b2088d686189c45af9bc25e20af68d, type: 3}
       propertyPath: parent
       value: 
@@ -2001,6 +2009,10 @@ PrefabInstance:
     - target: {fileID: 6737055784179918801, guid: 72b2088d686189c45af9bc25e20af68d, type: 3}
       propertyPath: m_Name
       value: Attack2SubTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737055784179918801, guid: 72b2088d686189c45af9bc25e20af68d, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6883960535068238205, guid: 72b2088d686189c45af9bc25e20af68d, type: 3}
       propertyPath: parent
