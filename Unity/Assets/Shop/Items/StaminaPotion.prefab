@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 1185042284, guid: cfed6856a7f8e9a4484fa52a3ab0c700, type: 3}
     - target: {fileID: 4775728110369633337, guid: 43bb80577049f7345be37489c1d365ff, type: 3}
       propertyPath: m_Name
-      value: StaminaPotion Variant
+      value: StaminaPotion
       objectReference: {fileID: 0}
     - target: {fileID: 5228618026180843890, guid: 43bb80577049f7345be37489c1d365ff, type: 3}
       propertyPath: index
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5228618026180843890, guid: 43bb80577049f7345be37489c1d365ff, type: 3}
       propertyPath: description
-      value: "\uCD5C\uB300 \uC2A4\uD0DC\uBBF8\uB108\uAC00 5 \uC99D\uAC00\uD55C\uB2E4."
+      value: "\uCD5C\uB300 \uC2A4\uD0DC\uBBF8\uB108\uAC00 10 \uC99D\uAC00\uD55C\uB2E4."
       objectReference: {fileID: 0}
     - target: {fileID: 8285870073265956718, guid: 43bb80577049f7345be37489c1d365ff, type: 3}
       propertyPath: m_LocalPosition.x
