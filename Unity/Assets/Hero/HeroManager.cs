@@ -48,11 +48,11 @@ namespace Hero
 
         private void Init()
         {
-            new GameObject().AddComponent<UpdateShuttle>();
+            new GameObject("Update Shuttle").AddComponent<UpdateShuttle>();
 
             var playerObject = GameObject.FindWithTag("Player");
 
-            // if (gameObject != null)
+            if (playerObject != null)
             {
                 _rigidbody2D = playerObject.GetComponent<Rigidbody2D>();
                 _animator = playerObject.GetComponent<Animator>();
