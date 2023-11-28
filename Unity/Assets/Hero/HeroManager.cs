@@ -59,7 +59,8 @@ namespace Hero
                 _spriteRenderer = playerObject.GetComponent<SpriteRenderer>();
                 _transform = playerObject.GetComponent<Transform>();
                 _gameOverUI = playerObject.GetComponent<GameOverUI>();
-                _capsuleCollider2D = playerObject.GetComponents<CapsuleCollider2D>();
+
+                _capsuleCollider2D = GameObject.FindWithTag("HeroCollider").GetComponents<CapsuleCollider2D>();
             }
 
             _healthBar = GameObject.FindWithTag("HealthBar").GetComponent<Image>();

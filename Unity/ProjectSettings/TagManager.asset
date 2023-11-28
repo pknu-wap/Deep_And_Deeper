@@ -17,6 +17,7 @@ TagManager:
   - LevelText
   - ExpBar
   - ItemText
+  - HeroCollider
   layers:
   - Default
   - TransparentFX
@@ -29,8 +30,8 @@ TagManager:
   - MonsterAttack
   - HeroAttack
   - Item
-  - 
-  - 
+  - HeroCollider
+  - MonsterCollider
   - 
   - 
   - 
