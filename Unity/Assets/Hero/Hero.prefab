@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 0}
+  selectedEditorNode: {fileID: 436228756338945899}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 2816102555081676567}
@@ -495,7 +495,6 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
-  moveSpeed: 5
 --- !u!114 &3835267728135267383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,7 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 4518881291300782871}
+  selectedEditorNode: {fileID: 2956470000706654650}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -1048,7 +1047,6 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
-  moveSpeed: 5
 --- !u!114 &5377466222267964113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,7 +1334,6 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
-  moveSpeed: 5
 --- !u!1 &7014548474707244239
 GameObject:
   m_ObjectHideFlags: 0

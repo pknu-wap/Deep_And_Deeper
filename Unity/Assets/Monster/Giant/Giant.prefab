@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4018982553719588997, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: maxHealth
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 5107499730759134620, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_Size.x
       value: 0.16812307
