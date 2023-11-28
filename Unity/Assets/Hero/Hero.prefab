@@ -1766,69 +1766,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7813450559281782495}
     m_Modifications:
-    - target: {fileID: 565825366089249577, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1934378676823097513, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 171.90015
-      objectReference: {fileID: 0}
-    - target: {fileID: 1934378676823097513, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 110.399994
-      objectReference: {fileID: 0}
     - target: {fileID: 2261591020286136081, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
       propertyPath: m_Name
       value: PlayerStatus UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775777036683757931, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_TagString
-      value: StaminaBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 3389298165981406236, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_TagString
-      value: ExpBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 4308032590747598995, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_TagString
-      value: HealthText
-      objectReference: {fileID: 0}
-    - target: {fileID: 5395317054019858534, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_Color.b
-      value: 0.8679245
-      objectReference: {fileID: 0}
-    - target: {fileID: 5395317054019858534, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_Color.g
-      value: 0.8679245
-      objectReference: {fileID: 0}
-    - target: {fileID: 5395317054019858534, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_Color.r
-      value: 0.8679245
-      objectReference: {fileID: 0}
-    - target: {fileID: 5422721982561379956, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_FillAmount
-      value: 0.555
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670789605874718009, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 171.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670789605874718009, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 110.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737455088152841857, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737455088152841857, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737455088152841857, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_Color.r
-      value: 0.84031916
       objectReference: {fileID: 0}
     - target: {fileID: 7179023879645583039, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1869,10 +1809,6 @@ PrefabInstance:
     - target: {fileID: 7179023879645583039, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7921379619173192708, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
-      propertyPath: m_TagString
-      value: HealthBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

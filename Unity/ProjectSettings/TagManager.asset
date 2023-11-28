@@ -16,6 +16,7 @@ TagManager:
   - MoneyText
   - LevelText
   - ExpBar
+  - ItemText
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Monster
   - MonsterAttack
   - HeroAttack
-  - 
+  - Item
   - 
   - 
   - 

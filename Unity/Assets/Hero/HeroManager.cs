@@ -11,15 +11,15 @@ namespace Hero
         private static HeroManager _instance;
 
         private readonly float _maxHealth;
-        private readonly float _maxStamina;
+        private float _maxStamina;
         private readonly float _hitEffectDuration;
         private readonly float _staminaRecoverAmount;
 
-        private float _health;
+        public float Health;
         public float Stamina;
         public int Money;
-        private int _level;
-        private int _exp;
+        public int Level;
+        public int Exp;
         private int _maxExp;
         public bool IsDead;
 
@@ -48,11 +48,11 @@ namespace Hero
 
         private void Init()
         {
-            new GameObject().AddComponent<UpdateShuttle>();
+            new GameObject("Update Shuttle").AddComponent<UpdateShuttle>();
 
             var playerObject = GameObject.FindWithTag("Player");
 
-            // if (gameObject != null)
+            if (playerObject != null)
             {
                 _rigidbody2D = playerObject.GetComponent<Rigidbody2D>();
                 _animator = playerObject.GetComponent<Animator>();
@@ -72,8 +72,8 @@ namespace Hero
             _moneyText = GameObject.FindWithTag("MoneyText").GetComponent<TextMeshProUGUI>();
             UpdateMoneyUI();
 
-            _level = 1;
-            _maxExp = GetMaxExp(_level);
+            Level = 1;
+            _maxExp = GetMaxExp(Level);
 
             _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
             _expBar = GameObject.FindWithTag("ExpBar").GetComponent<Image>();
@@ -87,7 +87,7 @@ namespace Hero
             var heroManagerData = heroManagerDataContainer.GetComponent<HeroManagerData>();
 
             _maxHealth = heroManagerData.maxHealth;
-            _health = _maxHealth;
+            Health = _maxHealth;
             _maxStamina = heroManagerData.maxStamina;
             Stamina = _maxStamina;
             Money = heroManagerData.initialMoney;
@@ -149,13 +149,13 @@ namespace Hero
 
         public void OnDamaged(float damage)
         {
-            _health -= damage;
+            Health -= damage;
             UpdateHealthUI();
 
             _hitTimer = _hitEffectDuration;
             SetColor(_hitColor);
 
-            if (_health > 0) return;
+            if (Health > 0) return;
 
             SetState("Death");
             IsDead = true;
@@ -164,8 +164,8 @@ namespace Hero
 
         private void UpdateHealthUI()
         {
-            _healthBar.fillAmount = _health / _maxHealth;
-            _healthText.text = _health + "/" + _maxHealth;
+            _healthBar.fillAmount = Health / _maxHealth;
+            _healthText.text = Health + "/" + _maxHealth;
         }
 
         public void ConsumeStamina(float cost)
@@ -230,15 +230,15 @@ namespace Hero
             return 70 + level * 30;
         }
 
-        private void AddExp(int exp)
+        public void AddExp(int exp)
         {
-            _exp += exp;
+            Exp += exp;
 
-            while (_exp >= _maxExp)
+            while (Exp >= _maxExp)
             {
-                _exp -= _maxExp;
-                _level++;
-                _maxExp = GetMaxExp(_level);
+                Exp -= _maxExp;
+                Level++;
+                _maxExp = GetMaxExp(Level);
                 UpdateLevelUI();
                 UpdateExpUI();
             }
@@ -246,12 +246,12 @@ namespace Hero
 
         private void UpdateLevelUI()
         {
-            _levelText.text = _level.ToString();
+            _levelText.text = Level.ToString();
         }
 
         private void UpdateExpUI()
         {
-            _expBar.fillAmount = 1f * _exp / _maxExp;
+            _expBar.fillAmount = 1f * Exp / _maxExp;
         }
 
         public void RollAndResize()
@@ -264,6 +264,41 @@ namespace Hero
         {
             _capsuleCollider2D[0].enabled = true;
             _capsuleCollider2D[1].enabled = false;
+        }
+
+        public void SetHealth(float health)
+        {
+            Health = health;
+            UpdateHealthUI();
+        }
+
+        public void AddHealth(float health)
+        {
+            Health += health;
+            UpdateHealthUI();
+        }
+
+        public void SetMoney(int money)
+        {
+            Money = money;
+            UpdateMoneyUI();
+        }
+
+        public void AddMoney(int money)
+        {
+            Money += money;
+            UpdateMoneyUI();
+        }
+
+        public void SetExp(int exp)
+        {
+            Exp = exp;
+            AddExp(0);
+        }
+
+        public void AddMaxStamina(int stamina)
+        {
+            _maxStamina += stamina;
         }
     }
 }
