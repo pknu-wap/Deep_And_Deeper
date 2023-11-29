@@ -230,6 +230,11 @@ namespace Hero
             {
                 SceneManager.LoadScene("BattleMap1_2");
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                MapGenerator.MapGenerator.Instance.CreateMap();
+            }
         }
 
         private void UpdateMoneyUI()
