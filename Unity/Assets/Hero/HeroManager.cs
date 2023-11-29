@@ -28,10 +28,8 @@ namespace Hero
 
         private void Awake()
         {
-            Debug.Log("awake");
             var heroManagerDataContainer = Resources.Load<GameObject>("HeroManagerDataContainer");
             var heroManagerData = heroManagerDataContainer.GetComponent<HeroManagerData>();
-        
 
             _maxHealth = heroManagerData.maxHealth;
             health = _maxHealth;
@@ -78,7 +76,6 @@ namespace Hero
                 _originScale = _transform.localScale;
                 _flippedScale = _originScale;
                 _flippedScale.x *= -1;
-                _capsuleCollider2D = playerObject.GetComponents<CapsuleCollider2D>();
             }
 
             _healthBar = GameObject.FindWithTag("HealthBar").GetComponent<Image>();
@@ -101,9 +98,6 @@ namespace Hero
         {
             OnSceneLoaded();
         }
-        
-       
-  
 
         private bool _noHero;
 
@@ -139,9 +133,9 @@ namespace Hero
         private CapsuleCollider2D[] _capsuleCollider2D;
 
         private GameOverUI _gameOverUI;
-         private LevelUpUI _levelUpUI;
+        private LevelUpUI _levelUpUI;
 
-        private bool _isGrounded;
+        public bool isGrounded;
         private float _hitTimer;
 
         private Vector3 _originScale;
@@ -166,30 +160,6 @@ namespace Hero
             if (isDead) return;
 
             _animator.Play(stateName);
-        }
-
-        public void SetFlipX(bool flipX)
-        {
-            if (isDead) return;
-
-            _spriteRenderer.flipX = flipX;
-        }
-
-        public bool GetFlipX()
-        {
-            return _spriteRenderer.flipX;
-        }
-
-        public void SetGrounded(bool grounded)
-        {
-            if (isDead) return;
-
-            _isGrounded = grounded;
-        }
-
-        public bool GetGrounded()
-        {
-            return _isGrounded;
         }
 
         public Vector3 GetPosition()
@@ -289,17 +259,16 @@ namespace Hero
 
         public void AddExp(int newExp)
         {
-            this.exp += newExp;
+            exp += newExp;
 
-            while (this.exp >= _maxExp)
+            while (exp >= _maxExp)
             {
-                this.exp -= _maxExp;
+                exp -= _maxExp;
                 level++;
                 _maxExp = GetMaxExp(level);
                 UpdateLevelUI();
                 UpdateExpUI();
                 _levelUpUI.OnLevelUp();
-                
             }
         }
 
@@ -327,25 +296,25 @@ namespace Hero
 
         public void SetHealth(float newHealth)
         {
-            this.health = newHealth;
+            health = newHealth;
             UpdateHealthUI();
         }
 
         public void AddHealth(float newHealth)
         {
-            this.health += newHealth;
+            health += newHealth;
             UpdateHealthUI();
         }
 
         public void SetMoney(int newMoney)
         {
-            this.money = newMoney;
+            money = newMoney;
             UpdateMoneyUI();
         }
 
         public void AddMoney(int newMoney)
         {
-            this.money += newMoney;
+            money += newMoney;
             UpdateMoneyUI();
         }
 
