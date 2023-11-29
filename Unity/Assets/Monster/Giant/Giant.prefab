@@ -19,6 +19,10 @@ GameObject:
   - component: {fileID: 1846467493881569059}
   - component: {fileID: 8084152090527879587}
   - component: {fileID: 6824616686370571331}
+  - component: {fileID: 5222383345541978514}
+  - component: {fileID: 4193708297447525751}
+  - component: {fileID: 7699895502876402648}
+  - component: {fileID: 7098746858362583135}
   m_Layer: 8
   m_Name: PunchCrossSubTree
   m_TagString: Untagged
@@ -53,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 6824616686370571331}
+  selectedEditorNode: {fileID: 7699895502876402648}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 6616472583869243318}
@@ -107,6 +111,7 @@ MonoBehaviour:
   - {fileID: 8336379206447177068}
   - {fileID: 8084152090527879587}
   - {fileID: 7668122859573439782}
+  - {fileID: 5222383345541978514}
   - {fileID: 1846467493881569059}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -246,7 +251,7 @@ MonoBehaviour:
   title: Wait
   rect:
     serializedVersion: 2
-    x: 760
+    x: 920
     y: 240
     width: 160
     height: 44
@@ -277,12 +282,12 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 2838809419323438489}
   children:
-  - {fileID: 6824616686370571331}
+  - {fileID: 4193708297447525751}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   random: 0
-  duration: 0.7
+  duration: 0.5
 --- !u!114 &6824616686370571331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,17 +303,122 @@ MonoBehaviour:
   title: Chase
   rect:
     serializedVersion: 2
-    x: 320
-    y: 320
+    x: 420
+    y: 400
     width: 160
     height: 44
-  parent: {fileID: 8084152090527879587}
+  parent: {fileID: 4193708297447525751}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   useCustomSpeed: 1
   customSpeed: 15
+--- !u!114 &5222383345541978514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616132926997837426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3da2d6b2c08c2f4f8dbe61500e9df53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: SetMonsterVelocity
+  rect:
+    serializedVersion: 2
+    x: 720
+    y: 240
+    width: 160
+    height: 44
+  parent: {fileID: 2838809419323438489}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  x: 1
+  y: 0
+  velocity: 0
+--- !u!114 &4193708297447525751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616132926997837426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: 320
+    y: 320
+    width: 160
+    height: 44
+  parent: {fileID: 8084152090527879587}
+  children:
+  - {fileID: 7098746858362583135}
+  - {fileID: 6824616686370571331}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &7699895502876402648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616132926997837426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3039cb87cd84643832b8eaf84a7bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: CheckPlayerWithinRange
+  rect:
+    serializedVersion: 2
+    x: 200
+    y: 480
+    width: 160
+    height: 44
+  parent: {fileID: 7098746858362583135}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  xRange: 0.5
+  yRange: 1000
+--- !u!114 &7098746858362583135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616132926997837426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7dcd3c2da37eb4ba49162d0ca654c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Inverter
+  rect:
+    serializedVersion: 2
+    x: 200
+    y: 400
+    width: 160
+    height: 44
+  parent: {fileID: 4193708297447525751}
+  children:
+  - {fileID: 7699895502876402648}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
 --- !u!1 &6418273150392212710
 GameObject:
   m_ObjectHideFlags: 0
