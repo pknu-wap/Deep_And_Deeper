@@ -122,5 +122,16 @@ namespace Monster
         {
             slider.gameObject.SetActive(visible);
         }
+
+        public void Chase(float customSpeed)
+        {
+            if (isDead) return;
+
+            var flipped = transform.position.x < HeroManager.Instance.GetPosition().x;
+            transform.localScale = flipped ? _flippedScale : _originScale;
+
+            var x = flipped ? 1 : -1;
+            _rigidbody2D.velocity = new Vector2(x * customSpeed, _rigidbody2D.velocity.y);
+        }
     }
 }

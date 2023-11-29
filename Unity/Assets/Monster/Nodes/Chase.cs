@@ -7,6 +7,8 @@ namespace Monster.Nodes
     [MBTNode(name = "Monster/Chase")]
     public class Chase : Leaf
     {
+        [SerializeField] private bool useCustomSpeed;
+        [SerializeField] private float customSpeed;
         private Monster _monster;
 
         private void Start()
@@ -27,7 +29,8 @@ namespace Monster.Nodes
 
         public override NodeResult Execute()
         {
-            _monster.Chase();
+            if (useCustomSpeed) _monster.Chase(customSpeed);
+            else _monster.Chase();
             return NodeResult.success;
         }
     }
