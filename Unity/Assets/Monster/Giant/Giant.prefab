@@ -807,6 +807,9 @@ GameObject:
   - component: {fileID: 8415169208616792966}
   - component: {fileID: 632383606739961329}
   - component: {fileID: 3459989506827662200}
+  - component: {fileID: 9186295554778221530}
+  - component: {fileID: 6400645409143641337}
+  - component: {fileID: 8048924363600605589}
   m_Layer: 8
   m_Name: PunchJabSubTree
   m_TagString: Untagged
@@ -841,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 3459989506827662200}
+  selectedEditorNode: {fileID: 8048924363600605589}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 6616472583869243318}
@@ -1040,7 +1043,7 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 204773207521680830}
   children:
-  - {fileID: 3459989506827662200}
+  - {fileID: 9186295554778221530}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -1061,17 +1064,95 @@ MonoBehaviour:
   title: Chase
   rect:
     serializedVersion: 2
-    x: 360
-    y: 280
+    x: 460
+    y: 360
     width: 160
     height: 44
-  parent: {fileID: 632383606739961329}
+  parent: {fileID: 9186295554778221530}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   useCustomSpeed: 1
   customSpeed: 2
+--- !u!114 &9186295554778221530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184340710418748650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: 360
+    y: 286.8
+    width: 160
+    height: 44
+  parent: {fileID: 632383606739961329}
+  children:
+  - {fileID: 6400645409143641337}
+  - {fileID: 3459989506827662200}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &6400645409143641337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184340710418748650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7dcd3c2da37eb4ba49162d0ca654c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Inverter
+  rect:
+    serializedVersion: 2
+    x: 280
+    y: 360
+    width: 160
+    height: 44
+  parent: {fileID: 9186295554778221530}
+  children:
+  - {fileID: 8048924363600605589}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+--- !u!114 &8048924363600605589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184340710418748650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3039cb87cd84643832b8eaf84a7bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: CheckPlayerWithinRange
+  rect:
+    serializedVersion: 2
+    x: 271
+    y: 442.8
+    width: 160
+    height: 44
+  parent: {fileID: 6400645409143641337}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  xRange: 1000
+  yRange: 0.5
 --- !u!1 &8372775140985476716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,6 +1642,10 @@ PrefabInstance:
     - target: {fileID: 4018982553719588997, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: maxHealth
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018982553719588997, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: phase2Ratio
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4791448060018659852, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: rect.x
