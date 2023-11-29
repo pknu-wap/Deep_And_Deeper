@@ -561,6 +561,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4018982553719588997, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: phase2Ratio
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4772111381605380894, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_Layer
       value: 12
