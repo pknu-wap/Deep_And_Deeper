@@ -7,12 +7,14 @@ namespace Monster
     public class Monster : MonoBehaviour
     {
         [SerializeField] private float speed = 1;
-        [SerializeField] private float maxHealth;
+        [SerializeField] public float maxHealth;
         [SerializeField] private Color hitColor = Color.red;
         [SerializeField] private Color originColor = Color.white;
         [SerializeField] private float hitEffectDuration = 0.2f;
         [SerializeField] private Slider slider;
+        [SerializeField] private float phase2Ratio;
 
+        public bool phase2;
         public bool isDead;
 
         private SpriteRenderer _spriteRenderer;
@@ -21,7 +23,7 @@ namespace Monster
 
         private Vector3 _originScale;
         private Vector3 _flippedScale;
-        private float _health;
+        public float _health;
         private float _hitTimer;
 
         private void Start()
@@ -78,6 +80,11 @@ namespace Monster
             _hitTimer = hitEffectDuration;
             SetColor(hitColor);
 
+            if (_health <= maxHealth * phase2Ratio)
+            {
+                phase2 = true;
+            }
+
             if (_health > 0) return;
 
             _animator.Play("Death");
@@ -90,6 +97,14 @@ namespace Monster
             if (isDead) return;
 
             _animator.Play(stateName);
+        }
+
+        public void ChaseDirection()
+        {
+            if (isDead) return;
+
+            var flipped = transform.position.x < HeroManager.Instance.GetPosition().x;
+            transform.localScale = flipped ? _flippedScale : _originScale;
         }
 
         public void Chase()
@@ -106,6 +121,24 @@ namespace Monster
         private void SetHealthUIActive(bool visible)
         {
             slider.gameObject.SetActive(visible);
+        }
+
+        public void Chase(float customSpeed)
+        {
+            if (isDead) return;
+
+            var flipped = transform.position.x < HeroManager.Instance.GetPosition().x;
+            transform.localScale = flipped ? _flippedScale : _originScale;
+
+            var x = flipped ? 1 : -1;
+            _rigidbody2D.velocity = new Vector2(x * customSpeed, _rigidbody2D.velocity.y);
+        }
+
+        public void MultiplyScale(float scale)
+        {
+            transform.localScale *= scale;
+            _originScale *= scale;
+            _flippedScale *= scale;
         }
     }
 }

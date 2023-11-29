@@ -9,5 +9,6 @@ namespace Hero
         public int initialMoney;
         public float hitEffectDuration;
         public float staminaRecoverAmount;
+        public float moveSpeed;
     }
 }

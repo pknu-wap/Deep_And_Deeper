@@ -1,3 +1,4 @@
+using MBT;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -6,22 +7,120 @@ using UnityEngine.UI;
 
 namespace Hero
 {
-    public class HeroManager
+    public class HeroManager : MonoBehaviour
     {
         private static HeroManager _instance;
 
-        private readonly float _maxHealth;
-        private float _maxStamina;
-        private readonly float _hitEffectDuration;
-        private readonly float _staminaRecoverAmount;
+        public static HeroManager Instance
+        {
+            get
+            {
+                if (_instance) return _instance;
 
-        public float Health;
-        public float Stamina;
-        public int Money;
-        public int Level;
-        public int Exp;
+                // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+                _instance = new GameObject("Hero Manager").AddComponent<HeroManager>();
+
+                DontDestroyOnLoad(_instance.gameObject);
+
+                return _instance;
+            }
+        }
+
+        private void Awake()
+        {
+            Debug.Log("awake");
+            var heroManagerDataContainer = Resources.Load<GameObject>("HeroManagerDataContainer");
+            var heroManagerData = heroManagerDataContainer.GetComponent<HeroManagerData>();
+        
+
+            _maxHealth = heroManagerData.maxHealth;
+            health = _maxHealth;
+            _maxStamina = heroManagerData.maxStamina;
+            stamina = _maxStamina;
+            money = heroManagerData.initialMoney;
+            _hitEffectDuration = heroManagerData.hitEffectDuration;
+            _staminaRecoverAmount = heroManagerData.staminaRecoverAmount;
+            moveSpeed = heroManagerData.moveSpeed;
+
+            level = 1;
+            _maxExp = GetMaxExp(level);
+
+            OnSceneLoaded();
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded()
+        {
+            Debug.Log("sceneLoaded");
+            var playerObject = GameObject.FindWithTag("Player");
+            var topViewPlayerObject = GameObject.FindWithTag("TopViewHero");
+
+            if (playerObject == null && topViewPlayerObject == null)
+            {
+                _noHero = true;
+                return;
+            }
+
+            _noHero = false;
+
+            if (playerObject != null)
+            {
+                _rigidbody2D = playerObject.GetComponent<Rigidbody2D>();
+                _animator = playerObject.GetComponent<Animator>();
+                _spriteRenderer = playerObject.GetComponent<SpriteRenderer>();
+                _transform = playerObject.GetComponent<Transform>();
+                _gameOverUI = playerObject.GetComponent<GameOverUI>();
+
+                _capsuleCollider2D = GameObject.FindWithTag("HeroCollider").GetComponents<CapsuleCollider2D>();
+
+                _originScale = _transform.localScale;
+                _flippedScale = _originScale;
+                _flippedScale.x *= -1;
+                _levelUpUI = playerObject.GetComponent<LevelUpUI>();
+                _capsuleCollider2D = playerObject.GetComponents<CapsuleCollider2D>();
+            }
+
+            _healthBar = GameObject.FindWithTag("HealthBar").GetComponent<Image>();
+            _healthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
+            UpdateHealthUI();
+
+            _staminaBar = GameObject.FindWithTag("StaminaBar").GetComponent<Image>();
+            UpdateStaminaUI();
+
+            _moneyText = GameObject.FindWithTag("MoneyText").GetComponent<TextMeshProUGUI>();
+            UpdateMoneyUI();
+
+            _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
+            _expBar = GameObject.FindWithTag("ExpBar").GetComponent<Image>();
+            UpdateLevelUI();
+            UpdateExpUI();
+        }
+
+        private void OnSceneLoaded(Scene a, LoadSceneMode b)
+        {
+            OnSceneLoaded();
+        }
+        
+        private GameOverUI _gameOverUI;
+        private LevelUpUI _levelUpUI;
+
+        private bool _noHero;
+
+        private float _maxHealth;
+        private float _maxStamina;
+        private float _hitEffectDuration;
+        private float _staminaRecoverAmount;
+
+        public float moveSpeed;
+        public float health;
+        public float stamina;
+        public int money;
+        public int level;
+        public int exp;
         private int _maxExp;
-        public bool IsDead;
+        public bool isDead;
+        public bool lookingRight = true;
 
         private Image _healthBar;
         private Image _staminaBar;
@@ -40,89 +139,37 @@ namespace Hero
         private CapsuleCollider2D[] _capsuleCollider2D;
 
         private GameOverUI _gameOverUI;
-        private LevelUpUI _levelUpUI;
 
         private bool _isGrounded;
         private float _hitTimer;
 
-        public static HeroManager Instance => _instance ??= new HeroManager();
-
-        private void Init()
-        {
-            new GameObject("Update Shuttle").AddComponent<UpdateShuttle>();
-
-            var playerObject = GameObject.FindWithTag("Player");
-
-            if (playerObject != null)
-            {
-                _rigidbody2D = playerObject.GetComponent<Rigidbody2D>();
-                _animator = playerObject.GetComponent<Animator>();
-                _spriteRenderer = playerObject.GetComponent<SpriteRenderer>();
-                _transform = playerObject.GetComponent<Transform>();
-                _gameOverUI = playerObject.GetComponent<GameOverUI>();
-                _levelUpUI = playerObject.GetComponent<LevelUpUI>();
-                _capsuleCollider2D = playerObject.GetComponents<CapsuleCollider2D>();
-            }
-
-            _healthBar = GameObject.FindWithTag("HealthBar").GetComponent<Image>();
-            _healthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
-            UpdateHealthUI();
-
-            _staminaBar = GameObject.FindWithTag("StaminaBar").GetComponent<Image>();
-            UpdateStaminaUI();
-
-            _moneyText = GameObject.FindWithTag("MoneyText").GetComponent<TextMeshProUGUI>();
-            UpdateMoneyUI();
-
-            Level = 1;
-            _maxExp = GetMaxExp(Level);
-
-            _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
-            _expBar = GameObject.FindWithTag("ExpBar").GetComponent<Image>();
-            UpdateLevelUI();
-            UpdateExpUI();
-        }
-
-        private HeroManager()
-        {
-            var heroManagerDataContainer = Resources.Load<GameObject>("HeroManagerDataContainer");
-            var heroManagerData = heroManagerDataContainer.GetComponent<HeroManagerData>();
-
-            _maxHealth = heroManagerData.maxHealth;
-            Health = _maxHealth;
-            _maxStamina = heroManagerData.maxStamina;
-            Stamina = _maxStamina;
-            Money = heroManagerData.initialMoney;
-            _hitEffectDuration = heroManagerData.hitEffectDuration;
-            _staminaRecoverAmount = heroManagerData.staminaRecoverAmount;
-
-            Init();
-        }
+        private Vector3 _originScale;
+        private Vector3 _flippedScale;
 
         public void SetVelocityX(float x)
         {
-            if (IsDead) return;
+            if (isDead) return;
 
             _rigidbody2D.velocity = new Vector2(x, _rigidbody2D.velocity.y);
         }
 
         public void SetVelocityY(float y)
         {
-            if (IsDead) return;
+            if (isDead) return;
 
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, y);
         }
 
         public void SetState(string stateName)
         {
-            if (IsDead) return;
+            if (isDead) return;
 
             _animator.Play(stateName);
         }
 
         public void SetFlipX(bool flipX)
         {
-            if (IsDead) return;
+            if (isDead) return;
 
             _spriteRenderer.flipX = flipX;
         }
@@ -134,7 +181,7 @@ namespace Hero
 
         public void SetGrounded(bool grounded)
         {
-            if (IsDead) return;
+            if (isDead) return;
 
             _isGrounded = grounded;
         }
@@ -151,34 +198,34 @@ namespace Hero
 
         public void OnDamaged(float damage)
         {
-            Health -= damage;
+            health -= damage;
             UpdateHealthUI();
 
             _hitTimer = _hitEffectDuration;
             SetColor(_hitColor);
 
-            if (Health > 0) return;
+            if (health > 0) return;
 
             SetState("Death");
-            IsDead = true;
+            isDead = true;
             GameOver();
         }
 
         private void UpdateHealthUI()
         {
-            _healthBar.fillAmount = Health / _maxHealth;
-            _healthText.text = Health + "/" + _maxHealth;
+            _healthBar.fillAmount = health / _maxHealth;
+            _healthText.text = health + "/" + _maxHealth;
         }
 
         public void ConsumeStamina(float cost)
         {
-            Stamina -= cost;
+            stamina -= cost;
             UpdateStaminaUI();
         }
 
         private void UpdateStaminaUI()
         {
-            _staminaBar.fillAmount = Stamina / _maxStamina;
+            _staminaBar.fillAmount = stamina / _maxStamina;
         }
 
         private void GameOver()
@@ -205,7 +252,7 @@ namespace Hero
 
         private void RecoverStamina()
         {
-            Stamina = math.min(_maxStamina, Stamina + _staminaRecoverAmount);
+            stamina = math.min(_maxStamina, stamina + _staminaRecoverAmount);
             UpdateStaminaUI();
 
             if (Input.GetKeyDown(KeyCode.E)) AddExp(10);
@@ -213,6 +260,8 @@ namespace Hero
 
         public void Update()
         {
+            if (_noHero) return;
+
             HandleHitEffect();
             RecoverStamina();
 
@@ -220,11 +269,16 @@ namespace Hero
             {
                 SceneManager.LoadScene("BattleMap1_2");
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                MapGenerator.MapGenerator.Instance.CreateMap();
+            }
         }
 
         private void UpdateMoneyUI()
         {
-            _moneyText.text = Money.ToString();
+            _moneyText.text = money.ToString();
         }
 
         private static int GetMaxExp(int level)
@@ -232,15 +286,15 @@ namespace Hero
             return 70 + level * 30;
         }
 
-        public void AddExp(int exp)
+        public void AddExp(int newExp)
         {
-            Exp += exp;
+            this.exp += newExp;
 
-            while (Exp >= _maxExp)
+            while (this.exp >= _maxExp)
             {
-                Exp -= _maxExp;
-                Level++;
-                _maxExp = GetMaxExp(Level);
+                this.exp -= _maxExp;
+                level++;
+                _maxExp = GetMaxExp(level);
                 UpdateLevelUI();
                 UpdateExpUI();
                 _levelUpUI.OnLevelUp();
@@ -250,12 +304,12 @@ namespace Hero
 
         private void UpdateLevelUI()
         {
-            _levelText.text = Level.ToString();
+            _levelText.text = level.ToString();
         }
 
         private void UpdateExpUI()
         {
-            _expBar.fillAmount = 1f * Exp / _maxExp;
+            _expBar.fillAmount = 1f * exp / _maxExp;
         }
 
         public void RollAndResize()
@@ -270,39 +324,52 @@ namespace Hero
             _capsuleCollider2D[1].enabled = false;
         }
 
-        public void SetHealth(float health)
+        public void SetHealth(float newHealth)
         {
-            Health = health;
+            this.health = newHealth;
             UpdateHealthUI();
         }
 
-        public void AddHealth(float health)
+        public void AddHealth(float newHealth)
         {
-            Health += health;
+            this.health += newHealth;
             UpdateHealthUI();
         }
 
-        public void SetMoney(int money)
+        public void SetMoney(int newMoney)
         {
-            Money = money;
+            this.money = newMoney;
             UpdateMoneyUI();
         }
 
-        public void AddMoney(int money)
+        public void AddMoney(int newMoney)
         {
-            Money += money;
+            this.money += newMoney;
             UpdateMoneyUI();
         }
 
-        public void SetExp(int exp)
+        public void SetExp(int newExp)
         {
-            Exp = exp;
+            exp = newExp;
             AddExp(0);
         }
 
-        public void AddMaxStamina(int stamina)
+        public void AddMaxStamina(int newStamina)
         {
-            _maxStamina += stamina;
+            _maxStamina += newStamina;
+        }
+
+        public NodeResult Run()
+        {
+            var inputX = Input.GetAxis("Horizontal");
+            if (inputX == 0) return NodeResult.failure;
+
+            var flipped = inputX < 0;
+            _transform.localScale = flipped ? _flippedScale : _originScale;
+            lookingRight = !flipped;
+            SetVelocityX(inputX * moveSpeed);
+
+            return NodeResult.success;
         }
     }
 }
