@@ -12,7 +12,7 @@ namespace Monster
         [SerializeField] private Color originColor = Color.white;
         [SerializeField] private float hitEffectDuration = 0.2f;
         [SerializeField] private Slider slider;
-        [SerializeField] private float phase2Ratio = 0.5f;
+        [SerializeField] private float phase2Ratio;
 
         public bool phase2;
         public bool isDead;
