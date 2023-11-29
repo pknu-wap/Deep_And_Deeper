@@ -133,5 +133,12 @@ namespace Monster
             var x = flipped ? 1 : -1;
             _rigidbody2D.velocity = new Vector2(x * customSpeed, _rigidbody2D.velocity.y);
         }
+
+        public void MultiplyScale(float scale)
+        {
+            transform.localScale *= scale;
+            _originScale *= scale;
+            _flippedScale *= scale;
+        }
     }
 }

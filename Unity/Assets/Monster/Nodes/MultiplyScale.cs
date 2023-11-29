@@ -8,17 +8,17 @@ namespace Monster.Nodes
     public class MultiplyScale : Leaf
     {
         [SerializeField] private float scale = 2;
-        private Transform _transform;
+        private Monster _monster;
 
         private void Start()
         {
             if (TryGetComponent<Monster>(out var monster))
             {
-                _transform = monster.transform;
+                _monster = monster;
             }
             else if (transform.parent.TryGetComponent<Monster>(out var parentMonster))
             {
-                _transform = parentMonster.transform;
+                _monster = parentMonster;
             }
             else
             {
@@ -28,7 +28,7 @@ namespace Monster.Nodes
 
         public override NodeResult Execute()
         {
-            _transform.localScale *= scale;
+            _monster.MultiplyScale(scale);
             return NodeResult.success;
         }
     }
