@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using MBT;
@@ -25,17 +26,15 @@ namespace Hero.Nodes
                     continue;
                 }
 
-                // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-                var monster = key.transform.parent.GetComponent<Monster.Monster>();
-
-                // ReSharper disable once Unity.PerformanceCriticalCodeNullComparison
-                if (monster == null)
+                try
+                {
+                    // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+                    key.transform.parent.GetComponent<Monster.Monster>().OnDamaged(damage);
+                }
+                catch (Exception)
                 {
                     removeList.Add(key);
-                    continue;
                 }
-
-                monster.OnDamaged(damage);
             }
 
             foreach (Collider2D key in removeList)

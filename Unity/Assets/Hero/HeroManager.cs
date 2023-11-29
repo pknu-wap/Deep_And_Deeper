@@ -1,3 +1,4 @@
+using MBT;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Hero
         private readonly float _hitEffectDuration;
         private readonly float _staminaRecoverAmount;
 
+        public float MoveSpeed;
         public float Health;
         public float Stamina;
         public int Money;
@@ -22,6 +24,7 @@ namespace Hero
         public int Exp;
         private int _maxExp;
         public bool IsDead;
+        public bool LookingRight = true;
 
         private Image _healthBar;
         private Image _staminaBar;
@@ -44,6 +47,9 @@ namespace Hero
         private bool _isGrounded;
         private float _hitTimer;
 
+        private Vector3 _originScale;
+        private Vector3 _flippedScale;
+
         public static HeroManager Instance => _instance ??= new HeroManager();
 
         private void Init()
@@ -59,7 +65,12 @@ namespace Hero
                 _spriteRenderer = playerObject.GetComponent<SpriteRenderer>();
                 _transform = playerObject.GetComponent<Transform>();
                 _gameOverUI = playerObject.GetComponent<GameOverUI>();
-                _capsuleCollider2D = playerObject.GetComponents<CapsuleCollider2D>();
+
+                _capsuleCollider2D = GameObject.FindWithTag("HeroCollider").GetComponents<CapsuleCollider2D>();
+
+                _originScale = _transform.localScale;
+                _flippedScale = _originScale;
+                _flippedScale.x *= -1;
             }
 
             _healthBar = GameObject.FindWithTag("HealthBar").GetComponent<Image>();
@@ -93,6 +104,7 @@ namespace Hero
             Money = heroManagerData.initialMoney;
             _hitEffectDuration = heroManagerData.hitEffectDuration;
             _staminaRecoverAmount = heroManagerData.staminaRecoverAmount;
+            MoveSpeed = heroManagerData.moveSpeed;
 
             Init();
         }
@@ -299,6 +311,19 @@ namespace Hero
         public void AddMaxStamina(int stamina)
         {
             _maxStamina += stamina;
+        }
+
+        public NodeResult Run()
+        {
+            var inputX = Input.GetAxis("Horizontal");
+            if (inputX == 0) return NodeResult.failure;
+
+            var flipped = inputX < 0;
+            _transform.localScale = flipped ? _flippedScale : _originScale;
+            LookingRight = !flipped;
+            SetVelocityX(inputX * MoveSpeed);
+
+            return NodeResult.success;
         }
     }
 }
