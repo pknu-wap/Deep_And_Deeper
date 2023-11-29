@@ -13,11 +13,12 @@ GameObject:
   - component: {fileID: 6959511706776167361}
   - component: {fileID: 2838809419323438489}
   - component: {fileID: 8336379206447177068}
-  - component: {fileID: 7150632223264190645}
   - component: {fileID: 7028362165584468363}
   - component: {fileID: 7668122859573439782}
   - component: {fileID: 4738353412398437481}
   - component: {fileID: 1846467493881569059}
+  - component: {fileID: 8084152090527879587}
+  - component: {fileID: 6824616686370571331}
   m_Layer: 8
   m_Name: PunchCrossSubTree
   m_TagString: Untagged
@@ -52,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 7150632223264190645}
+  selectedEditorNode: {fileID: 6824616686370571331}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 6616472583869243318}
@@ -104,7 +105,7 @@ MonoBehaviour:
   children:
   - {fileID: 4738353412398437481}
   - {fileID: 8336379206447177068}
-  - {fileID: 7150632223264190645}
+  - {fileID: 8084152090527879587}
   - {fileID: 7668122859573439782}
   - {fileID: 1846467493881569059}
   behaviourTree: {fileID: 0}
@@ -136,31 +137,6 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   stateName: PunchCross
---- !u!114 &7150632223264190645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616132926997837426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Wait
-  rect:
-    serializedVersion: 2
-    x: 320
-    y: 240
-    width: 160
-    height: 44
-  parent: {fileID: 2838809419323438489}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  duration: 0.6
 --- !u!61 &7028362165584468363
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -280,6 +256,59 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   duration: 1
+--- !u!114 &8084152090527879587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616132926997837426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 604074ee8340f34459c4d849ed1b176e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: TimeParallel
+  rect:
+    serializedVersion: 2
+    x: 320
+    y: 240
+    width: 160
+    height: 44
+  parent: {fileID: 2838809419323438489}
+  children:
+  - {fileID: 6824616686370571331}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+  duration: 0.7
+--- !u!114 &6824616686370571331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616132926997837426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e595d8070624504a673d8709118edf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Chase
+  rect:
+    serializedVersion: 2
+    x: 320
+    y: 320
+    width: 160
+    height: 44
+  parent: {fileID: 8084152090527879587}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  useCustomSpeed: 1
+  customSpeed: 15
 --- !u!1 &6418273150392212710
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 0}
+  selectedEditorNode: {fileID: 4137290210739935065}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 6616472583869243318}
@@ -468,7 +497,7 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
-  xRange: 4
+  xRange: 6
   yRange: 1000
 --- !u!114 &84341437607514917
 MonoBehaviour:
@@ -664,9 +693,10 @@ GameObject:
   - component: {fileID: 6222340111818722362}
   - component: {fileID: 204773207521680830}
   - component: {fileID: 8819738517422246499}
-  - component: {fileID: 6611950591924064553}
   - component: {fileID: 1272640283267598997}
   - component: {fileID: 8415169208616792966}
+  - component: {fileID: 632383606739961329}
+  - component: {fileID: 3459989506827662200}
   m_Layer: 8
   m_Name: PunchJabSubTree
   m_TagString: Untagged
@@ -701,7 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 8819738517422246499}
+  selectedEditorNode: {fileID: 3459989506827662200}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 6616472583869243318}
@@ -797,7 +827,7 @@ MonoBehaviour:
   parent: {fileID: 6222340111818722362}
   children:
   - {fileID: 8819738517422246499}
-  - {fileID: 6611950591924064553}
+  - {fileID: 632383606739961329}
   - {fileID: 1272640283267598997}
   - {fileID: 8415169208616792966}
   behaviourTree: {fileID: 0}
@@ -829,31 +859,6 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   stateName: PunchJab
---- !u!114 &6611950591924064553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7184340710418748650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Wait
-  rect:
-    serializedVersion: 2
-    x: 360
-    y: 220
-    width: 160
-    height: 44
-  parent: {fileID: 204773207521680830}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  duration: 0.6
 --- !u!114 &1272640283267598997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,6 +909,59 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   duration: 1
+--- !u!114 &632383606739961329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184340710418748650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 604074ee8340f34459c4d849ed1b176e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: TimeParallel
+  rect:
+    serializedVersion: 2
+    x: 360
+    y: 220
+    width: 160
+    height: 44
+  parent: {fileID: 204773207521680830}
+  children:
+  - {fileID: 3459989506827662200}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+  duration: 0.7
+--- !u!114 &3459989506827662200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184340710418748650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e595d8070624504a673d8709118edf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Chase
+  rect:
+    serializedVersion: 2
+    x: 360
+    y: 280
+    width: 160
+    height: 44
+  parent: {fileID: 632383606739961329}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  useCustomSpeed: 1
+  customSpeed: 2
 --- !u!1 &8372775140985476716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,11 +1402,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.03
+      value: 7.13
       objectReference: {fileID: 0}
     - target: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.38
+      value: -2.55
       objectReference: {fileID: 0}
     - target: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1385,6 +1443,10 @@ PrefabInstance:
     - target: {fileID: 1865894765515591674, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018982553719588997, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4018982553719588997, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: maxHealth
