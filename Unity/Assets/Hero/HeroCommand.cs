@@ -31,7 +31,7 @@ namespace Hero
         {
             HeroManager.Instance.AddHealth(money);
 
-            Terminal.Log("Added {0} Hero Health. (now {1}.)", money, HeroManager.Instance.Health);
+            Terminal.Log("Added {0} Hero Health. (now {1}.)", money, HeroManager.Instance.health);
         }
 
         private static void FrontCommandAddHP(CommandArg[] args)
@@ -67,7 +67,7 @@ namespace Hero
         {
             HeroManager.Instance.AddMoney(money);
 
-            Terminal.Log("Added {0} Money. (now {1}.)", money, HeroManager.Instance.Health);
+            Terminal.Log("Added {0} Money. (now {1}.)", money, HeroManager.Instance.health);
         }
 
         private static void FrontCommandAddMoney(CommandArg[] args)
@@ -103,7 +103,7 @@ namespace Hero
         {
             HeroManager.Instance.AddExp(exp);
 
-            Terminal.Log("Added {0} Exp. (now {1}.)", exp, HeroManager.Instance.Exp);
+            Terminal.Log("Added {0} Exp. (now {1}.)", exp, HeroManager.Instance.exp);
         }
 
         private static void FrontCommandAddExp(CommandArg[] args)

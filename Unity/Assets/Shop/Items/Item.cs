@@ -46,7 +46,7 @@ namespace Shop.Items
         {
             if (!_playerTriggers) return;
             if (!Input.GetKeyDown(KeyCode.Space)) return;
-            if (HeroManager.Instance.Money < price) return;
+            if (HeroManager.Instance.money < price) return;
 
             _playerTriggers = false;
             HeroManager.Instance.AddMoney(-price);
@@ -57,7 +57,7 @@ namespace Shop.Items
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            var additionalDescription = HeroManager.Instance.Money >= price ? HasEnoughGold : NotEnoughGold;
+            var additionalDescription = HeroManager.Instance.money >= price ? HasEnoughGold : NotEnoughGold;
             _itemText.text = $"{itemName}\n{description}\n{additionalDescription}";
             _playerTriggers = true;
         }
