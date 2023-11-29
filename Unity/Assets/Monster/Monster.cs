@@ -99,6 +99,14 @@ namespace Monster
             _animator.Play(stateName);
         }
 
+        public void ChaseDirection()
+        {
+            if (isDead) return;
+
+            var flipped = transform.position.x < HeroManager.Instance.GetPosition().x;
+            transform.localScale = flipped ? _flippedScale : _originScale;
+        }
+
         public void Chase()
         {
             if (isDead) return;
