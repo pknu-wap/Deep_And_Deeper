@@ -801,15 +801,18 @@ GameObject:
   - component: {fileID: 1823668416956328772}
   - component: {fileID: 5670058975541123516}
   - component: {fileID: 6222340111818722362}
-  - component: {fileID: 204773207521680830}
   - component: {fileID: 8819738517422246499}
   - component: {fileID: 1272640283267598997}
-  - component: {fileID: 8415169208616792966}
   - component: {fileID: 632383606739961329}
   - component: {fileID: 3459989506827662200}
   - component: {fileID: 9186295554778221530}
   - component: {fileID: 6400645409143641337}
   - component: {fileID: 8048924363600605589}
+  - component: {fileID: 8549093317723982133}
+  - component: {fileID: 8869014454148427199}
+  - component: {fileID: 4214225371449395966}
+  - component: {fileID: 8063040807753878323}
+  - component: {fileID: 563955519653591457}
   m_Layer: 8
   m_Name: PunchJabSubTree
   m_TagString: Untagged
@@ -844,7 +847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 8048924363600605589}
+  selectedEditorNode: {fileID: 563955519653591457}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 6616472583869243318}
@@ -908,45 +911,16 @@ MonoBehaviour:
   title: Root
   rect:
     serializedVersion: 2
-    x: 420
-    y: 60
+    x: 500
+    y: 40
     width: 160
     height: 44
   parent: {fileID: 0}
   children:
-  - {fileID: 204773207521680830}
+  - {fileID: 4214225371449395966}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
---- !u!114 &204773207521680830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7184340710418748650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Sequence
-  rect:
-    serializedVersion: 2
-    x: 420
-    y: 140
-    width: 160
-    height: 44
-  parent: {fileID: 6222340111818722362}
-  children:
-  - {fileID: 8819738517422246499}
-  - {fileID: 632383606739961329}
-  - {fileID: 1272640283267598997}
-  - {fileID: 8415169208616792966}
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  random: 0
 --- !u!114 &8819738517422246499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,11 +936,11 @@ MonoBehaviour:
   title: MonsterSetState
   rect:
     serializedVersion: 2
-    x: 200
-    y: 220
+    x: 220
+    y: 340
     width: 160
     height: 44
-  parent: {fileID: 204773207521680830}
+  parent: {fileID: 8869014454148427199}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -987,41 +961,16 @@ MonoBehaviour:
   title: MonsterSetState
   rect:
     serializedVersion: 2
-    x: 520
-    y: 220
+    x: 540
+    y: 340
     width: 160
     height: 44
-  parent: {fileID: 204773207521680830}
+  parent: {fileID: 8869014454148427199}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   stateName: Idle
---- !u!114 &8415169208616792966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7184340710418748650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Wait
-  rect:
-    serializedVersion: 2
-    x: 680
-    y: 220
-    width: 160
-    height: 44
-  parent: {fileID: 204773207521680830}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  duration: 1
 --- !u!114 &632383606739961329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,18 +986,18 @@ MonoBehaviour:
   title: TimeParallel
   rect:
     serializedVersion: 2
-    x: 360
-    y: 220
+    x: 380
+    y: 340
     width: 160
     height: 44
-  parent: {fileID: 204773207521680830}
+  parent: {fileID: 8869014454148427199}
   children:
   - {fileID: 9186295554778221530}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   random: 0
-  duration: 0.7
+  duration: 0.3
 --- !u!114 &3459989506827662200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1065,7 +1014,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 460
-    y: 360
+    y: 460
     width: 160
     height: 44
   parent: {fileID: 9186295554778221530}
@@ -1090,8 +1039,8 @@ MonoBehaviour:
   title: Sequence
   rect:
     serializedVersion: 2
-    x: 360
-    y: 286.8
+    x: 380
+    y: 400
     width: 160
     height: 44
   parent: {fileID: 632383606739961329}
@@ -1117,8 +1066,8 @@ MonoBehaviour:
   title: Inverter
   rect:
     serializedVersion: 2
-    x: 280
-    y: 360
+    x: 260
+    y: 460
     width: 160
     height: 44
   parent: {fileID: 9186295554778221530}
@@ -1142,8 +1091,8 @@ MonoBehaviour:
   title: CheckPlayerWithinRange
   rect:
     serializedVersion: 2
-    x: 271
-    y: 442.8
+    x: 260
+    y: 520
     width: 160
     height: 44
   parent: {fileID: 6400645409143641337}
@@ -1153,6 +1102,139 @@ MonoBehaviour:
   breakpoint: 0
   xRange: 1000
   yRange: 0.5
+--- !u!114 &8549093317723982133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184340710418748650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056841afaed742d4e909e76361b5173f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Repeater
+  rect:
+    serializedVersion: 2
+    x: 420
+    y: 180
+    width: 160
+    height: 44
+  parent: {fileID: 4214225371449395966}
+  children:
+  - {fileID: 8869014454148427199}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  loops: 5
+  infinite: 0
+--- !u!114 &8869014454148427199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184340710418748650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f08316ecaa4f11aa5d411f67615d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Parallel
+  rect:
+    serializedVersion: 2
+    x: 420
+    y: 240
+    width: 160
+    height: 44
+  parent: {fileID: 8549093317723982133}
+  children:
+  - {fileID: 8819738517422246499}
+  - {fileID: 632383606739961329}
+  - {fileID: 1272640283267598997}
+  - {fileID: 563955519653591457}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &4214225371449395966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184340710418748650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f08316ecaa4f11aa5d411f67615d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Parallel
+  rect:
+    serializedVersion: 2
+    x: 500
+    y: 100
+    width: 160
+    height: 44
+  parent: {fileID: 6222340111818722362}
+  children:
+  - {fileID: 8549093317723982133}
+  - {fileID: 8063040807753878323}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &8063040807753878323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184340710418748650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 600
+    y: 180
+    width: 160
+    height: 44
+  parent: {fileID: 4214225371449395966}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 1
+--- !u!114 &563955519653591457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184340710418748650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 700
+    y: 340
+    width: 160
+    height: 44
+  parent: {fileID: 8869014454148427199}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 0.1
 --- !u!1 &8372775140985476716
 GameObject:
   m_ObjectHideFlags: 0
