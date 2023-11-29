@@ -31,6 +31,7 @@ namespace Hero
             Debug.Log("awake");
             var heroManagerDataContainer = Resources.Load<GameObject>("HeroManagerDataContainer");
             var heroManagerData = heroManagerDataContainer.GetComponent<HeroManagerData>();
+        
 
             _maxHealth = heroManagerData.maxHealth;
             health = _maxHealth;
@@ -76,6 +77,8 @@ namespace Hero
                 _originScale = _transform.localScale;
                 _flippedScale = _originScale;
                 _flippedScale.x *= -1;
+                _levelUpUI = playerObject.GetComponent<LevelUpUI>();
+                _capsuleCollider2D = playerObject.GetComponents<CapsuleCollider2D>();
             }
 
             _healthBar = GameObject.FindWithTag("HealthBar").GetComponent<Image>();
@@ -98,6 +101,9 @@ namespace Hero
         {
             OnSceneLoaded();
         }
+        
+        private GameOverUI _gameOverUI;
+        private LevelUpUI _levelUpUI;
 
         private bool _noHero;
 
@@ -291,6 +297,8 @@ namespace Hero
                 _maxExp = GetMaxExp(level);
                 UpdateLevelUI();
                 UpdateExpUI();
+                _levelUpUI.OnLevelUp();
+                
             }
         }
 
