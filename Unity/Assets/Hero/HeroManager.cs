@@ -71,13 +71,13 @@ namespace Hero
                 _spriteRenderer = playerObject.GetComponent<SpriteRenderer>();
                 _transform = playerObject.GetComponent<Transform>();
                 _gameOverUI = playerObject.GetComponent<GameOverUI>();
+                _levelUpUI = playerObject.GetComponent<LevelUpUI>();
 
                 _capsuleCollider2D = GameObject.FindWithTag("HeroCollider").GetComponents<CapsuleCollider2D>();
 
                 _originScale = _transform.localScale;
                 _flippedScale = _originScale;
                 _flippedScale.x *= -1;
-                _levelUpUI = playerObject.GetComponent<LevelUpUI>();
                 _capsuleCollider2D = playerObject.GetComponents<CapsuleCollider2D>();
             }
 
@@ -102,8 +102,8 @@ namespace Hero
             OnSceneLoaded();
         }
         
-        private GameOverUI _gameOverUI;
-        private LevelUpUI _levelUpUI;
+       
+  
 
         private bool _noHero;
 
@@ -139,6 +139,7 @@ namespace Hero
         private CapsuleCollider2D[] _capsuleCollider2D;
 
         private GameOverUI _gameOverUI;
+         private LevelUpUI _levelUpUI;
 
         private bool _isGrounded;
         private float _hitTimer;
