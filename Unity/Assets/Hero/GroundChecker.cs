@@ -6,12 +6,12 @@ namespace Hero
     {
         private void OnCollisionEnter2D()
         {
-            HeroManager.Instance.SetGrounded(true);
+            HeroManager.Instance.isGrounded = true;
         }
 
         private void OnCollisionExit2D()
         {
-            HeroManager.Instance.SetGrounded(false);
+            HeroManager.Instance.isGrounded = false;
         }
     }
 }

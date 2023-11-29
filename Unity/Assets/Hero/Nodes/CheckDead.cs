@@ -9,7 +9,7 @@ namespace Hero.Nodes
     {
         public override NodeResult Execute()
         {
-            return HeroManager.Instance.IsDead ? NodeResult.success : NodeResult.failure;
+            return HeroManager.Instance.isDead ? NodeResult.success : NodeResult.failure;
         }
     }
 }

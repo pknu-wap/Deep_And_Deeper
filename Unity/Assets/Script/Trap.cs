@@ -37,8 +37,6 @@ namespace Script
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.CompareTag("Player")) return;
-            
             _heroTrigger = true;
 
             if (!_isReady) return;
@@ -48,7 +46,6 @@ namespace Script
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (!other.CompareTag("Player")) return;
             _heroTrigger = false;
         }
     }

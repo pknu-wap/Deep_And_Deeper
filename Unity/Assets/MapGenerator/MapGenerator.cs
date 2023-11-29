@@ -8,6 +8,21 @@ namespace MapGenerator
 {
     public class MapGenerator : MonoBehaviour
     {
+        private static MapGenerator _instance;
+
+        public static MapGenerator Instance
+        {
+            get
+            {
+                if (_instance) return _instance;
+                // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+                _instance = new GameObject("Map Generator").AddComponent<MapGenerator>();
+                DontDestroyOnLoad(_instance.gameObject);
+
+                return _instance;
+            }
+        }
+
         private class Room
         {
             public Room(RoomTypes roomType)
@@ -38,12 +53,12 @@ namespace MapGenerator
 
         [SerializeField] private GameObject roomObject;
         [SerializeField] private Transform roomParent;
-        [SerializeField] private Vector2 roomSize = new Vector2(100, 100);
+        [SerializeField] private Vector2 roomSize = new Vector2(19.2f, 10.8f);
         [SerializeField] private int mapMaxSize = 19;
-        [SerializeField] private int numBattleRoom = 5;
+        [SerializeField] private int numBattleRoom = 9;
         [SerializeField] private int numShopRoom = 1;
         [SerializeField] private int numSecretRoom = 1;
-        [SerializeField] private int numAdditionalBattleRoom = 5;
+        [SerializeField] private int numAdditionalBattleRoom = 6;
         [SerializeField] private Sprite doorMainSprite;
         [SerializeField] private Sprite doorBattleSprite;
         [SerializeField] private Sprite doorShopSprite;
@@ -55,6 +70,7 @@ namespace MapGenerator
         private readonly int[] _dx = { 0, -1, 0, 1 };
 
         private Map _map;
+        private bool _initialized;
 
         private enum RoomTypes
         {
@@ -249,14 +265,27 @@ namespace MapGenerator
 
         private void CleanMap()
         {
+            if (roomParent == null)
+            {
+            }
+
             foreach (Transform child in roomParent.transform)
             {
                 Destroy(child.gameObject);
             }
         }
 
-        private void Start()
+        private void Init()
         {
+            roomObject = Resources.Load<GameObject>("Room");
+            doorMainSprite = Resources.Load<Sprite>("Door/DoorMain");
+            doorBattleSprite = Resources.Load<Sprite>("Door/DoorBattle");
+            doorShopSprite = Resources.Load<Sprite>("Door/DoorShop");
+            doorSecretSprite = Resources.Load<Sprite>("Door/DoorSecret");
+            doorBossSprite = Resources.Load<Sprite>("Door/DoorBoss");
+
+            roomParent = new GameObject("Rooms").transform;
+
             _doorSprites[RoomTypes.Main] = doorMainSprite;
             _doorSprites[RoomTypes.Battle] = doorBattleSprite;
             _doorSprites[RoomTypes.Shop] = doorShopSprite;
@@ -268,14 +297,17 @@ namespace MapGenerator
             PrintMap();
         }
 
-        private void Update()
+        // ReSharper disable Unity.PerformanceAnalysis
+        public void CreateMap()
         {
-            if (!Input.GetKeyDown(KeyCode.R)) return;
+            if (!_initialized)
+            {
+                _initialized = true;
+                Init();
+            }
 
             CleanMap();
             GenerateMap();
-
-            // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
             PrintMap();
         }
     }
