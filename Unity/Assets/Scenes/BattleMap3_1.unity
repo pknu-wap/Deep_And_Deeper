@@ -1533,6 +1533,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2661313340610541599, guid: de82586ecdbc4894dac113b1c7ee6669, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3321448838552333892, guid: de82586ecdbc4894dac113b1c7ee6669, type: 3}
       propertyPath: m_Name
       value: Grid3
