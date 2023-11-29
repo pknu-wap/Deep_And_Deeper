@@ -131,22 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2838809419323438489, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
-      propertyPath: children.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2838809419323438489, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
-      propertyPath: children.Array.data[2]
-      value: 
-      objectReference: {fileID: 1428181654}
-    - target: {fileID: 2838809419323438489, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
-      propertyPath: children.Array.data[3]
-      value: 
-      objectReference: {fileID: 1428181655}
-    - target: {fileID: 2913328082996907770, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
-      propertyPath: selectedEditorNode
-      value: 
-      objectReference: {fileID: 1428181654}
     - target: {fileID: 5354158160787124027, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.53
@@ -199,32 +183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giant
       objectReference: {fileID: 0}
-    - target: {fileID: 7150632223264190645, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
-      propertyPath: rect.x
-      value: 320
-      objectReference: {fileID: 0}
-    - target: {fileID: 7150632223264190645, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
-      propertyPath: rect.y
-      value: 240
-      objectReference: {fileID: 0}
-    - target: {fileID: 8336379206447177068, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
-      propertyPath: rect.x
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 8336379206447177068, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
-      propertyPath: rect.y
-      value: 240
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3616132926997837426, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1428181654}
-    - targetCorrespondingSourceObject: {fileID: 3616132926997837426, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1428181655}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
 --- !u!1 &337307205
 GameObject:
@@ -14023,72 +13985,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1428181647 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3616132926997837426, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
-  m_PrefabInstance: {fileID: 105080040}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1428181653 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2838809419323438489, guid: 702f183b15990a7409e8b0c0a2687893, type: 3}
-  m_PrefabInstance: {fileID: 105080040}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428181647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1428181654
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428181647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: MonsterSetState
-  rect:
-    serializedVersion: 2
-    x: 500
-    y: 240
-    width: 160
-    height: 44
-  parent: {fileID: 1428181653}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  stateName: PunchJab
---- !u!114 &1428181655
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428181647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Wait
-  rect:
-    serializedVersion: 2
-    x: 520
-    y: 220
-    width: 160
-    height: 44
-  parent: {fileID: 1428181653}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  duration: 2
 --- !u!1001 &1886152244
 PrefabInstance:
   m_ObjectHideFlags: 0

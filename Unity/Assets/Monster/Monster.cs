@@ -7,12 +7,14 @@ namespace Monster
     public class Monster : MonoBehaviour
     {
         [SerializeField] private float speed = 1;
-        [SerializeField] private float maxHealth;
+        [SerializeField] public float maxHealth;
         [SerializeField] private Color hitColor = Color.red;
         [SerializeField] private Color originColor = Color.white;
         [SerializeField] private float hitEffectDuration = 0.2f;
         [SerializeField] private Slider slider;
+        [SerializeField] private float phase2Ratio = 0.5f;
 
+        public bool phase2;
         public bool isDead;
 
         private SpriteRenderer _spriteRenderer;
@@ -21,7 +23,7 @@ namespace Monster
 
         private Vector3 _originScale;
         private Vector3 _flippedScale;
-        private float _health;
+        public float _health;
         private float _hitTimer;
 
         private void Start()
@@ -77,6 +79,11 @@ namespace Monster
 
             _hitTimer = hitEffectDuration;
             SetColor(hitColor);
+
+            if (_health <= maxHealth * phase2Ratio)
+            {
+                phase2 = true;
+            }
 
             if (_health > 0) return;
 

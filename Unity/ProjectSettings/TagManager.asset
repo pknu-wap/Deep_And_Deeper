@@ -18,6 +18,7 @@ TagManager:
   - ExpBar
   - ItemText
   - HeroCollider
+  - Fire
   layers:
   - Default
   - TransparentFX
