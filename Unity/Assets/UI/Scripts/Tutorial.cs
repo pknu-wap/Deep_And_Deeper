@@ -1,27 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEngine.UI;
-
-public enum TriggerType
-{
-    Roll,
-    Jump,
-    Attack
-}
 
 public class Tutorial : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _tutorialText;
-    [SerializeField] private TriggerType currenTriggerType;
+    [SerializeField] private TextMeshProUGUI textMeshProUGUI;
+    [SerializeField] private string message;
+
     private Monster.Monster _monster;
 
     private void Start()
     {
-        DisplayMessage("Press A/D or the left/right arrow keys\nto move.");
         _monster = GameObject.FindWithTag("Monster").GetComponent<Monster.Monster>();
     }
 
@@ -36,32 +24,16 @@ public class Tutorial : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(!other.CompareTag("Player")) return;
-
-        switch (currenTriggerType)
-        {
-            case TriggerType.Roll:
-                DisplayMessage("Press X\nto pass through.");
-                break;
-            case TriggerType.Jump:
-                DisplayMessage("Press the SPACE key\nto jump.");
-                break;
-            case TriggerType.Attack:
-                DisplayMessage("Press Z\nto attack.");
-                break;
-        }
+        DisplayMessage(message);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(!other.CompareTag("Player")) return;
-      
-        DisplayMessage(null);
+        DisplayMessage("");
     }
 
-    private void DisplayMessage(string message)
+    private void DisplayMessage(string text)
     {
-        _tutorialText.text = message;
+        textMeshProUGUI.text = text;
     }
-     
 }
