@@ -7,15 +7,15 @@ public class DontDestroy : MonoBehaviour
 {
     private void Awake()
     {
-        /*var obj = FindObjectsOfType<DontDestroy>();
-        if (obj.Length == 1)*/
+        var obj = FindObjectsOfType<DontDestroy>();
+        if (obj.Length == 1)
         {
             DontDestroyOnLoad(gameObject);
         }
-        /*else
+        else
         {
             Destroy(gameObject);
-        }*/
+        }
     }
 }
     
