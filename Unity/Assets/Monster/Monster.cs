@@ -134,6 +134,15 @@ namespace Monster
             _rigidbody2D.velocity = new Vector2(x * customSpeed, _rigidbody2D.velocity.y);
         }
 
+        public void SetVelocityX(float x)
+        {
+            var flipped = transform.position.x < HeroManager.Instance.GetPosition().x;
+            transform.localScale = flipped ? _flippedScale : _originScale;
+
+            var dir = flipped ? 1 : -1;
+            _rigidbody2D.velocity = new Vector2(x * dir, _rigidbody2D.velocity.y);
+        }
+
         public void MultiplyScale(float scale)
         {
             transform.localScale *= scale;

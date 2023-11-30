@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 5377466222267964113}
   - component: {fileID: -6438386939851595218}
   - component: {fileID: 4414341661791380101}
+  - component: {fileID: 1475912290507517609}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -1097,6 +1098,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 3822588568579999162}
   pauseDelay: 2
+--- !u!114 &1475912290507517609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548069816130054504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbf0d00da43f1b4e9e222d80de5384a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelUpPanel: {fileID: 2595770614026104694}
 --- !u!1 &6413244565834171567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,6 +2060,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
+--- !u!1 &2595770614026104694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8672845085481139483, guid: fbad5c019827b08449acbd5cbf200723, type: 3}
+  m_PrefabInstance: {fileID: 6654672327335481965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3822588568579999162 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7590453463899314135, guid: fbad5c019827b08449acbd5cbf200723, type: 3}

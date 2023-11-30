@@ -9,7 +9,7 @@ namespace Hero.Nodes
     {
         public override NodeResult Execute()
         {
-            return HeroManager.Instance.GetGrounded() ? NodeResult.success : NodeResult.failure;
+            return HeroManager.Instance.isGrounded ? NodeResult.success : NodeResult.failure;
         }
     }
 }

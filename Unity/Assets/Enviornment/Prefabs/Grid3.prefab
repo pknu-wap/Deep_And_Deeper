@@ -494,6 +494,7 @@ GameObject:
   - component: {fileID: 6536382809138313025}
   - component: {fileID: 7949814271318660535}
   - component: {fileID: 955351745933896417}
+  - component: {fileID: 7549530260358141812}
   m_Layer: 0
   m_Name: Trap
   m_TagString: MeleeAttack
@@ -889,6 +890,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   damageCooldown: 1
+--- !u!19719996 &7549530260358141812
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2661313340610541599}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &3321448838552333892
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,9 +957,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7701727648580933695}
+  - {fileID: 8803876566063240454}
   - {fileID: 3496475567237084413}
   - {fileID: 5392747183600032867}
-  - {fileID: 8803876566063240454}
   - {fileID: 2556494446763703083}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -41957,13 +41994,9 @@ CompositeCollider2D:
         Y: 0
       - X: 571875008
         Y: 0
-    - - X: 876875008
-        Y: -69375000
-      - X: 879374976
-        Y: -63750000
-      - X: 879374976
-        Y: -61875000
-      - X: 877500032
+    - - X: 877500032
+        Y: -63125000
+      - X: 870000000
         Y: -60000000
       - X: 840000000
         Y: -60000000
@@ -41971,17 +42004,11 @@ CompositeCollider2D:
         Y: -62500000
       - X: 840000000
         Y: -65000000
-      - X: 840000000
-        Y: -70000000
-      - X: 875625024
-        Y: -70000000
-    - - X: 806875008
-        Y: -89375000
-      - X: 809374976
-        Y: -83750000
-      - X: 809374976
-        Y: -81875000
-      - X: 807500032
+      - X: 870000000
+        Y: -65000000
+    - - X: 807500032
+        Y: -83125000
+      - X: 800000000
         Y: -80000000
       - X: 770000000
         Y: -80000000
@@ -41989,10 +42016,8 @@ CompositeCollider2D:
         Y: -82500000
       - X: 770000000
         Y: -85000000
-      - X: 770000000
-        Y: -90000000
-      - X: 805625024
-        Y: -90000000
+      - X: 800000000
+        Y: -85000000
   m_CompositePaths:
     m_Paths:
     - - {x: -44.00003, y: 31}
@@ -42512,24 +42537,18 @@ CompositeCollider2D:
       - {x: 25.750008, y: -0.2500172}
       - {x: 26.000006, y: -0.812504}
       - {x: 26.250008, y: -1}
-    - - {x: 87.5625, y: -7}
-      - {x: 87.68751, y: -6.9374914}
-      - {x: 87.9375, y: -6.3749943}
-      - {x: 87.93749, y: -6.1874924}
-      - {x: 87.74999, y: -6}
+    - - {x: 87, y: -6.5}
+      - {x: 87.74989, y: -6.312456}
+      - {x: 86.99999, y: -6}
       - {x: 83.99999, y: -6.0000014}
       - {x: 83.25011, y: -6.2500362}
-      - {x: 84, y: -6.50002}
-      - {x: 84.00003, y: -7}
-    - - {x: 80.5625, y: -9}
-      - {x: 80.68751, y: -8.937491}
-      - {x: 80.9375, y: -8.374994}
-      - {x: 80.93749, y: -8.187493}
-      - {x: 80.74999, y: -8}
+      - {x: 84.00001, y: -6.5}
+    - - {x: 80, y: -8.5}
+      - {x: 80.74989, y: -8.312456}
+      - {x: 79.99999, y: -8}
       - {x: 76.99999, y: -8.000002}
       - {x: 76.25011, y: -8.250036}
-      - {x: 77, y: -8.50002}
-      - {x: 77.00003, y: -9}
+      - {x: 77.00001, y: -8.5}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0

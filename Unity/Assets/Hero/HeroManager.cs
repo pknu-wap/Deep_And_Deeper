@@ -28,7 +28,6 @@ namespace Hero
 
         private void Awake()
         {
-            Debug.Log("awake");
             var heroManagerDataContainer = Resources.Load<GameObject>("HeroManagerDataContainer");
             var heroManagerData = heroManagerDataContainer.GetComponent<HeroManagerData>();
 
@@ -70,6 +69,7 @@ namespace Hero
                 _spriteRenderer = playerObject.GetComponent<SpriteRenderer>();
                 _transform = playerObject.GetComponent<Transform>();
                 _gameOverUI = playerObject.GetComponent<GameOverUI>();
+                _levelUpUI = playerObject.GetComponent<LevelUpUI>();
 
                 _capsuleCollider2D = GameObject.FindWithTag("HeroCollider").GetComponents<CapsuleCollider2D>();
 
@@ -105,6 +105,9 @@ namespace Hero
         private float _maxStamina;
         private float _hitEffectDuration;
         private float _staminaRecoverAmount;
+        private bool _isInvincible;
+        private float _invincibleTimer;
+        private const float InvincibleTime = 0.16f;
 
         public float moveSpeed;
         public float health;
@@ -133,8 +136,9 @@ namespace Hero
         private CapsuleCollider2D[] _capsuleCollider2D;
 
         private GameOverUI _gameOverUI;
+        private LevelUpUI _levelUpUI;
 
-        private bool _isGrounded;
+        public bool isGrounded;
         private float _hitTimer;
 
         private Vector3 _originScale;
@@ -161,30 +165,6 @@ namespace Hero
             _animator.Play(stateName);
         }
 
-        public void SetFlipX(bool flipX)
-        {
-            if (isDead) return;
-
-            _spriteRenderer.flipX = flipX;
-        }
-
-        public bool GetFlipX()
-        {
-            return _spriteRenderer.flipX;
-        }
-
-        public void SetGrounded(bool grounded)
-        {
-            if (isDead) return;
-
-            _isGrounded = grounded;
-        }
-
-        public bool GetGrounded()
-        {
-            return _isGrounded;
-        }
-
         public Vector3 GetPosition()
         {
             return _transform.position;
@@ -192,6 +172,8 @@ namespace Hero
 
         public void OnDamaged(float damage)
         {
+            if (_isInvincible) return;
+
             health -= damage;
             UpdateHealthUI();
 
@@ -252,10 +234,28 @@ namespace Hero
             if (Input.GetKeyDown(KeyCode.E)) AddExp(10);
         }
 
+        private void SetInvincible()
+        {
+            _isInvincible = true;
+            _invincibleTimer = InvincibleTime;
+        }
+
+        private void HandleInvincible()
+        {
+            if (!_isInvincible) return;
+
+            _invincibleTimer -= Time.deltaTime;
+
+            if (_invincibleTimer > 0) return;
+
+            _isInvincible = false;
+        }
+
         public void Update()
         {
             if (_noHero) return;
 
+            HandleInvincible();
             HandleHitEffect();
             RecoverStamina();
 
@@ -282,15 +282,16 @@ namespace Hero
 
         public void AddExp(int newExp)
         {
-            this.exp += newExp;
+            exp += newExp;
 
-            while (this.exp >= _maxExp)
+            while (exp >= _maxExp)
             {
-                this.exp -= _maxExp;
+                exp -= _maxExp;
                 level++;
                 _maxExp = GetMaxExp(level);
                 UpdateLevelUI();
                 UpdateExpUI();
+                _levelUpUI.OnLevelUp();
             }
         }
 
@@ -306,6 +307,7 @@ namespace Hero
 
         public void RollAndResize()
         {
+            SetInvincible();
             _capsuleCollider2D[0].enabled = false;
             _capsuleCollider2D[1].enabled = true;
         }
@@ -318,25 +320,25 @@ namespace Hero
 
         public void SetHealth(float newHealth)
         {
-            this.health = newHealth;
+            health = newHealth;
             UpdateHealthUI();
         }
 
         public void AddHealth(float newHealth)
         {
-            this.health += newHealth;
+            health += newHealth;
             UpdateHealthUI();
         }
 
         public void SetMoney(int newMoney)
         {
-            this.money = newMoney;
+            money = newMoney;
             UpdateMoneyUI();
         }
 
         public void AddMoney(int newMoney)
         {
-            this.money += newMoney;
+            money += newMoney;
             UpdateMoneyUI();
         }
 

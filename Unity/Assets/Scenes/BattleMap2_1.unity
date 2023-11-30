@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 1368993775}
   - component: {fileID: 1368993777}
   - component: {fileID: 1368993778}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trap
   m_TagString: MeleeAttack
   m_Icon: {fileID: 0}
@@ -1284,7 +1284,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6b41af9b0cb609f4883b11629a16e734, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
