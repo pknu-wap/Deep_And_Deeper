@@ -2894,6 +2894,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5377466222267964113, guid: 6fd7b008c9f340e45afd5e596f7fab87, type: 3}
+      propertyPath: rect.x
+      value: -304
+      objectReference: {fileID: 0}
     - target: {fileID: 5548069816130054504, guid: 6fd7b008c9f340e45afd5e596f7fab87, type: 3}
       propertyPath: m_Name
       value: Hero
@@ -45770,7 +45774,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 21259a99607428542b0058aff424be31, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -45905,6 +45909,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 4638fbc58048e714ea67f3221f5df4c5, type: 3}
   - name: Attack3
     clip: {fileID: 8300000, guid: 0f8fd20babd58304693d4c2f8883c5e5, type: 3}
+  - name: MonsterDead
+    clip: {fileID: 8300000, guid: ea669bc461afa294099ceffb58d9f5d5, type: 3}
+  - name: PlayerDead
+    clip: {fileID: 8300000, guid: cd080551f3960064588b02b8e95c8740, type: 3}
+  - name: PlayerHurt
+    clip: {fileID: 0}
+  - name: MonsterHurt
+    clip: {fileID: 8300000, guid: 94f57d999b2370f4c9cc70edf4933200, type: 3}
   sfxPlayer:
   - {fileID: 673937456}
   - {fileID: 673937455}
