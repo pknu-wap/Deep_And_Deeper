@@ -12,6 +12,7 @@ namespace Hero.Nodes
         public override NodeResult Execute()
         {
             HeroManager.Instance.SetState(stateName);
+            SoundManager.instance.PlaySfx(stateName);
             return NodeResult.success;
         }
     }
