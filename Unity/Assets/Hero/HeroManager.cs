@@ -105,6 +105,9 @@ namespace Hero
         private float _maxStamina;
         private float _hitEffectDuration;
         private float _staminaRecoverAmount;
+        private bool _isInvincible;
+        private float _invincibleTimer;
+        private const float InvincibleTime = 0.16f;
 
         public float moveSpeed;
         public float health;
@@ -169,6 +172,8 @@ namespace Hero
 
         public void OnDamaged(float damage)
         {
+            if (_isInvincible) return;
+
             health -= damage;
             UpdateHealthUI();
 
@@ -229,10 +234,28 @@ namespace Hero
             if (Input.GetKeyDown(KeyCode.E)) AddExp(10);
         }
 
+        private void SetInvincible()
+        {
+            _isInvincible = true;
+            _invincibleTimer = InvincibleTime;
+        }
+
+        private void HandleInvincible()
+        {
+            if (!_isInvincible) return;
+
+            _invincibleTimer -= Time.deltaTime;
+
+            if (_invincibleTimer > 0) return;
+
+            _isInvincible = false;
+        }
+
         public void Update()
         {
             if (_noHero) return;
 
+            HandleInvincible();
             HandleHitEffect();
             RecoverStamina();
 
@@ -284,6 +307,7 @@ namespace Hero
 
         public void RollAndResize()
         {
+            SetInvincible();
             _capsuleCollider2D[0].enabled = false;
             _capsuleCollider2D[1].enabled = true;
         }
