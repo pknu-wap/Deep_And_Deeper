@@ -75,6 +75,7 @@ namespace Monster
         public void OnDamaged(float damage)
         {
             _health -= damage;
+            SoundManager.instance.PlaySfx("MonsterHurt");
             UpdateHealthUI();
 
             _hitTimer = hitEffectDuration;
@@ -88,6 +89,7 @@ namespace Monster
             if (_health > 0) return;
 
             _animator.Play("Death");
+            SoundManager.instance.PlaySfx("MonsterDead");
             isDead = true;
             SetHealthUIActive(false);
         }

@@ -179,11 +179,13 @@ namespace Hero
 
             _hitTimer = _hitEffectDuration;
             SetColor(_hitColor);
+            SoundManager.instance.PlaySfx("PlayerHurt");
 
             if (health > 0) return;
 
             SetState("Death");
             isDead = true;
+            SoundManager.instance.PlaySfx("PlayerDead");
             GameOver();
         }
 
