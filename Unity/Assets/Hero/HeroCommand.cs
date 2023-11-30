@@ -114,5 +114,20 @@ namespace Hero
 
             CommandAddExp(exp);
         }
+
+        [RegisterCommand(Help = "Adds Exp")]
+        private static void CommandMap()
+        {
+            MapGenerator.MapGenerator.Instance.CreateMap();
+
+            Terminal.Log("Created Map.");
+        }
+
+        private static void FrontCommandMap(CommandArg[] _)
+        {
+            if (Terminal.IssuedError) return;
+
+            CommandMap();
+        }
     }
 }

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3452489260083302702}
   - component: {fileID: 4551602478334387593}
   - component: {fileID: 5319884447702886067}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: TopViewHero
-  m_TagString: Untagged
+  m_TagString: TopViewHero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

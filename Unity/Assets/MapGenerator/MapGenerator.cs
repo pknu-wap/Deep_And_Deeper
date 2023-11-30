@@ -51,6 +51,8 @@ namespace MapGenerator
             public readonly Room[,] Rooms;
         }
 
+        public bool needRefresh = true;
+
         [SerializeField] private GameObject roomObject;
         [SerializeField] private Transform roomParent;
         [SerializeField] private Vector2 roomSize = new Vector2(19.2f, 10.8f);
@@ -300,6 +302,8 @@ namespace MapGenerator
         // ReSharper disable Unity.PerformanceAnalysis
         public void CreateMap()
         {
+            needRefresh = false;
+
             if (!_initialized)
             {
                 _initialized = true;
