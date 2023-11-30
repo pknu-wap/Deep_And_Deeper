@@ -4,13 +4,13 @@ namespace Monster.Knight
 {
     public class Fire : MonoBehaviour
     {
-        private float _timer;
+        [SerializeField] private float removeTime;
 
-        private const float RemoveTime = 0.5f;
+        private float _timer;
 
         private void Start()
         {
-            _timer = RemoveTime;
+            _timer = removeTime;
         }
 
         private void Update()

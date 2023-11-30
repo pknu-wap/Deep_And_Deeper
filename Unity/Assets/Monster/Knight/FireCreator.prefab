@@ -46,3 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dir: 0
   fire: {fileID: 166057464080224424, guid: 89b6e17320749ed4095cca53dc936b1b, type: 3}
+  dist: 1
+  waitTime: 0.2
+  destroyTime: 1
