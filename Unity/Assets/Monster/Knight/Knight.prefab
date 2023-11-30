@@ -1,5 +1,922 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3087391250054965583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5119047580498822736}
+  - component: {fileID: 7002522446592614123}
+  - component: {fileID: 7194137487650552257}
+  - component: {fileID: 5093730280892396488}
+  - component: {fileID: 3499942594978531741}
+  - component: {fileID: 6990554573771996163}
+  - component: {fileID: 5386333306972867070}
+  - component: {fileID: 3567450592142428734}
+  m_Layer: 7
+  m_Name: Attack2SubTree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5119047580498822736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087391250054965583}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7262511601683680962}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7002522446592614123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087391250054965583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedEditorNode: {fileID: 3499942594978531741}
+  repeatOnFinish: 0
+  maxExecutionsPerTick: 1000
+  parent: {fileID: 8455010678579199567}
+--- !u!114 &7194137487650552257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087391250054965583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538645f2f9090fd43bc6154b2e89e2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Root
+  rect:
+    serializedVersion: 2
+    x: 300
+    y: 40
+    width: 160
+    height: 44
+  parent: {fileID: 0}
+  children:
+  - {fileID: 5093730280892396488}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+--- !u!114 &5093730280892396488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087391250054965583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: 300
+    y: 100
+    width: 160
+    height: 44
+  parent: {fileID: 7194137487650552257}
+  children:
+  - {fileID: 3499942594978531741}
+  - {fileID: 6990554573771996163}
+  - {fileID: 5386333306972867070}
+  - {fileID: 3567450592142428734}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &3499942594978531741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087391250054965583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: MonsterSetState
+  rect:
+    serializedVersion: 2
+    x: 40
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 5093730280892396488}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: Attack2
+--- !u!114 &6990554573771996163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087391250054965583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 200
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 5093730280892396488}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 1
+--- !u!114 &5386333306972867070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087391250054965583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: MonsterSetState
+  rect:
+    serializedVersion: 2
+    x: 360
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 5093730280892396488}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: Idle
+--- !u!114 &3567450592142428734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087391250054965583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 520
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 5093730280892396488}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 1
+--- !u!1 &3941013994437979322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2619248657613298894}
+  - component: {fileID: 7756015442319291201}
+  - component: {fileID: 8129629800181157379}
+  - component: {fileID: 8598397436322478585}
+  - component: {fileID: 2047935588676973897}
+  - component: {fileID: 3451487891543228231}
+  - component: {fileID: 1765545035842110847}
+  - component: {fileID: 469977705424580971}
+  m_Layer: 7
+  m_Name: Attack1SubTree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2619248657613298894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941013994437979322}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7262511601683680962}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7756015442319291201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941013994437979322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedEditorNode: {fileID: 3451487891543228231}
+  repeatOnFinish: 0
+  maxExecutionsPerTick: 1000
+  parent: {fileID: 8455010678579199567}
+--- !u!114 &8129629800181157379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941013994437979322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538645f2f9090fd43bc6154b2e89e2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Root
+  rect:
+    serializedVersion: 2
+    x: 300
+    y: 40
+    width: 160
+    height: 44
+  parent: {fileID: 0}
+  children:
+  - {fileID: 8598397436322478585}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+--- !u!114 &8598397436322478585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941013994437979322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: 300
+    y: 100
+    width: 160
+    height: 44
+  parent: {fileID: 8129629800181157379}
+  children:
+  - {fileID: 2047935588676973897}
+  - {fileID: 3451487891543228231}
+  - {fileID: 1765545035842110847}
+  - {fileID: 469977705424580971}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &2047935588676973897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941013994437979322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: MonsterSetState
+  rect:
+    serializedVersion: 2
+    x: 40
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 8598397436322478585}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: Attack1
+--- !u!114 &3451487891543228231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941013994437979322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 200
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 8598397436322478585}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 1
+--- !u!114 &1765545035842110847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941013994437979322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: MonsterSetState
+  rect:
+    serializedVersion: 2
+    x: 360
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 8598397436322478585}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: Idle
+--- !u!114 &469977705424580971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941013994437979322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 520
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 8598397436322478585}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 1
+--- !u!1 &5324408825284377172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519735150042194052}
+  - component: {fileID: 7695923444264450958}
+  - component: {fileID: 4448393682656543183}
+  - component: {fileID: 6545395525001551250}
+  - component: {fileID: 7858053561515705795}
+  - component: {fileID: 7914818822406885229}
+  - component: {fileID: 6158886720545081510}
+  - component: {fileID: 61342328321249748}
+  m_Layer: 7
+  m_Name: Attack3SubTree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &519735150042194052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324408825284377172}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7262511601683680962}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7695923444264450958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324408825284377172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedEditorNode: {fileID: 7858053561515705795}
+  repeatOnFinish: 0
+  maxExecutionsPerTick: 1000
+  parent: {fileID: 8455010678579199567}
+--- !u!114 &4448393682656543183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324408825284377172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538645f2f9090fd43bc6154b2e89e2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Root
+  rect:
+    serializedVersion: 2
+    x: 300
+    y: 40
+    width: 160
+    height: 44
+  parent: {fileID: 0}
+  children:
+  - {fileID: 6545395525001551250}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+--- !u!114 &6545395525001551250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324408825284377172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: 300
+    y: 100
+    width: 160
+    height: 44
+  parent: {fileID: 4448393682656543183}
+  children:
+  - {fileID: 7858053561515705795}
+  - {fileID: 7914818822406885229}
+  - {fileID: 6158886720545081510}
+  - {fileID: 61342328321249748}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &7858053561515705795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324408825284377172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: MonsterSetState
+  rect:
+    serializedVersion: 2
+    x: 40
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 6545395525001551250}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: Attack3
+--- !u!114 &7914818822406885229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324408825284377172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 200
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 6545395525001551250}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 3
+--- !u!114 &6158886720545081510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324408825284377172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: MonsterSetState
+  rect:
+    serializedVersion: 2
+    x: 360
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 6545395525001551250}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: Idle
+--- !u!114 &61342328321249748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324408825284377172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 520
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 6545395525001551250}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 1
+--- !u!1 &8152851986615772632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 377611025010755937}
+  - component: {fileID: 6162216390016222373}
+  - component: {fileID: 399965242211378453}
+  - component: {fileID: 4165784553254357386}
+  - component: {fileID: 4131483565956258779}
+  - component: {fileID: 3427441775764447491}
+  - component: {fileID: 3086657071675995586}
+  - component: {fileID: 1606126860008812077}
+  - component: {fileID: 3562119478759908116}
+  - component: {fileID: 2747191082162338320}
+  - component: {fileID: 1147162642100309470}
+  m_Layer: 7
+  m_Name: Attack4SubTree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &377611025010755937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152851986615772632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7262511601683680962}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6162216390016222373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152851986615772632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedEditorNode: {fileID: 3427441775764447491}
+  repeatOnFinish: 0
+  maxExecutionsPerTick: 1000
+  parent: {fileID: 8455010678579199567}
+--- !u!114 &399965242211378453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152851986615772632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538645f2f9090fd43bc6154b2e89e2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Root
+  rect:
+    serializedVersion: 2
+    x: 300
+    y: 40
+    width: 160
+    height: 44
+  parent: {fileID: 0}
+  children:
+  - {fileID: 4165784553254357386}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+--- !u!114 &4165784553254357386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152851986615772632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: 300
+    y: 100
+    width: 160
+    height: 44
+  parent: {fileID: 399965242211378453}
+  children:
+  - {fileID: 4131483565956258779}
+  - {fileID: 3562119478759908116}
+  - {fileID: 2747191082162338320}
+  - {fileID: 1147162642100309470}
+  - {fileID: 3427441775764447491}
+  - {fileID: 3086657071675995586}
+  - {fileID: 1606126860008812077}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &4131483565956258779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152851986615772632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: MonsterSetState
+  rect:
+    serializedVersion: 2
+    x: -280
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 4165784553254357386}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: Attack4
+--- !u!114 &3427441775764447491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152851986615772632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 360
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 4165784553254357386}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 5
+--- !u!114 &3086657071675995586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152851986615772632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f080f85b25cd64c4c8e2992dd148b72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: MonsterSetState
+  rect:
+    serializedVersion: 2
+    x: 520
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 4165784553254357386}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  stateName: Idle
+--- !u!114 &1606126860008812077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152851986615772632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 680
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 4165784553254357386}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 1
+--- !u!114 &3562119478759908116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152851986615772632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac50340a2aa4d428dec81bd9c77576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: -120
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 4165784553254357386}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  duration: 1.5
+--- !u!114 &2747191082162338320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152851986615772632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eacdd5261007e54b97f3678f0ad1470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: CreateFire
+  rect:
+    serializedVersion: 2
+    x: 40
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 4165784553254357386}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  newGameObject: {fileID: 9077264403482553446, guid: 998b675cfd346df499f49677e85cd11e, type: 3}
+  position: {x: -0.7, y: -2, z: 0}
+  fireDir: 1
+--- !u!114 &1147162642100309470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152851986615772632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eacdd5261007e54b97f3678f0ad1470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: CreateFire
+  rect:
+    serializedVersion: 2
+    x: 200
+    y: 160
+    width: 160
+    height: 44
+  parent: {fileID: 4165784553254357386}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  newGameObject: {fileID: 9077264403482553446, guid: 998b675cfd346df499f49677e85cd11e, type: 3}
+  position: {x: -0.7, y: -2, z: 0}
+  fireDir: -1
 --- !u!1001 &8319580807612149891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31,6 +948,10 @@ PrefabInstance:
     - target: {fileID: 178182746500334476, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_Offset.y
       value: -0.41535774
+      objectReference: {fileID: 0}
+    - target: {fileID: 442247492029501132, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: selectedEditorNode
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_LocalPosition.x
@@ -76,6 +997,22 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4791448060018659852, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: rect.x
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791448060018659852, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: rect.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791448060018659852, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: children.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791448060018659852, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: children.Array.data[0]
+      value: 
+      objectReference: {fileID: 5985374351147142762}
     - target: {fileID: 5107499730759134620, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_Size.x
       value: 0.27482986
@@ -158,6 +1095,108 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2619248657613298894}
+    - targetCorrespondingSourceObject: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5119047580498822736}
+    - targetCorrespondingSourceObject: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 519735150042194052}
+    - targetCorrespondingSourceObject: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 377611025010755937}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5985374351147142762}
+    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7306833388447635380}
   m_SourcePrefab: {fileID: 100100000, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+--- !u!114 &3534114275532776079 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4791448060018659852, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+  m_PrefabInstance: {fileID: 8319580807612149891}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164451523530529466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538645f2f9090fd43bc6154b2e89e2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &7262511601683680962 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+  m_PrefabInstance: {fileID: 8319580807612149891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8164451523530529466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+  m_PrefabInstance: {fileID: 8319580807612149891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5985374351147142762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164451523530529466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056841afaed742d4e909e76361b5173f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Repeater
+  rect:
+    serializedVersion: 2
+    x: 320
+    y: 120
+    width: 160
+    height: 44
+  parent: {fileID: 3534114275532776079}
+  children:
+  - {fileID: 7306833388447635380}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  loops: 1
+  infinite: 1
+--- !u!114 &7306833388447635380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164451523530529466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efee2c6abc08f1d42acf5b1a33db992c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: SubTree
+  rect:
+    serializedVersion: 2
+    x: 320
+    y: 197.8
+    width: 160
+    height: 44
+  parent: {fileID: 5985374351147142762}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  tree: {fileID: 6162216390016222373}
+--- !u!114 &8455010678579199567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 442247492029501132, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+  m_PrefabInstance: {fileID: 8319580807612149891}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164451523530529466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
