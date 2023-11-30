@@ -339,6 +339,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4449816797440723736, guid: 26c6fb273b92d9743b5e32fd13092a3d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449816797440723736, guid: 26c6fb273b92d9743b5e32fd13092a3d, type: 3}
       propertyPath: m_TagString
       value: MeleeAttack
       objectReference: {fileID: 0}
