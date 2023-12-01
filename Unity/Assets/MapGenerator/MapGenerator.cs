@@ -79,6 +79,7 @@ namespace MapGenerator
         private bool _initialized;
 
         public Vector3 savedPosition;
+        public Vector3 savedCameraPosition = new(0, 0, -10);
 
         private enum RoomTypes
         {

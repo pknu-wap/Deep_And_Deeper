@@ -71,6 +71,7 @@ namespace Hero
                 {
                     Debug.Log("needUpdate");
                     MapGenerator.MapGenerator.Instance.savedPosition = Vector3.zero;
+                    MapGenerator.MapGenerator.Instance.savedCameraPosition = new Vector3(0, 0, -10);
                     PlayBGM();
                     MapGenerator.MapGenerator.Instance.CreateMap();
                 }

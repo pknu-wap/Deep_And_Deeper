@@ -208,5 +208,20 @@ namespace Hero
 
             CommandBoss(boss);
         }
+
+        [RegisterCommand(Help = "Goto to TopView Map")]
+        private static void CommandReturn()
+        {
+            SceneManager.LoadScene("RandomMapTest");
+
+            Terminal.Log("Goto TopView Map.");
+        }
+
+        private static void FrontCommandReturn(CommandArg[] _)
+        {
+            if (Terminal.IssuedError) return;
+
+            CommandReturn();
+        }
     }
 }
