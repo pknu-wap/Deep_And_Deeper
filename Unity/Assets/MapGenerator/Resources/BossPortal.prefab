@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2354017587311172297}
   - component: {fileID: 2253340507670832968}
-  - component: {fileID: 151607671467519266}
+  - component: {fileID: 4738542799120745914}
+  - component: {fileID: 6634410720373615775}
   m_Layer: 0
   m_Name: BossPortal
   m_TagString: Untagged
@@ -85,8 +86,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &151607671467519266
-CapsuleCollider2D:
+--- !u!61 &4738542799120745914
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -117,6 +118,30 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.001241073, y: 0.00062054396}
-  m_Size: {x: 0.22567824, y: 0.32124108}
-  m_Direction: 0
+  m_Offset: {x: 0.003268972, y: 0.003268974}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.13366872, y: 0.12386182}
+  m_EdgeRadius: 0
+--- !u!114 &6634410720373615775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175497092943187397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d5f73061ec9c1043b8c7318fe34e218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  y: 0
+  x: 0
