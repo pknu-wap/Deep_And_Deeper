@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Hero;
@@ -59,6 +60,7 @@ namespace MapGenerator
         [SerializeField] private GameObject roomShopObject;
         [SerializeField] private GameObject portalObject;
         [SerializeField] private GameObject holeObject;
+        [SerializeField] private GameObject bossPortalObject;
         [SerializeField] private Transform roomParent;
         [SerializeField] private Vector2 roomSize = new(19.2f, 10.8f);
         [SerializeField] private int mapMaxSize = 19;
@@ -300,8 +302,15 @@ namespace MapGenerator
                             portal.x = j;
                             continue;
                         }
-                        // 클리어 홀 생성
+
+                        // 보스포탈 생성
                         case RoomTypes.Boss:
+                            Instantiate(bossPortalObject, new Vector3(x, y, 0), Quaternion.identity, roomParent)
+                                .GetComponent<Hole>();
+                            continue;
+
+                        // 클리어 홀 생성
+                        case RoomTypes.Cleared:
                         {
                             var hole = Instantiate(holeObject, new Vector3(x, y, 0), Quaternion.identity, roomParent)
                                 .GetComponent<Hole>();
@@ -318,6 +327,11 @@ namespace MapGenerator
         public void Clear(int y, int x)
         {
             _map.Rooms[y, x].RoomType = RoomTypes.Main;
+        }
+
+        public void BossClear(int y, int x)
+        {
+            _map.Rooms[y, x].RoomType = RoomTypes.Cleared;
         }
 
         private void CleanMap()
@@ -365,6 +379,7 @@ namespace MapGenerator
             roomShopObject = Resources.Load<GameObject>("RoomShop");
             portalObject = Resources.Load<GameObject>("Portal");
             holeObject = Resources.Load<GameObject>("Hole");
+            bossPortalObject = Resources.Load<GameObject>("BossPortal");
             doorMainSprite = Resources.Load<Sprite>("Door/DoorMain");
             doorBattleSprite = Resources.Load<Sprite>("Door/DoorBattle");
             doorShopSprite = Resources.Load<Sprite>("Door/DoorShop");
@@ -409,6 +424,17 @@ namespace MapGenerator
             var list = _battleRooms[HeroManager.Instance._stage];
             var rand = Random.Range(0, list.Count);
             return list[rand];
+        }
+
+        public string GetBossMap()
+        {
+            return HeroManager.Instance._stage switch
+            {
+                1 => "BossMap1",
+                2 => "BossMap2",
+                3 => "BossMap3",
+                _ => throw new InvalidOperationException()
+            };
         }
     }
 }
