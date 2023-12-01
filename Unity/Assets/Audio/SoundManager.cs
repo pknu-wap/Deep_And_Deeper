@@ -70,5 +70,13 @@ namespace Audio
         {
             _audioSources[sound].Play();
         }
+
+        public void StopAll()
+        {
+            foreach (var audioSource in _audioSources.Values)
+            {
+                audioSource.Stop();
+            }
+        }
     }
 }
