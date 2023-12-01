@@ -166,6 +166,7 @@ namespace Hero
         private static void CommandStage(int stage)
         {
             HeroManager.Instance.SetStage(stage);
+            MapGenerator.MapGenerator.Instance.needUpdate = true;
             SceneManager.LoadScene("RandomMapTest");
 
             Terminal.Log("Goto Stage {0}.", stage);

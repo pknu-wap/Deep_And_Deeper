@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Hero;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -55,6 +56,7 @@ namespace MapGenerator
 
         [SerializeField] private GameObject roomObject;
         [SerializeField] private GameObject portalObject;
+        [SerializeField] private GameObject holeObject;
         [SerializeField] private Transform roomParent;
         [SerializeField] private Vector2 roomSize = new Vector2(19.2f, 10.8f);
         [SerializeField] private int mapMaxSize = 19;
@@ -84,7 +86,8 @@ namespace MapGenerator
             Battle,
             Shop,
             Secret,
-            Boss
+            Boss,
+            Cleared
         }
 
         private ArrayList GenerateList()
@@ -267,12 +270,24 @@ namespace MapGenerator
 
                     // 포탈 생성
 
-                    if (_map.Rooms[i, j].RoomType != RoomTypes.Battle) continue;
+                    if (_map.Rooms[i, j].RoomType == RoomTypes.Battle)
+                    {
+                        var portal = Instantiate(portalObject, new Vector3(x, y, 0), quaternion.identity, roomParent)
+                            .GetComponent<Portal>();
+                        portal.y = i;
+                        portal.x = j;
+                        return;
+                    }
 
-                    var portal = Instantiate(portalObject, new Vector3(x, y, 0), quaternion.identity, roomParent)
-                        .GetComponent<Portal>();
-                    portal.y = i;
-                    portal.x = j;
+
+                    // 클리어 홀 생성
+
+                    if (_map.Rooms[i, j].RoomType == RoomTypes.Boss)
+                    {
+                        var hole = Instantiate(holeObject, new Vector3(x, y, 0), quaternion.identity, roomParent)
+                            .GetComponent<Hole>();
+                        hole.nextStage = HeroManager.Instance._stage + 1;
+                    }
                 }
             }
         }
@@ -296,6 +311,7 @@ namespace MapGenerator
         {
             roomObject = Resources.Load<GameObject>("Room");
             portalObject = Resources.Load<GameObject>("Portal");
+            holeObject = Resources.Load<GameObject>("Hole");
             doorMainSprite = Resources.Load<Sprite>("Door/DoorMain");
             doorBattleSprite = Resources.Load<Sprite>("Door/DoorBattle");
             doorShopSprite = Resources.Load<Sprite>("Door/DoorShop");
@@ -309,10 +325,6 @@ namespace MapGenerator
             _doorSprites[RoomTypes.Shop] = doorShopSprite;
             _doorSprites[RoomTypes.Secret] = doorSecretSprite;
             _doorSprites[RoomTypes.Boss] = doorBossSprite;
-
-
-            GenerateMap();
-            PrintMap();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis

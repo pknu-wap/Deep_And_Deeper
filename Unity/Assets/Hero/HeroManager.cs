@@ -69,8 +69,8 @@ namespace Hero
                 topViewTransform = topViewPlayerObject.transform;
                 if (MapGenerator.MapGenerator.Instance.needUpdate)
                 {
+                    Debug.Log("needUpdate");
                     MapGenerator.MapGenerator.Instance.savedPosition = Vector3.zero;
-                    SetStage(_stage);
                     PlayBGM();
                     MapGenerator.MapGenerator.Instance.CreateMap();
                 }
@@ -108,7 +108,7 @@ namespace Hero
             UpdateExpUI();
         }
 
-        private int _stage;
+        public int _stage;
         private bool _isBoss;
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode b)
@@ -397,7 +397,7 @@ namespace Hero
             _stage = stage;
         }
 
-        public void PlayBGM()
+        private void PlayBGM()
         {
             SoundManager.Instance.StopAll();
             SoundManager.Instance.PlaySfx(GetSound(_stage, _isBoss));
@@ -405,8 +405,6 @@ namespace Hero
 
         private static Sound GetSound(int stage, bool isBoss)
         {
-            var a = isBoss ? "Yes" : "No";
-            Debug.Log(stage + a);
             return stage switch
             {
                 1 when !isBoss => Sound.Stage1,
