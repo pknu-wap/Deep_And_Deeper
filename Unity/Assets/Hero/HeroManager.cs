@@ -1,3 +1,4 @@
+using Audio;
 using MBT;
 using TMPro;
 using Unity.Mathematics;
@@ -189,13 +190,13 @@ namespace Hero
 
             _hitTimer = _hitEffectDuration;
             SetColor(_hitColor);
-            SoundManager.instance.PlaySfx("PlayerHurt");
+            SoundManager.Instance.PlaySfx(Sound.PlayerHurt);
 
             if (health > 0) return;
 
             SetState("Death");
             isDead = true;
-            SoundManager.instance.PlaySfx("PlayerDead");
+            SoundManager.Instance.PlaySfx(Sound.PlayerDead);
             GameOver();
         }
 
