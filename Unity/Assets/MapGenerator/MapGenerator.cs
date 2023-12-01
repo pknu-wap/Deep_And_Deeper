@@ -53,7 +53,6 @@ namespace MapGenerator
         }
 
         public bool needUpdate = true;
-        private bool _mapExists;
         public bool saved;
 
         [SerializeField] private GameObject roomObject;
@@ -129,8 +128,6 @@ namespace MapGenerator
 
         private void GenerateMap()
         {
-            _mapExists = true;
-
             var roomsToGenerate = GenerateList();
 
             _map = new Map(mapMaxSize, mapMaxSize);
@@ -386,7 +383,6 @@ namespace MapGenerator
         // ReSharper disable Unity.PerformanceAnalysis
         public void CreateMap()
         {
-            _mapExists = true;
             needUpdate = false;
 
             if (!_initialized)
