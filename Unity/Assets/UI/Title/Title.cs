@@ -1,16 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Title
+namespace UI.Title
 {
     public class Title : MonoBehaviour
     {
-        [SerializeField] private KeyCode keyCode;
         [SerializeField] private string sceneName;
 
         private void Update()
         {
-            if (Input.GetKeyDown(keyCode))
+            if (Input.anyKey)
             {
                 SceneManager.LoadScene(sceneName);
             }
