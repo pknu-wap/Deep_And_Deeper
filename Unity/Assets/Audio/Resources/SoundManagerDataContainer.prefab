@@ -44,8 +44,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48950c32a3a03c9449009fb83dcd7801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHurt: {fileID: 8300000, guid: d7d9883304c06b34f87793af12415f4f, type: 3}
-  PlayerDead: {fileID: 8300000, guid: daaa79290d079314ea71fc2f53c9d246, type: 3}
-  MonsterHurt: {fileID: 8300000, guid: d7d9883304c06b34f87793af12415f4f, type: 3}
-  MonsterDead: {fileID: 8300000, guid: ea669bc461afa294099ceffb58d9f5d5, type: 3}
+  PlayerHurt:
+    audioClip: {fileID: 8300000, guid: 3d88a7fd21a9ee34caa42f8029b11f1f, type: 3}
+    isLoop: 0
+    volume: 1
+  PlayerDead:
+    audioClip: {fileID: 8300000, guid: daaa79290d079314ea71fc2f53c9d246, type: 3}
+    isLoop: 0
+    volume: 1
+  MonsterHurt:
+    audioClip: {fileID: 8300000, guid: d7d9883304c06b34f87793af12415f4f, type: 3}
+    isLoop: 0
+    volume: 1
+  MonsterDead:
+    audioClip: {fileID: 8300000, guid: ea669bc461afa294099ceffb58d9f5d5, type: 3}
+    isLoop: 0
+    volume: 1
+  Stage1:
+    audioClip: {fileID: 8300000, guid: 21259a99607428542b0058aff424be31, type: 3}
+    isLoop: 1
+    volume: 1
+  Stage2:
+    audioClip: {fileID: 8300000, guid: 6b41af9b0cb609f4883b11629a16e734, type: 3}
+    isLoop: 1
+    volume: 1
+  Stage3:
+    audioClip: {fileID: 8300000, guid: 31f59f5184fdbd24bbcddc4150a233ea, type: 3}
+    isLoop: 1
+    volume: 1
+  Boss1:
+    audioClip: {fileID: 8300000, guid: 752aed84a2c8ed545bbbec50c50b8b21, type: 3}
+    isLoop: 1
+    volume: 1
+  Boss2:
+    audioClip: {fileID: 8300000, guid: 5f048245a12c8c84abbd3e8b0af1ddc7, type: 3}
+    isLoop: 1
+    volume: 1
+  Boss3:
+    audioClip: {fileID: 8300000, guid: 83a0a974ab25a4adfba3cbb3a1aaa76e, type: 3}
+    isLoop: 1
+    volume: 1
   audioSourcePrefab: {fileID: 1355523052637066469, guid: d3a1cf1987c11404bb99498056f91d9b, type: 3}
