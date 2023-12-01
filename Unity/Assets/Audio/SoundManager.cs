@@ -97,6 +97,8 @@ namespace Audio
 
         public void StopAll()
         {
+            if (_audioSources.Count == 0) return;
+
             foreach (var audioSource in _audioSources.Values)
             {
                 audioSource.Stop();
