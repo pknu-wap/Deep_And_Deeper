@@ -115,7 +115,7 @@ namespace Hero
             CommandAddExp(exp);
         }
 
-        [RegisterCommand(Help = "Adds Exp")]
+        [RegisterCommand(Help = "Create new Map")]
         private static void CommandMap()
         {
             MapGenerator.MapGenerator.Instance.CreateMap();
@@ -128,6 +128,21 @@ namespace Hero
             if (Terminal.IssuedError) return;
 
             CommandMap();
+        }
+
+        [RegisterCommand(Help = "Awake HeroManager Singleton")]
+        private static void CommandInit()
+        {
+            _ = HeroManager.Instance;
+
+            Terminal.Log("Awaken HeroManager.");
+        }
+
+        private static void FrontCommandInit(CommandArg[] _)
+        {
+            if (Terminal.IssuedError) return;
+
+            CommandInit();
         }
     }
 }
