@@ -73,9 +73,11 @@ namespace Audio
         {
             if (GameObject.FindGameObjectWithTag("SoundSource") != null) return;
 
+            var parent = new GameObject("SoundSources").transform;
+
             foreach (var (sound, audioContainer) in _audioContainers)
             {
-                var source = Instantiate(_audioSourcePrefab).GetComponent<AudioSource>();
+                var source = Instantiate(_audioSourcePrefab, parent).GetComponent<AudioSource>();
                 source.clip = audioContainer.audioClip;
                 source.volume = audioContainer.volume;
                 source.loop = audioContainer.isLoop;

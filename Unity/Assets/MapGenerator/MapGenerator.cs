@@ -58,7 +58,7 @@ namespace MapGenerator
         [SerializeField] private GameObject portalObject;
         [SerializeField] private GameObject holeObject;
         [SerializeField] private Transform roomParent;
-        [SerializeField] private Vector2 roomSize = new Vector2(19.2f, 10.8f);
+        [SerializeField] private Vector2 roomSize = new(19.2f, 10.8f);
         [SerializeField] private int mapMaxSize = 19;
         [SerializeField] private int numBattleRoom = 9;
         [SerializeField] private int numShopRoom = 1;
@@ -71,6 +71,7 @@ namespace MapGenerator
         [SerializeField] private Sprite doorBossSprite;
 
         private readonly Dictionary<RoomTypes, Sprite> _doorSprites = new();
+        private readonly Dictionary<int, List<string>> _battleRooms = new();
         private readonly int[] _dy = { -1, 0, 1, 0 };
         private readonly int[] _dx = { 0, -1, 0, 1 };
 
@@ -236,6 +237,8 @@ namespace MapGenerator
 
         private void PrintMap()
         {
+            var portalParent = new GameObject("Portals").transform;
+
             for (var i = 0; i < mapMaxSize; i++)
             {
                 // ReSharper disable once PossibleLossOfFraction
@@ -270,23 +273,27 @@ namespace MapGenerator
 
                     // 포탈 생성
 
-                    if (_map.Rooms[i, j].RoomType == RoomTypes.Battle)
+                    switch (_map.Rooms[i, j].RoomType)
                     {
-                        var portal = Instantiate(portalObject, new Vector3(x, y, 0), quaternion.identity, roomParent)
-                            .GetComponent<Portal>();
-                        portal.y = i;
-                        portal.x = j;
-                        return;
-                    }
-
-
-                    // 클리어 홀 생성
-
-                    if (_map.Rooms[i, j].RoomType == RoomTypes.Boss)
-                    {
-                        var hole = Instantiate(holeObject, new Vector3(x, y, 0), quaternion.identity, roomParent)
-                            .GetComponent<Hole>();
-                        hole.nextStage = HeroManager.Instance._stage + 1;
+                        case RoomTypes.Battle:
+                        {
+                            var portal = Instantiate(portalObject, new Vector3(x, y, 0), quaternion.identity,
+                                    portalParent)
+                                .GetComponent<Portal>();
+                            portal.y = i;
+                            portal.x = j;
+                            continue;
+                        }
+                        // 클리어 홀 생성
+                        case RoomTypes.Boss:
+                        {
+                            var hole = Instantiate(holeObject, new Vector3(x, y, 0), Quaternion.identity)
+                                .GetComponent<Hole>();
+                            hole.nextStage = HeroManager.Instance._stage + 1;
+                            break;
+                        }
+                        default:
+                            continue;
                     }
                 }
             }
@@ -309,6 +316,33 @@ namespace MapGenerator
 
         private void Init()
         {
+            _battleRooms[1] = new List<string>
+            {
+                "BattleMap1_1",
+                "BattleMap1_2",
+                "BattleMap1_3",
+                "BattleMap1_4",
+                "BattleMap1_5",
+            };
+
+            _battleRooms[2] = new List<string>
+            {
+                "BattleMap2_1",
+                "BattleMap2_2",
+                "BattleMap2_3",
+                "BattleMap2_4",
+                "BattleMap2_5",
+            };
+
+            _battleRooms[3] = new List<string>
+            {
+                "BattleMap3_1",
+                "BattleMap3_2",
+                "BattleMap3_3",
+                "BattleMap3_4",
+                "BattleMap3_5",
+            };
+
             roomObject = Resources.Load<GameObject>("Room");
             portalObject = Resources.Load<GameObject>("Portal");
             holeObject = Resources.Load<GameObject>("Hole");
@@ -347,6 +381,13 @@ namespace MapGenerator
         {
             CleanMap();
             PrintMap();
+        }
+
+        public string GetRandomMap()
+        {
+            var list = _battleRooms[HeroManager.Instance._stage];
+            var rand = Random.Range(0, list.Count);
+            return list[rand];
         }
     }
 }

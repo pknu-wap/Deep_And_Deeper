@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace MapGenerator
 {
@@ -10,6 +11,8 @@ namespace MapGenerator
         private void OnTriggerEnter2D(Collider2D other)
         {
             MapGenerator.Instance.Clear(y, x);
+
+            SceneManager.LoadScene(MapGenerator.Instance.GetRandomMap());
         }
     }
 }
