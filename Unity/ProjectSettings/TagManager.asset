@@ -23,6 +23,7 @@ TagManager:
   - SoundSource
   - SoundBox
   - ItemDesc
+  - RetPortal
   layers:
   - Default
   - TransparentFX

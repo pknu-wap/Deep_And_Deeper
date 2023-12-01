@@ -1671,7 +1671,7 @@ PrefabInstance:
     - target: {fileID: 442247492029501132, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: selectedEditorNode
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2906729193268439286}
     - target: {fileID: 1710393109640347201, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.63
@@ -1715,6 +1715,10 @@ PrefabInstance:
     - target: {fileID: 1865894765515591674, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018982553719588997, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      propertyPath: maxHealth
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4791448060018659852, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       propertyPath: rect.x
@@ -1864,6 +1868,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
       insertIndex: -1
       addedObject: {fileID: 407996449360938722}
+    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9106088311278495016}
+    - targetCorrespondingSourceObject: {fileID: 160128256648817209, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2906729193268439286}
   m_SourcePrefab: {fileID: 100100000, guid: 1ad092788dd8a8c46906b9c2ff809f90, type: 3}
 --- !u!114 &3534114275532776079 stripped
 MonoBehaviour:
@@ -2012,7 +2022,7 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 5985374351147142762}
   children:
-  - {fileID: 407996449360938722}
+  - {fileID: 9106088311278495016}
   - {fileID: 4646152942762072922}
   - {fileID: 1783112433615486597}
   - {fileID: 4028682523045633669}
@@ -2137,11 +2147,62 @@ MonoBehaviour:
   title: CheckMonsterDead
   rect:
     serializedVersion: 2
-    x: -0
-    y: 240
+    x: -160
+    y: 280
+    width: 160
+    height: 44
+  parent: {fileID: 9106088311278495016}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+--- !u!114 &9106088311278495016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164451523530529466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: -40
+    y: 200
     width: 160
     height: 44
   parent: {fileID: 1772531170030906082}
+  children:
+  - {fileID: 407996449360938722}
+  - {fileID: 2906729193268439286}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &2906729193268439286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164451523530529466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d4309172d3bef7489e2a77834271789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: ReturnMap
+  rect:
+    serializedVersion: 2
+    x: 34
+    y: 274.8
+    width: 160
+    height: 44
+  parent: {fileID: 9106088311278495016}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
