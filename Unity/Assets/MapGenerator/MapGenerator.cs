@@ -54,8 +54,10 @@ namespace MapGenerator
 
         public bool needUpdate = true;
         private bool _mapExists;
+        public bool saved;
 
         [SerializeField] private GameObject roomObject;
+        [SerializeField] private GameObject roomShopObject;
         [SerializeField] private GameObject portalObject;
         [SerializeField] private GameObject holeObject;
         [SerializeField] private Transform roomParent;
@@ -128,7 +130,7 @@ namespace MapGenerator
         private void GenerateMap()
         {
             _mapExists = true;
-            
+
             var roomsToGenerate = GenerateList();
 
             _map = new Map(mapMaxSize, mapMaxSize);
@@ -228,6 +230,16 @@ namespace MapGenerator
                     var targetY = i + _dy[direction];
                     var targetX = j + _dx[direction];
 
+
+                    if (targetY <= -1 || targetY >= mapMaxSize || targetX <= -1 || targetX >= mapMaxSize ||
+                        _map.Rooms[targetX, targetY].RoomType != RoomTypes.Empty)
+                    {
+                        currentNumAdditionalBattleRoom++;
+
+                        if (currentNumAdditionalBattleRoom >= numAdditionalBattleRoom) goto END_OF_LOOP;
+                        continue;
+                    }
+
                     _map.Rooms[targetY, targetX].RoomType = RoomTypes.Battle;
 
                     currentNumAdditionalBattleRoom++;
@@ -241,8 +253,8 @@ namespace MapGenerator
 
         private void PrintMap()
         {
-            if (!_mapExists) return;
-            
+            if (_map == null) return;
+
             var portalParent = new GameObject("Portals").transform;
 
             for (var i = 0; i < mapMaxSize; i++)
@@ -257,7 +269,8 @@ namespace MapGenerator
                     // ReSharper disable once PossibleLossOfFraction
                     var x = (j - mapMaxSize / 2) * roomSize.x;
 
-                    var room = Instantiate(roomObject, new Vector3(x, y, 0), quaternion.identity, roomParent);
+                    var object2 = _map.Rooms[i, j].RoomType != RoomTypes.Shop ? roomObject : roomShopObject;
+                    var room = Instantiate(object2, new Vector3(x, y, 0), quaternion.identity, roomParent);
 
                     // 문 생성
 
@@ -284,7 +297,7 @@ namespace MapGenerator
                         case RoomTypes.Battle:
                         {
                             var portal = Instantiate(portalObject, new Vector3(x, y, 0), quaternion.identity,
-                                    portalParent)
+                                    roomParent)
                                 .GetComponent<Portal>();
                             portal.y = i;
                             portal.x = j;
@@ -293,7 +306,7 @@ namespace MapGenerator
                         // 클리어 홀 생성
                         case RoomTypes.Boss:
                         {
-                            var hole = Instantiate(holeObject, new Vector3(x, y, 0), Quaternion.identity)
+                            var hole = Instantiate(holeObject, new Vector3(x, y, 0), Quaternion.identity, roomParent)
                                 .GetComponent<Hole>();
                             hole.nextStage = HeroManager.Instance._stage + 1;
                             break;
@@ -312,8 +325,8 @@ namespace MapGenerator
 
         private void CleanMap()
         {
-            if (!_mapExists) return;
-            
+            // if (!_mapExists) return;
+
             if (roomParent == null) return;
 
             foreach (Transform child in roomParent.transform)
@@ -352,6 +365,7 @@ namespace MapGenerator
             };
 
             roomObject = Resources.Load<GameObject>("Room");
+            roomShopObject = Resources.Load<GameObject>("RoomShop");
             portalObject = Resources.Load<GameObject>("Portal");
             holeObject = Resources.Load<GameObject>("Hole");
             doorMainSprite = Resources.Load<Sprite>("Door/DoorMain");
@@ -388,8 +402,8 @@ namespace MapGenerator
 
         public void RefreshMap()
         {
-            if (!_mapExists) return;
-            
+            // if (!_mapExists) return;
+
             CleanMap();
             PrintMap();
         }

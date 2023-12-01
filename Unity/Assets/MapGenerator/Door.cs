@@ -31,7 +31,6 @@ namespace MapGenerator
                 _dy[dir] * TransformMultiplier,
                 0
             );
-            MapGenerator.Instance.savedCameraPosition = newPosition;
         }
     }
 }
