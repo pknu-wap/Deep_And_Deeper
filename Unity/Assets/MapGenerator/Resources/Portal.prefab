@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2354017587311172297}
   - component: {fileID: 2253340507670832968}
   - component: {fileID: 151607671467519266}
+  - component: {fileID: -3255689191484196395}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 803316040, guid: a95c076be7d3a924c879f364bbe79ee6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6792453, g: 0.20121038, b: 0.20121038, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -120,3 +121,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0.001241073, y: 0.00062054396}
   m_Size: {x: 0.22567824, y: 0.32124108}
   m_Direction: 0
+--- !u!114 &-3255689191484196395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175497092943187397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647fe23a368745a4eacad578973f21a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  y: 0
+  x: 0

@@ -1,5 +1,7 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
 using CommandTerminal;
+using UnityEngine.SceneManagement;
 
 namespace Hero
 {
@@ -120,7 +122,7 @@ namespace Hero
         {
             MapGenerator.MapGenerator.Instance.CreateMap();
 
-            Terminal.Log("Created Map.");
+            Terminal.Log("Created New Map.");
         }
 
         private static void FrontCommandMap(CommandArg[] _)
@@ -135,7 +137,7 @@ namespace Hero
         {
             _ = HeroManager.Instance;
 
-            Terminal.Log("Awaken HeroManager.");
+            Terminal.Log("Awaken HeroManager Singleton.");
         }
 
         private static void FrontCommandInit(CommandArg[] _)
@@ -143,6 +145,67 @@ namespace Hero
             if (Terminal.IssuedError) return;
 
             CommandInit();
+        }
+
+        [RegisterCommand(Help = "Refresh Map State")]
+        private static void CommandRefresh()
+        {
+            MapGenerator.MapGenerator.Instance.RefreshMap();
+
+            Terminal.Log("Refreshed Map State.");
+        }
+
+        private static void FrontCommandRefresh(CommandArg[] _)
+        {
+            if (Terminal.IssuedError) return;
+
+            CommandRefresh();
+        }
+
+        [RegisterCommand(Help = "Goto Stage. (1~3)")]
+        private static void CommandStage(int stage)
+        {
+            HeroManager.Instance.SetStage(stage);
+            SceneManager.LoadScene("RandomMapTest");
+
+            Terminal.Log("Goto Stage {0}.", stage);
+        }
+
+        private static void FrontCommandStage(CommandArg[] args)
+        {
+            var stage = args[0].Int;
+
+            if (Terminal.IssuedError) return;
+
+            CommandStage(stage);
+        }
+
+        [RegisterCommand(Help = "Goto Boss. (1~3)")]
+        private static void CommandBoss(int boss)
+        {
+            SceneManager.LoadScene(GetBossScene(boss));
+
+            Terminal.Log("Goto Boss {0}.", boss);
+        }
+
+        private static string GetBossScene(int boss)
+        {
+            return boss switch
+            {
+                1 => "BossMap1",
+                2 => "BossMap2",
+                3 => "BossMap3",
+                _ => throw new InvalidOperationException()
+            };
+        }
+
+        private static void FrontCommandBoss(CommandArg[] args)
+        {
+            var boss = args[0].Int;
+
+            if (Terminal.IssuedError) return;
+
+            CommandBoss(boss);
         }
     }
 }

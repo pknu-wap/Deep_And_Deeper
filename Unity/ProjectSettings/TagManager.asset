@@ -20,6 +20,7 @@ TagManager:
   - HeroCollider
   - Fire
   - TopViewHero
+  - SoundSource
   layers:
   - Default
   - TransparentFX

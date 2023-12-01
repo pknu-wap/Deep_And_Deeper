@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Audio
 {
@@ -28,7 +29,7 @@ namespace Audio
                 if (_instance) return _instance;
 
                 // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-                _instance = new GameObject().AddComponent<SoundManager>();
+                _instance = new GameObject("Sound Manager").AddComponent<SoundManager>();
 
                 DontDestroyOnLoad(_instance.gameObject);
 
@@ -36,10 +37,12 @@ namespace Audio
             }
         }
 
+        private GameObject _audioSourcePrefab;
+
         private readonly Dictionary<Sound, AudioContainer> _audioContainers = new();
         private readonly Dictionary<Sound, AudioSource> _audioSources = new();
 
-        private void Awake()
+        private void Init()
         {
             var data = Resources.Load<SoundManagerData>("SoundManagerDataContainer");
 
@@ -54,16 +57,35 @@ namespace Audio
             _audioContainers[Sound.Boss2] = data.Boss2;
             _audioContainers[Sound.Boss3] = data.Boss3;
 
-            var prefab = data.audioSourcePrefab;
+            _audioSourcePrefab = data.audioSourcePrefab;
+
+            OnSceneLoaded();
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void Awake()
+        {
+            Init();
+        }
+
+        private void OnSceneLoaded()
+        {
+            if (GameObject.FindGameObjectWithTag("SoundSource") != null) return;
 
             foreach (var (sound, audioContainer) in _audioContainers)
             {
-                var source = Instantiate(prefab).GetComponent<AudioSource>();
+                var source = Instantiate(_audioSourcePrefab).GetComponent<AudioSource>();
                 source.clip = audioContainer.audioClip;
                 source.volume = audioContainer.volume;
                 source.loop = audioContainer.isLoop;
                 _audioSources[sound] = source;
             }
+        }
+
+        private void OnSceneLoaded(Scene a, LoadSceneMode b)
+        {
+            OnSceneLoaded();
         }
 
         public void PlaySfx(Sound sound)

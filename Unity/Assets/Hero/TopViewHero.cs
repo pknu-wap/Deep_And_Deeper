@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Hero
@@ -9,19 +8,24 @@ namespace Hero
 
         private Animator _animator;
         private SpriteRenderer _spriteRenderer;
-        private Transform _transform;
         private Rigidbody2D _rigidbody2D;
 
         private void Start()
         {
             _animator = GetComponent<Animator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            _transform = transform;
             _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
+
+        private void Awake()
+        {
+            transform.position = MapGenerator.MapGenerator.Instance.savedPosition;
         }
 
         private void Update()
         {
+            MapGenerator.MapGenerator.Instance.savedPosition = transform.position;
+
             var hInput = Input.GetAxis("Horizontal");
             var vInput = Input.GetAxis("Vertical");
 

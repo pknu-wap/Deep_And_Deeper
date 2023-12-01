@@ -51,9 +51,10 @@ namespace MapGenerator
             public readonly Room[,] Rooms;
         }
 
-        public bool needRefresh = true;
+        public bool needUpdate = true;
 
         [SerializeField] private GameObject roomObject;
+        [SerializeField] private GameObject portalObject;
         [SerializeField] private Transform roomParent;
         [SerializeField] private Vector2 roomSize = new Vector2(19.2f, 10.8f);
         [SerializeField] private int mapMaxSize = 19;
@@ -73,6 +74,8 @@ namespace MapGenerator
 
         private Map _map;
         private bool _initialized;
+
+        public Vector3 savedPosition;
 
         private enum RoomTypes
         {
@@ -261,15 +264,27 @@ namespace MapGenerator
                         // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
                         door.GetComponent<BoxCollider2D>().isTrigger = true;
                     }
+
+                    // 포탈 생성
+
+                    if (_map.Rooms[i, j].RoomType != RoomTypes.Battle) continue;
+
+                    var portal = Instantiate(portalObject, new Vector3(x, y, 0), quaternion.identity, roomParent)
+                        .GetComponent<Portal>();
+                    portal.y = i;
+                    portal.x = j;
                 }
             }
         }
 
+        public void Clear(int y, int x)
+        {
+            _map.Rooms[y, x].RoomType = RoomTypes.Main;
+        }
+
         private void CleanMap()
         {
-            if (roomParent == null)
-            {
-            }
+            if (roomParent == null) return;
 
             foreach (Transform child in roomParent.transform)
             {
@@ -280,6 +295,7 @@ namespace MapGenerator
         private void Init()
         {
             roomObject = Resources.Load<GameObject>("Room");
+            portalObject = Resources.Load<GameObject>("Portal");
             doorMainSprite = Resources.Load<Sprite>("Door/DoorMain");
             doorBattleSprite = Resources.Load<Sprite>("Door/DoorBattle");
             doorShopSprite = Resources.Load<Sprite>("Door/DoorShop");
@@ -302,7 +318,7 @@ namespace MapGenerator
         // ReSharper disable Unity.PerformanceAnalysis
         public void CreateMap()
         {
-            needRefresh = false;
+            needUpdate = false;
 
             if (!_initialized)
             {
@@ -312,6 +328,12 @@ namespace MapGenerator
 
             CleanMap();
             GenerateMap();
+            PrintMap();
+        }
+
+        public void RefreshMap()
+        {
+            CleanMap();
             PrintMap();
         }
     }
