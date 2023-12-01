@@ -1,3 +1,4 @@
+using Audio;
 using Hero;
 using UnityEngine;
 using UnityEngine.UI;
@@ -75,6 +76,7 @@ namespace Monster
         public void OnDamaged(float damage)
         {
             _health -= damage;
+            SoundManager.Instance.PlaySfx(Sound.MonsterHurt);
             UpdateHealthUI();
 
             _hitTimer = hitEffectDuration;
@@ -88,6 +90,7 @@ namespace Monster
             if (_health > 0) return;
 
             _animator.Play("Death");
+            SoundManager.Instance.PlaySfx(Sound.MonsterDead);
             isDead = true;
             SetHealthUIActive(false);
         }

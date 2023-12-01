@@ -1,3 +1,4 @@
+using Audio;
 using MBT;
 using TMPro;
 using Unity.Mathematics;
@@ -50,7 +51,6 @@ namespace Hero
 
         private void OnSceneLoaded()
         {
-            Debug.Log("sceneLoaded");
             var playerObject = GameObject.FindWithTag("Player");
             var topViewPlayerObject = GameObject.FindWithTag("TopViewHero");
 
@@ -67,6 +67,7 @@ namespace Hero
                 topViewTransform = topViewPlayerObject.transform;
                 if (MapGenerator.MapGenerator.Instance.needRefresh)
                 {
+                    SetStage(_stage + 1);
                     MapGenerator.MapGenerator.Instance.CreateMap();
                 }
             }
@@ -102,6 +103,9 @@ namespace Hero
             UpdateLevelUI();
             UpdateExpUI();
         }
+
+        private int _stage;
+        private bool _isBoss;
 
         private void OnSceneLoaded(Scene a, LoadSceneMode b)
         {
@@ -189,11 +193,13 @@ namespace Hero
 
             _hitTimer = _hitEffectDuration;
             SetColor(_hitColor);
+            SoundManager.Instance.PlaySfx(Sound.PlayerHurt);
 
             if (health > 0) return;
 
             SetState("Death");
             isDead = true;
+            SoundManager.Instance.PlaySfx(Sound.PlayerDead);
             GameOver();
         }
 
@@ -374,6 +380,28 @@ namespace Hero
             SetVelocityX(inputX * moveSpeed);
 
             return NodeResult.success;
+        }
+
+        private void SetStage(int stage)
+        {
+            _stage = stage;
+
+            SoundManager.Instance.StopAll();
+            SoundManager.Instance.PlaySfx(GetSound(_stage, _isBoss));
+        }
+
+        private static Sound GetSound(int stage, bool isBoss)
+        {
+            return stage switch
+            {
+                1 when !isBoss => Sound.Stage1,
+                1 => Sound.Boss1,
+                2 when !isBoss => Sound.Stage1,
+                2 => Sound.Boss2,
+                3 when !isBoss => Sound.Stage1,
+                3 => Sound.Boss3,
+                _ => Sound.PlayerDead
+            };
         }
     }
 }
