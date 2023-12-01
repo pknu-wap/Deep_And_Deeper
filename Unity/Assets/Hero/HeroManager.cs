@@ -62,6 +62,15 @@ namespace Hero
 
             _noHero = false;
 
+            if (topViewPlayerObject != null)
+            {
+                topViewTransform = topViewPlayerObject.transform;
+                if (MapGenerator.MapGenerator.Instance.needRefresh)
+                {
+                    MapGenerator.MapGenerator.Instance.CreateMap();
+                }
+            }
+
             if (playerObject != null)
             {
                 _rigidbody2D = playerObject.GetComponent<Rigidbody2D>();
@@ -69,7 +78,7 @@ namespace Hero
                 _spriteRenderer = playerObject.GetComponent<SpriteRenderer>();
                 _transform = playerObject.GetComponent<Transform>();
                 _gameOverUI = playerObject.GetComponent<GameOverUI>();
-                _levelUpUI = playerObject.GetComponent<LevelUpUI>();
+                // _levelUpUI = playerObject.GetComponent<LevelUpUI>();
 
                 _capsuleCollider2D = GameObject.FindWithTag("HeroCollider").GetComponents<CapsuleCollider2D>();
 
@@ -118,6 +127,7 @@ namespace Hero
         private int _maxExp;
         public bool isDead;
         public bool lookingRight = true;
+        public Transform topViewTransform;
 
         private Image _healthBar;
         private Image _staminaBar;
@@ -136,7 +146,7 @@ namespace Hero
         private CapsuleCollider2D[] _capsuleCollider2D;
 
         private GameOverUI _gameOverUI;
-        private LevelUpUI _levelUpUI;
+        // private LevelUpUI _levelUpUI;
 
         public bool isGrounded;
         private float _hitTimer;
@@ -291,7 +301,7 @@ namespace Hero
                 _maxExp = GetMaxExp(level);
                 UpdateLevelUI();
                 UpdateExpUI();
-                _levelUpUI.OnLevelUp();
+                // _levelUpUI.OnLevelUp();
             }
         }
 
