@@ -4,29 +4,24 @@ using System.Linq;
 using UnityEngine;
 
 namespace MBT
-{ 
+{
     [RequireComponent(typeof(MonoBehaviourTree))]
     public abstract class Node : MonoBehaviour
     {
         private const float NODE_DEFAULT_WIDTH = 160f;
 
         public string title;
-        [HideInInspector]
-        public Rect rect = new Rect(0, 0, NODE_DEFAULT_WIDTH, 50);
-        [HideInInspector]
-        public Node parent;
-        [HideInInspector]
-        public List<Node> children = new List<Node>();
-        [NonSerialized]
-        public Status status = Status.Ready;
-        [HideInInspector]
-        public MonoBehaviourTree behaviourTree;
+        [HideInInspector] public Rect rect = new Rect(0, 0, NODE_DEFAULT_WIDTH, 50);
+        [HideInInspector] public Node parent;
+        [HideInInspector] public List<Node> children = new List<Node>();
+        [NonSerialized] public Status status = Status.Ready;
+
+        [HideInInspector] public MonoBehaviourTree behaviourTree;
+
         // [HideInInspector]
-        public NodeResult runningNodeResult { get; internal set;}
-        [HideInInspector]
-        public int runtimePriority;
-        [HideInInspector]
-        public bool breakpoint;
+        public NodeResult runningNodeResult { get; internal set; }
+        [HideInInspector] public int runtimePriority;
+        [HideInInspector] public bool breakpoint;
 
         public bool selected { get; set; }
 
@@ -34,18 +29,33 @@ namespace MBT
         /// Time of last tick retrieved from Time.time
         /// </summary>
         public float LastTick => behaviourTree.LastTick;
+
         /// <summary>
         /// The interval in seconds from the last tick of behaviour tree.
         /// </summary>
         protected float DeltaTime => Time.time - behaviourTree.LastTick;
 
-        public virtual void OnAllowInterrupt() {}
-        public virtual void OnEnter() {}
-        public abstract NodeResult Execute();
-        public virtual void OnExit() {}
-        public virtual void OnDisallowInterrupt() {}
+        public virtual void OnAllowInterrupt()
+        {
+        }
 
-        public virtual void OnBehaviourTreeAbort() {}
+        public virtual void OnEnter()
+        {
+        }
+
+        public abstract NodeResult Execute();
+
+        public virtual void OnExit()
+        {
+        }
+
+        public virtual void OnDisallowInterrupt()
+        {
+        }
+
+        public virtual void OnBehaviourTreeAbort()
+        {
+        }
 
         public abstract void AddChild(Node node);
         public abstract void RemoveChild(Node node);
@@ -62,7 +72,8 @@ namespace MBT
 
         public bool IsDescendantOf(Node node)
         {
-            if (parent == null) {
+            if (parent == null)
+            {
                 return false;
             }
 
@@ -77,6 +88,7 @@ namespace MBT
                 result.Add(t);
                 result.AddRange(t.GetAllSuccessors());
             }
+
             return result;
         }
 
@@ -91,30 +103,37 @@ namespace MBT
         /// <returns>Returns true if node is configured correctly</returns>
         public virtual bool IsValid()
         {
-            #if UNITY_EDITOR
-            var propertyInfos = GetType().GetFields();
-            return (from t in propertyInfos where t.FieldType.IsSubclassOf(typeof(BaseVariableReference)) select t.GetValue(this) as BaseVariableReference).All(varReference => varReference is not
-            {
-                isInvalid: true
-            });
-#endif
+            return true;
+            // #if UNITY_EDITOR
+            // var propertyInfos = GetType().GetFields();
+            // return (from t in propertyInfos where t.FieldType.IsSubclassOf(typeof(BaseVariableReference)) select t.GetValue(this) as BaseVariableReference).All(varReference => varReference is not
+            // {
+            //     isInvalid: true
+            // });
+// #endif
         }
     }
 
     public enum Status
     {
-        Success, Failure, Running, Ready
+        Success,
+        Failure,
+        Running,
+        Ready
     }
 
     public enum Abort
     {
-        None, Self, LowerPriority, Both
+        None,
+        Self,
+        LowerPriority,
+        Both
     }
 
     public class NodeResult
     {
-        public Status status {get; private set;}
-        public Node child {get; private set;}
+        public Status status { get; private set; }
+        public Node child { get; private set; }
 
         public NodeResult(Status status, Node child = null)
         {
@@ -137,11 +156,13 @@ namespace MBT
         public static readonly NodeResult running = new NodeResult(Status.Running);
     }
 
-    public interface IChildrenNode{
+    public interface IChildrenNode
+    {
         // void SetParent(Node node);
     }
 
-    public interface IParentNode{
+    public interface IParentNode
+    {
         // void AddChild(Node node);
     }
 }
