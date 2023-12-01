@@ -21,6 +21,7 @@ TagManager:
   - Fire
   - TopViewHero
   - SoundSource
+  - SoundBox
   layers:
   - Default
   - TransparentFX

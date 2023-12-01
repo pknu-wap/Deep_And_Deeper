@@ -53,6 +53,7 @@ namespace MapGenerator
         }
 
         public bool needUpdate = true;
+        private bool _mapExists;
 
         [SerializeField] private GameObject roomObject;
         [SerializeField] private GameObject portalObject;
@@ -126,6 +127,8 @@ namespace MapGenerator
 
         private void GenerateMap()
         {
+            _mapExists = true;
+            
             var roomsToGenerate = GenerateList();
 
             _map = new Map(mapMaxSize, mapMaxSize);
@@ -238,6 +241,8 @@ namespace MapGenerator
 
         private void PrintMap()
         {
+            if (!_mapExists) return;
+            
             var portalParent = new GameObject("Portals").transform;
 
             for (var i = 0; i < mapMaxSize; i++)
@@ -307,6 +312,8 @@ namespace MapGenerator
 
         private void CleanMap()
         {
+            if (!_mapExists) return;
+            
             if (roomParent == null) return;
 
             foreach (Transform child in roomParent.transform)
@@ -365,6 +372,7 @@ namespace MapGenerator
         // ReSharper disable Unity.PerformanceAnalysis
         public void CreateMap()
         {
+            _mapExists = true;
             needUpdate = false;
 
             if (!_initialized)
@@ -380,6 +388,8 @@ namespace MapGenerator
 
         public void RefreshMap()
         {
+            if (!_mapExists) return;
+            
             CleanMap();
             PrintMap();
         }

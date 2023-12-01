@@ -69,7 +69,6 @@ namespace Hero
                 topViewTransform = topViewPlayerObject.transform;
                 if (MapGenerator.MapGenerator.Instance.needUpdate)
                 {
-                    Debug.Log("needUpdate");
                     MapGenerator.MapGenerator.Instance.savedPosition = Vector3.zero;
                     MapGenerator.MapGenerator.Instance.savedCameraPosition = new Vector3(0, 0, -10);
                     PlayBGM();

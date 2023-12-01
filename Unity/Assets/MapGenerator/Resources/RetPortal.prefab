@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2354017587311172297}
   - component: {fileID: 2253340507670832968}
   - component: {fileID: 151607671467519266}
+  - component: {fileID: -4963905584451247549}
   m_Layer: 0
   m_Name: RetPortal
   m_TagString: Untagged
@@ -120,3 +121,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.001241073, y: 0.00062054396}
   m_Size: {x: 0.22567824, y: 0.32124108}
   m_Direction: 0
+--- !u!114 &-4963905584451247549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175497092943187397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6efce789e6de43443bd0b12f93a65d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

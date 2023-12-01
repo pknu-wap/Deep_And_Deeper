@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,6 +38,7 @@ namespace Audio
             }
         }
 
+        private GameObject _soundBoxPrefab;
         private GameObject _audioSourcePrefab;
 
         private readonly Dictionary<Sound, AudioContainer> _audioContainers = new();
@@ -57,27 +59,14 @@ namespace Audio
             _audioContainers[Sound.Boss2] = data.Boss2;
             _audioContainers[Sound.Boss3] = data.Boss3;
 
+            _soundBoxPrefab = data.soundBoxPrefab;
             _audioSourcePrefab = data.audioSourcePrefab;
 
-            OnSceneLoaded();
-
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-
-        private void Awake()
-        {
-            Init();
-        }
-
-        private void OnSceneLoaded()
-        {
-            if (GameObject.FindGameObjectWithTag("SoundSource") != null) return;
-
-            var parent = new GameObject("SoundSources").transform;
+            var parentTransform = Instantiate(_soundBoxPrefab).transform;
 
             foreach (var (sound, audioContainer) in _audioContainers)
             {
-                var source = Instantiate(_audioSourcePrefab, parent).GetComponent<AudioSource>();
+                var source = Instantiate(_audioSourcePrefab, parentTransform).GetComponent<AudioSource>();
                 source.clip = audioContainer.audioClip;
                 source.volume = audioContainer.volume;
                 source.loop = audioContainer.isLoop;
@@ -85,9 +74,9 @@ namespace Audio
             }
         }
 
-        private void OnSceneLoaded(Scene a, LoadSceneMode b)
+        private void Awake()
         {
-            OnSceneLoaded();
+            Init();
         }
 
         public void PlaySfx(Sound sound)
@@ -99,7 +88,7 @@ namespace Audio
         {
             if (_audioSources.Count == 0) return;
 
-            foreach (var audioSource in _audioSources.Values)
+            foreach (var audioSource in _audioSources.Values.Where(audioSource => audioSource != null))
             {
                 audioSource.Stop();
             }
