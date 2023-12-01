@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 7699895502876402648}
+  selectedEditorNode: {fileID: 0}
   repeatOnFinish: 0
   maxExecutionsPerTick: 1000
   parent: {fileID: 6616472583869243318}
@@ -303,7 +303,7 @@ MonoBehaviour:
   title: Chase
   rect:
     serializedVersion: 2
-    x: 420
+    x: 400
     y: 400
     width: 160
     height: 44
@@ -356,8 +356,8 @@ MonoBehaviour:
   title: Sequence
   rect:
     serializedVersion: 2
-    x: 320
-    y: 320
+    x: 340
+    y: 312
     width: 160
     height: 44
   parent: {fileID: 8084152090527879587}

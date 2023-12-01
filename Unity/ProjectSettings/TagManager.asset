@@ -20,6 +20,9 @@ TagManager:
   - HeroCollider
   - Fire
   - TopViewHero
+  - SoundSource
+  - SoundBox
+  - ItemDesc
   layers:
   - Default
   - TransparentFX

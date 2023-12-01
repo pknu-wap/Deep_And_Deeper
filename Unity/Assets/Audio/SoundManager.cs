@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Audio
 {
@@ -28,7 +30,7 @@ namespace Audio
                 if (_instance) return _instance;
 
                 // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-                _instance = new GameObject().AddComponent<SoundManager>();
+                _instance = new GameObject("Sound Manager").AddComponent<SoundManager>();
 
                 DontDestroyOnLoad(_instance.gameObject);
 
@@ -36,10 +38,13 @@ namespace Audio
             }
         }
 
+        private GameObject _soundBoxPrefab;
+        private GameObject _audioSourcePrefab;
+
         private readonly Dictionary<Sound, AudioContainer> _audioContainers = new();
         private readonly Dictionary<Sound, AudioSource> _audioSources = new();
 
-        private void Awake()
+        private void Init()
         {
             var data = Resources.Load<SoundManagerData>("SoundManagerDataContainer");
 
@@ -54,16 +59,24 @@ namespace Audio
             _audioContainers[Sound.Boss2] = data.Boss2;
             _audioContainers[Sound.Boss3] = data.Boss3;
 
-            var prefab = data.audioSourcePrefab;
+            _soundBoxPrefab = data.soundBoxPrefab;
+            _audioSourcePrefab = data.audioSourcePrefab;
+
+            var parentTransform = Instantiate(_soundBoxPrefab).transform;
 
             foreach (var (sound, audioContainer) in _audioContainers)
             {
-                var source = Instantiate(prefab).GetComponent<AudioSource>();
+                var source = Instantiate(_audioSourcePrefab, parentTransform).GetComponent<AudioSource>();
                 source.clip = audioContainer.audioClip;
                 source.volume = audioContainer.volume;
                 source.loop = audioContainer.isLoop;
                 _audioSources[sound] = source;
             }
+        }
+
+        private void Awake()
+        {
+            Init();
         }
 
         public void PlaySfx(Sound sound)
@@ -73,7 +86,9 @@ namespace Audio
 
         public void StopAll()
         {
-            foreach (var audioSource in _audioSources.Values)
+            if (_audioSources.Count == 0) return;
+
+            foreach (var audioSource in _audioSources.Values.Where(audioSource => audioSource != null))
             {
                 audioSource.Stop();
             }

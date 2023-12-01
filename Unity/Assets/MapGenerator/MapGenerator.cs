@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Hero;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -51,11 +53,16 @@ namespace MapGenerator
             public readonly Room[,] Rooms;
         }
 
-        public bool needRefresh = true;
+        public bool needUpdate = true;
+        public bool saved;
 
         [SerializeField] private GameObject roomObject;
+        [SerializeField] private GameObject roomShopObject;
+        [SerializeField] private GameObject portalObject;
+        [SerializeField] private GameObject holeObject;
+        [SerializeField] private GameObject bossPortalObject;
         [SerializeField] private Transform roomParent;
-        [SerializeField] private Vector2 roomSize = new Vector2(19.2f, 10.8f);
+        [SerializeField] private Vector2 roomSize = new(19.2f, 10.8f);
         [SerializeField] private int mapMaxSize = 19;
         [SerializeField] private int numBattleRoom = 9;
         [SerializeField] private int numShopRoom = 1;
@@ -68,11 +75,15 @@ namespace MapGenerator
         [SerializeField] private Sprite doorBossSprite;
 
         private readonly Dictionary<RoomTypes, Sprite> _doorSprites = new();
+        private readonly Dictionary<int, List<string>> _battleRooms = new();
         private readonly int[] _dy = { -1, 0, 1, 0 };
         private readonly int[] _dx = { 0, -1, 0, 1 };
 
         private Map _map;
         private bool _initialized;
+
+        public Vector3 savedPosition;
+        public Vector3 savedCameraPosition = new(0, 0, -10);
 
         private enum RoomTypes
         {
@@ -81,7 +92,8 @@ namespace MapGenerator
             Battle,
             Shop,
             Secret,
-            Boss
+            Boss,
+            Cleared
         }
 
         private ArrayList GenerateList()
@@ -217,6 +229,16 @@ namespace MapGenerator
                     var targetY = i + _dy[direction];
                     var targetX = j + _dx[direction];
 
+
+                    if (targetY <= -1 || targetY >= mapMaxSize || targetX <= -1 || targetX >= mapMaxSize ||
+                        _map.Rooms[targetX, targetY].RoomType != RoomTypes.Empty)
+                    {
+                        currentNumAdditionalBattleRoom++;
+
+                        if (currentNumAdditionalBattleRoom >= numAdditionalBattleRoom) goto END_OF_LOOP;
+                        continue;
+                    }
+
                     _map.Rooms[targetY, targetX].RoomType = RoomTypes.Battle;
 
                     currentNumAdditionalBattleRoom++;
@@ -230,6 +252,10 @@ namespace MapGenerator
 
         private void PrintMap()
         {
+            if (_map == null) return;
+
+            var portalParent = new GameObject("Portals").transform;
+
             for (var i = 0; i < mapMaxSize; i++)
             {
                 // ReSharper disable once PossibleLossOfFraction
@@ -242,7 +268,8 @@ namespace MapGenerator
                     // ReSharper disable once PossibleLossOfFraction
                     var x = (j - mapMaxSize / 2) * roomSize.x;
 
-                    var room = Instantiate(roomObject, new Vector3(x, y, 0), quaternion.identity, roomParent);
+                    var object2 = _map.Rooms[i, j].RoomType != RoomTypes.Shop ? roomObject : roomShopObject;
+                    var room = Instantiate(object2, new Vector3(x, y, 0), quaternion.identity, roomParent);
 
                     // 문 생성
 
@@ -261,15 +288,57 @@ namespace MapGenerator
                         // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
                         door.GetComponent<BoxCollider2D>().isTrigger = true;
                     }
+
+                    // 포탈 생성
+
+                    switch (_map.Rooms[i, j].RoomType)
+                    {
+                        case RoomTypes.Battle:
+                        {
+                            var portal = Instantiate(portalObject, new Vector3(x, y, 0), quaternion.identity,
+                                    roomParent)
+                                .GetComponent<Portal>();
+                            portal.y = i;
+                            portal.x = j;
+                            continue;
+                        }
+
+                        // 보스포탈 생성
+                        case RoomTypes.Boss:
+                            Instantiate(bossPortalObject, new Vector3(x, y, 0), Quaternion.identity, roomParent)
+                                .GetComponent<Hole>();
+                            continue;
+
+                        // 클리어 홀 생성
+                        case RoomTypes.Cleared:
+                        {
+                            var hole = Instantiate(holeObject, new Vector3(x, y, 0), Quaternion.identity, roomParent)
+                                .GetComponent<Hole>();
+                            hole.nextStage = HeroManager.Instance._stage + 1;
+                            break;
+                        }
+                        default:
+                            continue;
+                    }
                 }
             }
         }
 
+        public void Clear(int y, int x)
+        {
+            _map.Rooms[y, x].RoomType = RoomTypes.Main;
+        }
+
+        public void BossClear(int y, int x)
+        {
+            _map.Rooms[y, x].RoomType = RoomTypes.Cleared;
+        }
+
         private void CleanMap()
         {
-            if (roomParent == null)
-            {
-            }
+            // if (!_mapExists) return;
+
+            if (roomParent == null) return;
 
             foreach (Transform child in roomParent.transform)
             {
@@ -279,7 +348,38 @@ namespace MapGenerator
 
         private void Init()
         {
+            _battleRooms[1] = new List<string>
+            {
+                "BattleMap1_1",
+                "BattleMap1_2",
+                "BattleMap1_3",
+                "BattleMap1_4",
+                "BattleMap1_5",
+            };
+
+            _battleRooms[2] = new List<string>
+            {
+                "BattleMap2_1",
+                "BattleMap2_2",
+                "BattleMap2_3",
+                "BattleMap2_4",
+                "BattleMap2_5",
+            };
+
+            _battleRooms[3] = new List<string>
+            {
+                "BattleMap3_1",
+                "BattleMap3_2",
+                "BattleMap3_3",
+                "BattleMap3_4",
+                "BattleMap3_5",
+            };
+
             roomObject = Resources.Load<GameObject>("Room");
+            roomShopObject = Resources.Load<GameObject>("RoomShop");
+            portalObject = Resources.Load<GameObject>("Portal");
+            holeObject = Resources.Load<GameObject>("Hole");
+            bossPortalObject = Resources.Load<GameObject>("BossPortal");
             doorMainSprite = Resources.Load<Sprite>("Door/DoorMain");
             doorBattleSprite = Resources.Load<Sprite>("Door/DoorBattle");
             doorShopSprite = Resources.Load<Sprite>("Door/DoorShop");
@@ -293,16 +393,12 @@ namespace MapGenerator
             _doorSprites[RoomTypes.Shop] = doorShopSprite;
             _doorSprites[RoomTypes.Secret] = doorSecretSprite;
             _doorSprites[RoomTypes.Boss] = doorBossSprite;
-
-
-            GenerateMap();
-            PrintMap();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
         public void CreateMap()
         {
-            needRefresh = false;
+            needUpdate = false;
 
             if (!_initialized)
             {
@@ -313,6 +409,32 @@ namespace MapGenerator
             CleanMap();
             GenerateMap();
             PrintMap();
+        }
+
+        public void RefreshMap()
+        {
+            // if (!_mapExists) return;
+
+            CleanMap();
+            PrintMap();
+        }
+
+        public string GetRandomMap()
+        {
+            var list = _battleRooms[HeroManager.Instance._stage];
+            var rand = Random.Range(0, list.Count);
+            return list[rand];
+        }
+
+        public string GetBossMap()
+        {
+            return HeroManager.Instance._stage switch
+            {
+                1 => "BossMap1",
+                2 => "BossMap2",
+                3 => "BossMap3",
+                _ => throw new InvalidOperationException()
+            };
         }
     }
 }

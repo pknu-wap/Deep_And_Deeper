@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Hero
@@ -9,15 +8,27 @@ namespace Hero
 
         private Animator _animator;
         private SpriteRenderer _spriteRenderer;
-        private Transform _transform;
         private Rigidbody2D _rigidbody2D;
+        private Transform _cameraTransform;
 
         private void Start()
         {
+            _cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
             _animator = GetComponent<Animator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            _transform = transform;
             _rigidbody2D = GetComponent<Rigidbody2D>();
+
+            if (!MapGenerator.MapGenerator.Instance.saved) return;
+            MapGenerator.MapGenerator.Instance.saved = false;
+            transform.position = MapGenerator.MapGenerator.Instance.savedPosition;
+            _cameraTransform.position = MapGenerator.MapGenerator.Instance.savedCameraPosition;
+        }
+
+        public void SavePosition()
+        {
+            MapGenerator.MapGenerator.Instance.savedPosition = transform.position;
+            MapGenerator.MapGenerator.Instance.saved = true;
+            MapGenerator.MapGenerator.Instance.savedCameraPosition = _cameraTransform.position;
         }
 
         private void Update()
@@ -29,6 +40,9 @@ namespace Hero
             {
                 _animator.Play("Idle");
                 _rigidbody2D.velocity = Vector2.zero;
+
+                if (Input.GetKeyDown(KeyCode.F5))
+                    _cameraTransform.position = transform.position + new Vector3(0, 0, -10);
                 return;
             }
 

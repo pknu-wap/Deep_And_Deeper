@@ -85,3 +85,4 @@ MonoBehaviour:
     isLoop: 1
     volume: 1
   audioSourcePrefab: {fileID: 1355523052637066469, guid: d3a1cf1987c11404bb99498056f91d9b, type: 3}
+  soundBoxPrefab: {fileID: 7081479936998964905, guid: 3fb1f77f0032ebe478f8aeba65b42cfc, type: 3}

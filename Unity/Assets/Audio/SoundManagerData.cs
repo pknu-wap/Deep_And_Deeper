@@ -25,6 +25,8 @@ namespace Audio
         public AudioContainer Boss1;
         public AudioContainer Boss2;
         public AudioContainer Boss3;
+
         public GameObject audioSourcePrefab;
+        public GameObject soundBoxPrefab;
     }
 }

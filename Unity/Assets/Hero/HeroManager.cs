@@ -29,6 +29,8 @@ namespace Hero
 
         private void Awake()
         {
+            _stage = 1;
+
             var heroManagerDataContainer = Resources.Load<GameObject>("HeroManagerDataContainer");
             var heroManagerData = heroManagerDataContainer.GetComponent<HeroManagerData>();
 
@@ -65,9 +67,11 @@ namespace Hero
             if (topViewPlayerObject != null)
             {
                 topViewTransform = topViewPlayerObject.transform;
-                if (MapGenerator.MapGenerator.Instance.needRefresh)
+                if (MapGenerator.MapGenerator.Instance.needUpdate)
                 {
-                    SetStage(_stage + 1);
+                    MapGenerator.MapGenerator.Instance.savedPosition = Vector3.zero;
+                    MapGenerator.MapGenerator.Instance.savedCameraPosition = new Vector3(0, 0, -10);
+                    PlayBGM();
                     MapGenerator.MapGenerator.Instance.CreateMap();
                 }
             }
@@ -104,11 +108,17 @@ namespace Hero
             UpdateExpUI();
         }
 
-        private int _stage;
+        public int _stage;
         private bool _isBoss;
 
-        private void OnSceneLoaded(Scene a, LoadSceneMode b)
+        private void OnSceneLoaded(Scene scene, LoadSceneMode b)
         {
+            if (scene.name.Equals("RandomMapTest"))
+            {
+                PlayBGM();
+                MapGenerator.MapGenerator.Instance.RefreshMap();
+            }
+
             OnSceneLoaded();
         }
 
@@ -382,10 +392,13 @@ namespace Hero
             return NodeResult.success;
         }
 
-        private void SetStage(int stage)
+        public void SetStage(int stage)
         {
             _stage = stage;
+        }
 
+        private void PlayBGM()
+        {
             SoundManager.Instance.StopAll();
             SoundManager.Instance.PlaySfx(GetSound(_stage, _isBoss));
         }
@@ -396,9 +409,9 @@ namespace Hero
             {
                 1 when !isBoss => Sound.Stage1,
                 1 => Sound.Boss1,
-                2 when !isBoss => Sound.Stage1,
+                2 when !isBoss => Sound.Stage2,
                 2 => Sound.Boss2,
-                3 when !isBoss => Sound.Stage1,
+                3 when !isBoss => Sound.Stage3,
                 3 => Sound.Boss3,
                 _ => Sound.PlayerDead
             };

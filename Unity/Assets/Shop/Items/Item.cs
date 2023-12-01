@@ -14,13 +14,14 @@ namespace Shop.Items
         private const string HasEnoughGold = "구매하려면 스페이스바를 눌러.";
         private const string NotEnoughGold = "골드가 부족한 것 같은데?";
 
-        private TextMeshPro _itemText;
+        public TextMeshPro _itemText;
 
-        private bool _playerTriggers;
+        public bool _playerTriggers;
 
         private void Start()
         {
-            _itemText = GameObject.FindGameObjectWithTag("ItemText").GetComponent<TextMeshPro>();
+            // _itemText = GameObject.FindGameObjectWithTag("ItemDesc").GetComponent<TextMeshPro>();
+            // _playerTriggers = false;
         }
 
         private void ItemEffect()
@@ -58,13 +59,14 @@ namespace Shop.Items
         private void OnTriggerEnter2D(Collider2D other)
         {
             var additionalDescription = HeroManager.Instance.money >= price ? HasEnoughGold : NotEnoughGold;
-            _itemText.text = $"{itemName}\n{description}\n{additionalDescription}";
+            GameObject.FindGameObjectWithTag("ItemDesc").GetComponent<TextMeshPro>().text =
+                $"{itemName}\n{description}\n{additionalDescription}";
             _playerTriggers = true;
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            _itemText.text = "";
+            GameObject.FindGameObjectWithTag("ItemDesc").GetComponent<TextMeshPro>().text = "";
             _playerTriggers = false;
         }
     }
